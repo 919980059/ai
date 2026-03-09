@@ -1,0 +1,194 @@
+<mxfile host="mcp"><diagram name="Page-1"><mxGraphModel>
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+
+    <mxCell id="title" value="装修避坑指南：从模式到材料全解析" style="text;html=1;fontSize=24;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1a1a2e;" vertex="1" parent="1">
+      <mxGeometry x="180" y="10" width="680" height="42" as="geometry"/>
+    </mxCell>
+    <mxCell id="subtitle" value="先明需求 | 再懂概念 | 定好细节 | 合同留痕 | 精准记账" style="text;html=1;fontSize=11;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#888888;" vertex="1" parent="1">
+      <mxGeometry x="260" y="50" width="520" height="16" as="geometry"/>
+    </mxCell>
+
+    <!-- ========== Row 1: Section 1 ========== -->
+    <mxCell id="s1" value="一、装修模式" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#1a1a2e;arcSize=15;" vertex="1" parent="1">
+      <mxGeometry x="20" y="82" width="320" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="s1sub" value="选对模式=成功一半" style="text;html=1;fontSize=9;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#6c8ebf;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="20" y="122" width="320" height="14" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s1a" value="[三种模式]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;fillColor=#e8f0fe;strokeColor=#6c8ebf;align=center;" vertex="1" parent="1">
+      <mxGeometry x="20" y="142" width="320" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="s1a1" value="清包: 自购全部材料+雇施工队&#xa;  专业度要求极高，需逐笔记录&#xa;半包(推荐): 自购主材+施工方管辅材&#xa;  主流模式，兼顾自主与省心&#xa;全包: 施工方包工包料&#xa;  省心但需盯紧增项和材料验收" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#b0c4de;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="20" y="170" width="320" height="114" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s1b" value="[避坑要点]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;fillColor=#e8f0fe;strokeColor=#6c8ebf;align=center;" vertex="1" parent="1">
+      <mxGeometry x="20" y="296" width="320" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="s1b1" value="- 拒绝低价全包(合同明确品牌型号规格)&#xa;- 杜绝&quot;同等档次替换&quot;模糊表述&#xa;- 半包核对辅材清单(损耗不超5%)&#xa;- 清包必查施工队资质和案例&#xa;- 记账分: 主材/辅材/施工费/杂费" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#b0c4de;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="20" y="324" width="320" height="100" as="geometry"/>
+    </mxCell>
+
+    <!-- ========== Row 1: Section 2 ========== -->
+    <mxCell id="s2" value="二、封窗" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fontStyle=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#1a1a2e;arcSize=15;" vertex="1" parent="1">
+      <mxGeometry x="370" y="82" width="280" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="s2sub" value="隔音保温关键，安全第一" style="text;html=1;fontSize=9;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#82b366;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="370" y="122" width="280" height="14" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s2a" value="[核心选择]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;fillColor=#eaf5ea;strokeColor=#82b366;align=center;" vertex="1" parent="1">
+      <mxGeometry x="370" y="142" width="280" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="s2a1" value="窗框: 断桥铝 壁厚&gt;=1.4mm(国标)&#xa;  塑钢仅适低层 系统窗性能最佳价高&#xa;玻璃: 双层中空钢化(认准3C标志)&#xa;  临街升级三层中空&#xa;五金: 不锈钢/进口(好博/丝吉利娅)&#xa;密封胶: 中性硅酮胶(拒绝酸性胶)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#a8d08d;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="370" y="170" width="280" height="114" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s2b" value="[避坑+推荐]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;fillColor=#eaf5ea;strokeColor=#82b366;align=center;" vertex="1" parent="1">
+      <mxGeometry x="370" y="296" width="280" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="s2b1" value="- 拒绝低价套餐增项&#xa;- 合同明确全部费用(无隐形增项)&#xa;- 五金/密封胶确认含在报价内&#xa;- 推荐: 断桥铝+双层中空钢化&#xa;- 进阶: 系统窗+三层中空玻璃" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#a8d08d;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="370" y="324" width="280" height="100" as="geometry"/>
+    </mxCell>
+
+    <!-- ========== Row 1: Section 3 ========== -->
+    <mxCell id="s3" value="三、全屋定制" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#1a1a2e;arcSize=15;" vertex="1" parent="1">
+      <mxGeometry x="680" y="82" width="320" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="s3sub" value="颜值与实用平衡，拒绝套路" style="text;html=1;fontSize=9;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#d6b656;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="680" y="122" width="320" height="14" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s3a" value="[核心要点]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;fillColor=#fef9e7;strokeColor=#d6b656;align=center;" vertex="1" parent="1">
+      <mxGeometry x="680" y="142" width="320" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="s3a1" value="计价: 投影面积(易增项) vs 展开面积(透明)&#xa;板材: ENF级优先 E1级为强制标准&#xa;  颗粒板(性价比高) 多层实木(防潮适合厨卫)&#xa;  柜体板&gt;=18mm 背板&gt;=9mm&#xa;五金: 海蒂诗/百隆(铰链+导轨+拉手)&#xa;配件: 抽屉/拉篮/反弹器明确是否含" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#e8d590;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="680" y="170" width="320" height="114" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s3b" value="[避坑要点]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1;fillColor=#fef9e7;strokeColor=#d6b656;align=center;" vertex="1" parent="1">
+      <mxGeometry x="680" y="296" width="320" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="s3b1" value="- 合同注明计价方式+含哪些配件&#xa;- 板材查检测报告(警惕环保噱头抬价)&#xa;- 五金必须指定品牌型号(防劣质替换)&#xa;- 验收核对设计图与实际尺寸/厚度&#xa;- 记账分: 板材/五金/设计/安装费" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#e8d590;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="680" y="324" width="320" height="100" as="geometry"/>
+    </mxCell>
+
+    <!-- ========== Row 2: Section 4 ========== -->
+    <mxCell id="s4" value="四、主材" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fontStyle=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#1a1a2e;arcSize=15;" vertex="1" parent="1">
+      <mxGeometry x="60" y="476" width="440" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="s4sub" value="装修颜值担当，品质优先" style="text;html=1;fontSize=9;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#9673a6;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="60" y="516" width="440" height="14" as="geometry"/>
+    </mxCell>
+    <mxCell id="s4d" value="瓷砖: 优等品 地砖吸水率&lt;=0.5% 墙砖&lt;=10%&#xa;  推荐全抛釉(客厅/卫生间) 木纹砖(卧室)&#xa;  警惕买砖送铺贴(工艺差/加收辅料)&#xa;地板: 复合(推荐)稳定性价比高&#xa;  约定实木龙骨+损耗率&lt;=5% 查环保认证&#xa;卫浴: 马桶冲水&lt;=6L 花洒选铜质&#xa;  浴室柜防水材质(PVC/铝合金)&#xa;  品牌推荐: 恒洁/箭牌/九牧&#xa;木门: 实木复合(推荐) 门扇&gt;=45mm&#xa;  约定五金品牌(合页/锁具) 拒绝贴皮门" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f0fa;strokeColor=#9673a6;align=left;spacingLeft=10;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="60" y="534" width="440" height="176" as="geometry"/>
+    </mxCell>
+
+    <!-- ========== Row 2: Section 5 ========== -->
+    <mxCell id="s5" value="五、辅材" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#1a1a2e;arcSize=15;" vertex="1" parent="1">
+      <mxGeometry x="540" y="476" width="440" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="s5sub" value="隐形基建，决定装修寿命" style="text;html=1;fontSize=9;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#b85450;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="540" y="516" width="440" height="14" as="geometry"/>
+    </mxCell>
+    <mxCell id="s5d" value="水电: 国标铜芯线(远东/正泰)&#xa;  插座2.5mm2 空调4mm2 水电走顶便于检修&#xa;  水管PPR热熔(日丰/伟星)&#xa;  打压&gt;=0.6MPa 保压30分钟无渗漏&#xa;防水: 柔性防水(东方雨虹/德高)&#xa;  卫生间&gt;=1.8m 淋浴区&gt;=2.4m&#xa;  地面做2-3遍 闭水试验至少24小时&#xa;水泥沙: 海螺/南方 保质期&lt;=3月&#xa;  选河沙拒绝海沙(含盐腐蚀钢筋)&#xa;板材: 防潮石膏板+轻钢龙骨(拒绝木龙骨)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fef0ef;strokeColor=#b85450;align=left;spacingLeft=10;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="540" y="534" width="440" height="176" as="geometry"/>
+    </mxCell>
+
+    <!-- ========== Row 3: Section 6 ========== -->
+    <mxCell id="s6" value="六、装修记账" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1;fillColor=#d4e1f5;strokeColor=#3a7bbf;fontColor=#1a1a2e;arcSize=15;" vertex="1" parent="1">
+      <mxGeometry x="60" y="762" width="420" height="38" as="geometry"/>
+    </mxCell>
+    <mxCell id="s6sub" value="贯穿全程的预算管控核心" style="text;html=1;fontSize=9;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#3a7bbf;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="60" y="800" width="420" height="14" as="geometry"/>
+    </mxCell>
+    <mxCell id="s6d" value="三大价值: 把控总预算 / 规避隐形增项 / 便于维权&#xa;分类记账: 模式/封窗/定制/主材/辅材/杂费&#xa;实时记录: 每笔支出及时录入(定金/尾款/临时采购)&#xa;预算对标: 每周复盘偏差，超支则压缩非核心项&#xa;凭证留存: 合同/报价单/支付截图/发票同步归档" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#eef3fb;strokeColor=#3a7bbf;align=left;spacingLeft=10;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="60" y="818" width="420" height="100" as="geometry"/>
+    </mxCell>
+
+    <!-- ========== Row 3: Section 7 ========== -->
+    <mxCell id="s7" value="七、核心原则" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1;fillColor=#fce5cd;strokeColor=#d79b00;fontColor=#1a1a2e;arcSize=15;" vertex="1" parent="1">
+      <mxGeometry x="520" y="762" width="460" height="38" as="geometry"/>
+    </mxCell>
+    <mxCell id="s7sub" value="装修避坑五字诀 + 关键节点亲自到场" style="text;html=1;fontSize=9;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#d79b00;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="520" y="800" width="460" height="14" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="r1" value="明需求" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;fontStyle=1;fillColor=#fff5e6;strokeColor=#d79b00;align=center;" vertex="1" parent="1">
+      <mxGeometry x="525" y="822" width="82" height="32" as="geometry"/>
+    </mxCell>
+    <mxCell id="r1d" value="梳理习惯&#xa;预算上限" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#ffffff;strokeColor=#e8c88a;align=center;" vertex="1" parent="1">
+      <mxGeometry x="525" y="858" width="82" height="34" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="r2" value="懂概念" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;fontStyle=1;fillColor=#fff5e6;strokeColor=#d79b00;align=center;" vertex="1" parent="1">
+      <mxGeometry x="617" y="822" width="82" height="32" as="geometry"/>
+    </mxCell>
+    <mxCell id="r2d" value="模式/材料&#xa;计价方式" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#ffffff;strokeColor=#e8c88a;align=center;" vertex="1" parent="1">
+      <mxGeometry x="617" y="858" width="82" height="34" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="r3" value="定细节" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;fontStyle=1;fillColor=#fff5e6;strokeColor=#d79b00;align=center;" vertex="1" parent="1">
+      <mxGeometry x="709" y="822" width="82" height="32" as="geometry"/>
+    </mxCell>
+    <mxCell id="r3d" value="品牌型号&#xa;规格价格" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#ffffff;strokeColor=#e8c88a;align=center;" vertex="1" parent="1">
+      <mxGeometry x="709" y="858" width="82" height="34" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="r4" value="签合同" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;fontStyle=1;fillColor=#fff5e6;strokeColor=#d79b00;align=center;" vertex="1" parent="1">
+      <mxGeometry x="801" y="822" width="82" height="32" as="geometry"/>
+    </mxCell>
+    <mxCell id="r4d" value="全部写入&#xa;拒绝口头" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#ffffff;strokeColor=#e8c88a;align=center;" vertex="1" parent="1">
+      <mxGeometry x="801" y="858" width="82" height="34" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="r5" value="记好账" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;fontStyle=1;fillColor=#fff5e6;strokeColor=#d79b00;align=center;" vertex="1" parent="1">
+      <mxGeometry x="893" y="822" width="82" height="32" as="geometry"/>
+    </mxCell>
+    <mxCell id="r5d" value="分类实时&#xa;凭证留存" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#ffffff;strokeColor=#e8c88a;align=center;" vertex="1" parent="1">
+      <mxGeometry x="893" y="858" width="82" height="34" as="geometry"/>
+    </mxCell>
+
+    <!-- Key checkpoint note -->
+    <mxCell id="note" value="关键节点务必亲自到场: 材料进场验收 / 隐蔽工程验收 / 竣工结算" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#fff5e6;strokeColor=#d79b00;align=center;fontStyle=2;dashed=1;" vertex="1" parent="1">
+      <mxGeometry x="525" y="898" width="450" height="24" as="geometry"/>
+    </mxCell>
+
+    <!-- ========== Flow Arrows ========== -->
+    <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;curved=1;strokeColor=#aaaaaa;strokeWidth=2;endArrow=classic;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" source="s1" target="s2" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e23" style="edgeStyle=orthogonalEdgeStyle;curved=1;strokeColor=#aaaaaa;strokeWidth=2;endArrow=classic;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" source="s2" target="s3" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="ed1" style="edgeStyle=orthogonalEdgeStyle;curved=1;strokeColor=#bbbbbb;strokeWidth=1;endArrow=classic;dashed=1;exitX=0.5;exitY=1;entryX=0.25;entryY=0;" edge="1" source="s1b1" target="s4" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="ed2" style="edgeStyle=orthogonalEdgeStyle;curved=1;strokeColor=#bbbbbb;strokeWidth=1;endArrow=classic;dashed=1;exitX=0.5;exitY=1;entryX=0.75;entryY=0;" edge="1" source="s2b1" target="s4" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="ed3" style="edgeStyle=orthogonalEdgeStyle;curved=1;strokeColor=#bbbbbb;strokeWidth=1;endArrow=classic;dashed=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="s3b1" target="s5" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e45" style="edgeStyle=orthogonalEdgeStyle;curved=1;strokeColor=#aaaaaa;strokeWidth=2;endArrow=classic;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" source="s4" target="s5" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="ed4" style="edgeStyle=orthogonalEdgeStyle;curved=1;strokeColor=#bbbbbb;strokeWidth=1;endArrow=classic;dashed=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="s4d" target="s6" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="ed5" style="edgeStyle=orthogonalEdgeStyle;curved=1;strokeColor=#bbbbbb;strokeWidth=1;endArrow=classic;dashed=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="s5d" target="s7" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e67" style="edgeStyle=orthogonalEdgeStyle;curved=1;strokeColor=#aaaaaa;strokeWidth=1.5;endArrow=classic;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" source="s6" target="s7" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+  </root>
+</mxGraphModel></diagram></mxfile>

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__drawio__start_session",
+      "mcp__drawio__create_new_diagram",
+      "mcp__drawio__get_diagram",
+      "mcp__drawio__edit_diagram"
+    ]
+  }
+}

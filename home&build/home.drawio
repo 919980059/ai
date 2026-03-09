@@ -1,0 +1,163 @@
+<mxfile host="mcp"><diagram name="Page-1"><mxGraphModel>
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+
+    <mxCell id="title" value="米家全屋智能装修避坑指南" style="text;html=1;fontSize=26;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#1a1a2e;" vertex="1" parent="1">
+      <mxGeometry x="220" y="10" width="600" height="44" as="geometry"/>
+    </mxCell>
+    <mxCell id="subtitle" value="核心价值：无感适配生活 | 预埋决定上限 | 从简到繁、逐步优化" style="text;html=1;fontSize=12;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#888888;" vertex="1" parent="1">
+      <mxGeometry x="260" y="52" width="520" height="18" as="geometry"/>
+    </mxCell>
+
+    <!-- ========== Section 1 ========== -->
+    <mxCell id="s1" value="一、前期规划与水电改造" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#1a1a2e;arcSize=15;" vertex="1" parent="1">
+      <mxGeometry x="20" y="90" width="320" height="44" as="geometry"/>
+    </mxCell>
+    <mxCell id="s1sub" value="地基工程，疏漏几乎无法后期弥补" style="text;html=1;fontSize=10;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#6c8ebf;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="20" y="134" width="320" height="16" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s1a" value="[电路预埋]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#e8f0fe;strokeColor=#6c8ebf;align=center;" vertex="1" parent="1">
+      <mxGeometry x="20" y="160" width="320" height="28" as="geometry"/>
+    </mxCell>
+    <mxCell id="s1a1" value="- 所有开关底盒必须预留零线&#xa;- 单控布线为主，无线开关补双控&#xa;- 86型底盒 深度&gt;=4cm(建议5cm)&#xa;- 窗帘电机/马桶/智能镜预留插座&#xa;- 吊顶预留零火线(吸顶式传感器)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#b0c4de;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="20" y="192" width="320" height="100" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s1b" value="[网络布线]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#e8f0fe;strokeColor=#6c8ebf;align=center;" vertex="1" parent="1">
+      <mxGeometry x="20" y="306" width="320" height="28" as="geometry"/>
+    </mxCell>
+    <mxCell id="s1b1" value="- 全屋铺CAT.6 每根预留1m冗余&#xa;- 电视墙2根，每房间&gt;=1网口&#xa;- 大户型AC+AP / 中小有线Mesh&#xa;- 80平以下单台路由器即可" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#b0c4de;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="20" y="338" width="320" height="84" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s1c" value="[插座与木工]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#e8f0fe;strokeColor=#6c8ebf;align=center;" vertex="1" parent="1">
+      <mxGeometry x="20" y="436" width="320" height="28" as="geometry"/>
+    </mxCell>
+    <mxCell id="s1c1" value="- 插座宁多勿少(每面墙预留)&#xa;- 窗帘盒: 单轨&gt;=15cm 双轨&gt;=20cm&#xa;- 拒绝罗马杆! 灯带预埋三芯线&#xa;- 网关放客厅中心(120平1个)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#b0c4de;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="20" y="468" width="320" height="84" as="geometry"/>
+    </mxCell>
+
+    <!-- ========== Section 2 ========== -->
+    <mxCell id="s2" value="二、设备选型" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontStyle=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#1a1a2e;arcSize=15;" vertex="1" parent="1">
+      <mxGeometry x="370" y="90" width="300" height="44" as="geometry"/>
+    </mxCell>
+    <mxCell id="s2sub" value="协议统一、适配场景、拒绝鸡肋" style="text;html=1;fontSize=10;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#82b366;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="370" y="134" width="300" height="16" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s2a" value="[核心设备]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#eaf5ea;strokeColor=#82b366;align=center;" vertex="1" parent="1">
+      <mxGeometry x="370" y="160" width="300" height="28" as="geometry"/>
+    </mxCell>
+    <mxCell id="s2a1" value="- 开关: 零火版(小米/绿米 70-140元)&#xa;- 网关: 多模款(ZigBee+蓝牙Mesh)&#xa;- 传感器: 毫米波人在传感器&#xa;- 语音: 小爱音箱Pro&#xa;- 温控: 空调伴侣50元/VRF 800元" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#a8d08d;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="370" y="192" width="300" height="100" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s2b" value="[灯具搭配方案]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#eaf5ea;strokeColor=#82b366;align=center;" vertex="1" parent="1">
+      <mxGeometry x="370" y="306" width="300" height="28" as="geometry"/>
+    </mxCell>
+    <mxCell id="s2b1" value="方案一(推荐): 智能灯+智能开关&#xa;  易来/雷士/Lipro 调温调光调色&#xa;方案二: 普通灯+智能开关&#xa;  欧普/雷士 款式丰富 性价比高" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#a8d08d;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="370" y="338" width="300" height="84" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s2c" value="[避坑清单]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#eaf5ea;strokeColor=#82b366;align=center;" vertex="1" parent="1">
+      <mxGeometry x="370" y="436" width="300" height="28" as="geometry"/>
+    </mxCell>
+    <mxCell id="s2c1" value="X 不买蓝牙Mesh 1.0(选2.0)&#xa;X 不买非米家原生设备&#xa;X 不买鸡肋设备(聚焦四大场景)&#xa;V 所有设备保留手动兜底" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#a8d08d;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="370" y="468" width="300" height="84" as="geometry"/>
+    </mxCell>
+
+    <!-- ========== Section 3 ========== -->
+    <mxCell id="s3" value="三、核心场景专项" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#1a1a2e;arcSize=15;" vertex="1" parent="1">
+      <mxGeometry x="700" y="90" width="320" height="44" as="geometry"/>
+    </mxCell>
+    <mxCell id="s3sub" value="兼顾美观实用，规避联动失灵" style="text;html=1;fontSize=10;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#d6b656;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="700" y="134" width="320" height="16" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s3a" value="[智能灯光]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#fef9e7;strokeColor=#d6b656;align=center;" vertex="1" parent="1">
+      <mxGeometry x="700" y="160" width="320" height="28" as="geometry"/>
+    </mxCell>
+    <mxCell id="s3a1" value="- 无频闪 Ra&gt;=90 卧室2700-3000K&#xa;- 分区回路 走廊渐亮渐灭&#xa;- 智能灯保持开关常通&#xa;- 聚焦晨起/观影/离家模式" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#e8d590;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="700" y="192" width="320" height="84" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s3b" value="[智能窗帘]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#fef9e7;strokeColor=#d6b656;align=center;" vertex="1" parent="1">
+      <mxGeometry x="700" y="290" width="320" height="28" as="geometry"/>
+    </mxCell>
+    <mxCell id="s3b1" value="- 静音&lt;=35dB 带手拉+限位调节&#xa;- 轨道误差&lt;=2mm 纱布帘距&gt;=5cm&#xa;- 电机端预留10cm检修空间&#xa;- 光线+时间双条件触发" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#e8d590;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="700" y="322" width="320" height="84" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s3c" value="[智能安防]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#fef9e7;strokeColor=#d6b656;align=center;" vertex="1" parent="1">
+      <mxGeometry x="700" y="420" width="320" height="28" as="geometry"/>
+    </mxCell>
+    <mxCell id="s3c1" value="- 必装: 门锁+摄像头+燃气水浸+门磁&#xa;- 进阶: 人体传感器+烟雾+离线网关&#xa;- 摄像头避隐私区 离地&gt;=2.5m&#xa;- 确保离线本地联动(断网仍告警)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffffff;strokeColor=#e8d590;align=left;spacingLeft=8;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="700" y="452" width="320" height="84" as="geometry"/>
+    </mxCell>
+
+    <!-- ========== Section 4 ========== -->
+    <mxCell id="s4" value="四、场景搭建与需求规划" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fontStyle=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#1a1a2e;arcSize=15;" vertex="1" parent="1">
+      <mxGeometry x="50" y="610" width="420" height="42" as="geometry"/>
+    </mxCell>
+    <mxCell id="s4sub" value="实用大于复杂，从简到繁" style="text;html=1;fontSize=10;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#9673a6;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="50" y="652" width="420" height="16" as="geometry"/>
+    </mxCell>
+    <mxCell id="s4d" value="- 优先四大场景: 回家/离家/起夜/睡眠&#xa;- 避免逻辑冲突: 优先级+时间范围&#xa;- 卫生间: 门磁+人体传感器组合&#xa;- 设备分批配网 命名房间+功能&#xa;- 1-2月后精简场景 优化延时&#xa;- 隐私: APP双重验证 定期更新固件" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f5f0fa;strokeColor=#9673a6;align=left;spacingLeft=10;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+      <mxGeometry x="50" y="672" width="420" height="120" as="geometry"/>
+    </mxCell>
+
+    <!-- ========== Section 5 ========== -->
+    <mxCell id="s5" value="五、三大核心原则" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#1a1a2e;arcSize=15;" vertex="1" parent="1">
+      <mxGeometry x="520" y="610" width="500" height="42" as="geometry"/>
+    </mxCell>
+    <mxCell id="s5sub" value="贯穿装修始终的行动准则" style="text;html=1;fontSize=10;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;fontColor=#b85450;fontStyle=2;" vertex="1" parent="1">
+      <mxGeometry x="520" y="652" width="500" height="16" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="p1" value="预埋优先" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1;fillColor=#fce4e4;strokeColor=#b85450;align=center;" vertex="1" parent="1">
+      <mxGeometry x="530" y="676" width="150" height="36" as="geometry"/>
+    </mxCell>
+    <mxCell id="p1d" value="零线/网线/窗帘盒/插座&#xa;一旦成型无法修改&#xa;宁可多留不可少" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#ffffff;strokeColor=#d4a0a0;align=center;" vertex="1" parent="1">
+      <mxGeometry x="530" y="718" width="150" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="p2" value="稳定大于花哨" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1;fillColor=#fce4e4;strokeColor=#b85450;align=center;" vertex="1" parent="1">
+      <mxGeometry x="695" y="676" width="150" height="36" as="geometry"/>
+    </mxCell>
+    <mxCell id="p2d" value="兼容性与稳定性优先&#xa;小爱音箱+智能开关&#xa;满足90%需求" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#ffffff;strokeColor=#d4a0a0;align=center;" vertex="1" parent="1">
+      <mxGeometry x="695" y="718" width="150" height="50" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="p3" value="循序渐进" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1;fillColor=#fce4e4;strokeColor=#b85450;align=center;" vertex="1" parent="1">
+      <mxGeometry x="860" y="676" width="150" height="36" as="geometry"/>
+    </mxCell>
+    <mxCell id="p3d" value="先满足核心场景&#xa;后期逐步添加设备&#xa;控制拓展成本" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#ffffff;strokeColor=#d4a0a0;align=center;" vertex="1" parent="1">
+      <mxGeometry x="860" y="718" width="150" height="50" as="geometry"/>
+    </mxCell>
+
+    <!-- ========== Flow Arrows ========== -->
+    <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;curved=1;strokeColor=#aaaaaa;strokeWidth=2;endArrow=classic;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" source="s1" target="s2" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e23" style="edgeStyle=orthogonalEdgeStyle;curved=1;strokeColor=#aaaaaa;strokeWidth=2;endArrow=classic;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" source="s2" target="s3" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="ed1" style="edgeStyle=orthogonalEdgeStyle;curved=1;strokeColor=#bbbbbb;strokeWidth=1;endArrow=classic;dashed=1;exitX=0.5;exitY=1;entryX=0.2;entryY=0;" edge="1" source="s1c1" target="s4" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="ed2" style="edgeStyle=orthogonalEdgeStyle;curved=1;strokeColor=#bbbbbb;strokeWidth=1;endArrow=classic;dashed=1;exitX=0.5;exitY=1;entryX=0.8;entryY=0;" edge="1" source="s2c1" target="s4" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="ed3" style="edgeStyle=orthogonalEdgeStyle;curved=1;strokeColor=#bbbbbb;strokeWidth=1;endArrow=classic;dashed=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" source="s3c1" target="s5" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="e45" style="edgeStyle=orthogonalEdgeStyle;curved=1;strokeColor=#aaaaaa;strokeWidth=1.5;endArrow=classic;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" source="s4" target="s5" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+  </root>
+</mxGraphModel></diagram></mxfile>
