@@ -1,1704 +1,2723 @@
 {
 	"object": "list",
-	"data": [{
-		"id": "tts-multivoice-v1",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "DeepSeek-R1-0528",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "Mi-BRAG-VL",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "MiASRQwen3-8B-GP",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "MiLM2.1-13B-Chat",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "MiMo-VL-7B-RL",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "MiniMax-M2.5",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "PaddleOCR-VL-0.9B",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "Qwen-235B-A22B",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "Qwen2.5-72B-Instruct-GPTQ-Int4",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "Qwen2.5-VL-72B-Instruct-AWQ",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "Qwen3-235B-A22B",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "Qwen3-235B-A22B-Instruct-2507",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "Qwen3-32B",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "autoglm-phone-9b",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "deepseek-v3.1",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "glm-5",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "kimi-k2.5",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "midashenglm-7b-1021-bf16",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "mimo-claw-0301",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "mimo-v2-flash",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "qwen25-coder-7b",
-		"object": "model",
-		"owned_by": "xiaomi"
-	}, {
-		"id": "gemini-2.0-flash-001",
-		"object": "model",
-		"owned_by": "vertex_ai"
-	}, {
-		"id": "gemini-2.0-flash-lite-001",
-		"object": "model",
-		"owned_by": "vertex_ai"
-	}, {
-		"id": "gemini-2.5-computer-use-preview-10-2025",
-		"object": "model",
-		"owned_by": "vertex_ai"
-	}, {
-		"id": "gemini-2.5-flash",
-		"object": "model",
-		"owned_by": "vertex_ai"
-	}, {
-		"id": "gemini-2.5-flash-lite",
-		"object": "model",
-		"owned_by": "vertex_ai"
-	}, {
-		"id": "gemini-2.5-flash-lite-preview-09-2025",
-		"object": "model",
-		"owned_by": "vertex_ai"
-	}, {
-		"id": "gemini-2.5-pro",
-		"object": "model",
-		"owned_by": "vertex_ai"
-	}, {
-		"id": "gemini-3-flash-preview",
-		"object": "model",
-		"owned_by": "vertex_ai"
-	}, {
-		"id": "gemini-3-pro-preview",
-		"object": "model",
-		"owned_by": "vertex_ai"
-	}, {
-		"id": "gemini-3-pro-preview-pt",
-		"object": "model",
-		"owned_by": "vertex_ai"
-	}, {
-		"id": "gemini-3.1-pro-preview",
-		"object": "model",
-		"owned_by": "vertex_ai"
-	}, {
-		"id": "gemini-3.1-pro-preview-pt",
-		"object": "model",
-		"owned_by": "vertex_ai"
-	}, {
-		"id": "whisper",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "tts-hd",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "text-embedding-3-large",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "text-embedding-3-small",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "text-embedding-ada-002",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-4.1",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-4.1-mini",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-4.1-nano",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-4o",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-4o-audio-preview",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-4o-mini",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-4o-mini-audio-preview",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-4o-mini-transcribe",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-4o-transcribe",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5-chat",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5-codex",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5-codex-1",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5-codex-2",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5-codex-3",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5-codex-4",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5-codex-5",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5-mini",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5-nano",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5-pro",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-chat",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-1",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-2",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-3",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-4",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-5",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-6",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-7",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-8",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-9",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-max",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-max-1",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-max-2",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-max-3",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-max-4",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-max-5",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-max-6",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-max-7",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-max-8",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-max-9",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.1-codex-mini",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.2",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.2-2",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.2-3",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.2-4",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.2-chat",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.2-codex",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.2-codex-1",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.2-codex-2",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.2-codex-3",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.2-codex-4",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.2-codex-5",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.2-codex-6",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.2-codex-7",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.2-codex-8",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.2-codex-9",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.3-codex",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.3-codex-1",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.3-codex-2",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.3-codex-3",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.3-codex-4",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.3-codex-5",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.3-codex-6",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.3-codex-7",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.3-codex-8",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-5.3-codex-9",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "gpt-oss-120b",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "grok-3",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "grok-3-mini",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "o1",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "o1-mini",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "o3",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "o3-mini",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "o4-mini",
-		"object": "model",
-		"owned_by": "azure_openai"
-	}, {
-		"id": "embedding-2",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "embedding-3",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "text_embedding",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4-air",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4-air-0111",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4-air-250414",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4-airx",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4-flash",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4-flash-250414",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4-flashx",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4-long",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4-plus",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4.1v-thinking-flash",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4.1v-thinking-flashx",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4.5",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4.5-air",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4.5-airx",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4.5-flash",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4.5-x",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4.5v",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4.6",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4.6v",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4.7",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4v-flash",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-4v-plus",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "glm-5",
-		"object": "model",
-		"owned_by": "zhipuai"
-	}, {
-		"id": "gte-rerank-v2",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-rerank",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "text-embedding-v1",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "text-embedding-v2",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "text-embedding-v3",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "text-embedding-v4",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "deepseek-r1",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "deepseek-r1-distill-qwen-14b",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "deepseek-r1-distill-qwen-32b",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "deepseek-v3",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "deepseek-v3.1",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "deepseek-v3.2",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "deepseek-v3.2-exp",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "farui-plus",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "kimi-k2-thinking",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "kimi-k2.5",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qvq-max",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qvq-max-latest",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-coder-turbo-0919",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-coder-turbo-latest",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-flash",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-flash-2025-07-28",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-long",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-math-plus",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-math-plus-0919",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-math-plus-latest",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-math-turbo-latest",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-max",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-max-latest",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-mt-plus",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-mt-turbo",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-plus",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-plus-0919",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-plus-2025-01-25",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-plus-2025-04-28",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-plus-2025-07-28",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-plus-2025-09-11",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-plus-latest",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-turbo",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-turbo-latest",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-vl-max",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-vl-max-2025-01-25",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-vl-max-latest",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-vl-plus",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen-vl-plus-latest",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen2.5-0.5b-instruct",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen2.5-1.5b-instruct",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen2.5-14b-instruct",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen2.5-14b-instruct-1m",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen2.5-32b-instruct",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen2.5-3b-instruct",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen2.5-72b-instruct",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen2.5-7b-instruct",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen2.5-7b-instruct-1m",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen2.5-vl-3b-instruct",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen2.5-vl-72b-instruct",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen2.5-vl-7b-instruct",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-0.6b",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-1.7b",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-14b",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-235b-a22b",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-235b-a22b-instruct-2507",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-235b-a22b-thinking-2507",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-30b-a3b",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-30b-a3b-instruct-2507",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-32b",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-4b",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-8b",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-coder-30b-a3b-instruct",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-coder-480b-a35b-instruct",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-coder-plus",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-coder-plus-2025-09-23",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-max",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-max-2025-09-23",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-max-2026-01-23",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-max-preview",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-next-80b-a3b-instruct",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-next-80b-a3b-thinking",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-omni-flash-2025-12-01",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-vl-235b-a22b-instruct",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-vl-235b-a22b-thinking",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-vl-30b-a3b-instruct",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-vl-30b-a3b-thinking",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-vl-flash",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-vl-flash-2025-10-15",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-vl-flash-2026-01-22",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-vl-plus",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3-vl-plus-2025-09-23",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3.5-122b-a10b",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3.5-27b",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3.5-35b-a3b",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3.5-397b-a17b",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3.5-flash",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3.5-flash-2026-02-23",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3.5-plus",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwen3.5-plus-2026-02-15",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwq-32b",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "qwq-plus",
-		"object": "model",
-		"owned_by": "tongyi"
-	}, {
-		"id": "deepseek-r1",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "deepseek-v3",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "ernie-3.5-128k",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "ernie-4.0-turbo-128k",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "ernie-4.5-turbo-128k",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "ernie-4.5-turbo-32k",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "ernie-5.0-thinking-latest",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "ernie-5.0-thinking-preview",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "ernie-lite-pro-128k",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "ernie-speed-pro-128k",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "ernie-x1-turbo-32k",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "qwen3-0.6b",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "qwen3-1.7b",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "qwen3-14b",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "qwen3-235b-a22b",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "qwen3-30b-a3b",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "qwen3-32b",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "qwen3-4b",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "qwen3-8b",
-		"object": "model",
-		"owned_by": "baidu_qianfan"
-	}, {
-		"id": "bce-reranker-base_v1",
-		"object": "model",
-		"owned_by": "wenxin"
-	}, {
-		"id": "bge-large-en",
-		"object": "model",
-		"owned_by": "wenxin"
-	}, {
-		"id": "bge-large-zh",
-		"object": "model",
-		"owned_by": "wenxin"
-	}, {
-		"id": "embedding-v1",
-		"object": "model",
-		"owned_by": "wenxin"
-	}, {
-		"id": "tao-8k",
-		"object": "model",
-		"owned_by": "wenxin"
-	}, {
-		"id": "ernie-3.5-128k",
-		"object": "model",
-		"owned_by": "wenxin"
-	}, {
-		"id": "ernie-3.5-8k",
-		"object": "model",
-		"owned_by": "wenxin"
-	}, {
-		"id": "ernie-4.0-8k",
-		"object": "model",
-		"owned_by": "wenxin"
-	}, {
-		"id": "ernie-4.0-8k-latest",
-		"object": "model",
-		"owned_by": "wenxin"
-	}, {
-		"id": "ernie-4.0-turbo-128k",
-		"object": "model",
-		"owned_by": "wenxin"
-	}, {
-		"id": "ernie-4.0-turbo-8k",
-		"object": "model",
-		"owned_by": "wenxin"
-	}, {
-		"id": "ernie-lite-pro-128k",
-		"object": "model",
-		"owned_by": "wenxin"
-	}, {
-		"id": "ernie-speed-128k",
-		"object": "model",
-		"owned_by": "wenxin"
-	}, {
-		"id": "ernie-speed-8k",
-		"object": "model",
-		"owned_by": "wenxin"
-	}, {
-		"id": "DeepseekV3.2",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "KAT-Coder-ProV1",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "deepseek-r1-0528",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "deepseek-v3-0324",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "deepseek/deepseek-v3.1-terminus",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "gemini-2.0-flash-20250609",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "gemini-2.5-flash",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "gemini-2.5-flash-lite",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "gemini-2.5-pro",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "glm-4.5",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "gpt-4.1",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "gpt-4.1-mini",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "gpt-4.1-nano",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "gpt-4o",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "gpt-4o-mini",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "gpt-5",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "gpt-5-mini",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "gpt-5-nano",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "grok-3",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "grok-4",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "kimi-k2-instruct",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "pa/claude-haiku-4-5-20251001",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "pa/claude-opus-4-6",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "pa/claude-sonnet-4-5-20250929",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "pa/claude-sonnet-4-6",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "qwen2.5-72b-instruct",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "qwen2.5-7b-instruct",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "qwen3-30b-a3b",
-		"object": "model",
-		"owned_by": "ppio"
-	}, {
-		"id": "bge-reranker-large",
-		"object": "model",
-		"owned_by": "cloudml"
-	}, {
-		"id": "bge-reranker-v2-m3",
-		"object": "model",
-		"owned_by": "cloudml"
-	}, {
-		"id": "bge-m3",
-		"object": "model",
-		"owned_by": "cloudml"
-	}, {
-		"id": "BAAI/bge-reranker-v2-m3",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen3-Reranker-0.6B",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen3-Reranker-4B",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen3-Reranker-8B",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "netease-youdao/bce-reranker-base_v1",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "BAAI/bge-large-en-v1.5",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "BAAI/bge-large-zh-v1.5",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "BAAI/bge-m3",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen3-Embedding-0.6B",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen3-Embedding-4B",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen3-Embedding-8B",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "netease-youdao/bce-embedding-base_v1",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "ByteDance-Seed/Seed-OSS-36B-Instruct",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Pro/Qwen/Qwen2.5-VL-7B-Instruct",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Pro/deepseek-ai/DeepSeek-R1",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Pro/deepseek-ai/DeepSeek-V3",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Pro/deepseek-ai/DeepSeek-V3.1-Terminus",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Pro/deepseek-ai/DeepSeek-V3.2",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Pro/deepseek-ai/DeepSeek-V3.2-Exp",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Pro/moonshotai/Kimi-K2-Instruct",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Pro/moonshotai/Kimi-K2-Instruct-0905",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Pro/moonshotai/Kimi-K2.5",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen2.5-14B-Instruct",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen2.5-32B-Instruct",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen2.5-72B-Instruct",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen2.5-72B-Instruct-128K",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen2.5-7B-Instruct",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen2.5-Coder-32B-Instruct",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen2.5-Coder-7B-Instruct",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen2.5-VL-32B-Instruct",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen2.5-VL-72B-Instruct",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen3-14B",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen3-235B-A22B",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen3-235B-A22B-Instruct-2507",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen3-235B-A22B-Thinking-2507",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen3-30B-A3B",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen3-30B-A3B-Instruct-2507",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen3-32B",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen3-8B",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen3-VL-8B-Instruct",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "Qwen/Qwen3-VL-8B-Thinking",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "THUDM/GLM-4.1V-9B-Thinking",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "THUDM/glm-4-9b-chat",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "deepseek-ai/DeepSeek-OCR",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "deepseek-ai/DeepSeek-R1",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "deepseek-ai/DeepSeek-V3",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "deepseek-ai/DeepSeek-V3.1-Terminus",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "deepseek-ai/DeepSeek-V3.2",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "deepseek-ai/DeepSeek-V3.2-Exp",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "moonshotai/Kimi-K2-Instruct",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "moonshotai/Kimi-K2-Instruct-0905",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "moonshotai/Kimi-K2-Thinking",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "moonshotai/Kimi-K2-Thinking-Turbo",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "zai-org/GLM-4.5",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "zai-org/GLM-4.5-Air",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "zai-org/GLM-4.6",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "zai-org/GLM-4.6v",
-		"object": "model",
-		"owned_by": "siliconflow"
-	}, {
-		"id": "volc.bigasr.auc_turbo",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "VolcTextTrans-20200601",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "Doubao-embedding",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-embedding-large-text-250515",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "DeepSeek-V3-0324",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "DeepSeek-V3.1",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "Doubao-1.5-vision-pro-32k-250115",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "Doubao-pro-4k",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "Doubao-vision-lite-32k",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "Doubao-vision-pro-32k",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "deepseek-r1-250528",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "deepseek-v3-1-terminus",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "deepseek-v3-2-251201",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "deepseek-v3-250324",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-1-5-lite-32k-250115",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-1-5-pro-32k-250115",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-1-5-thinking-pro-250415",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-1-5-thinking-pro-m-250428",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-1-5-thinking-vision-pro-250428",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-1-5-ui-tars-250428",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-1.5-ui-tars-250328",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-1.5-vision-lite-250315",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-1.5-vision-pro-250328",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-seed-1-6-250615",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-seed-1-6-251015",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-seed-1-6-flash-250615",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-seed-1-6-flash-250828",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-seed-1-6-lite-251015",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-seed-1-6-thinking-250615",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-seed-1-6-thinking-250715",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-seed-1-6-vision-250815",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-seed-1-8-251215",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-seed-1-8-251228",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-seed-2-0-code-preview-260215",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-seed-2-0-lite-260215",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-seed-2-0-mini-260215",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-seed-2-0-pro-260215",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "doubao-seed-code-preview-251028",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "kimi-k2-250711",
-		"object": "model",
-		"owned_by": "volcengine_maas"
-	}, {
-		"id": "embo-01",
-		"object": "model",
-		"owned_by": "minimax"
-	}, {
-		"id": "MiniMax-M2",
-		"object": "model",
-		"owned_by": "minimax"
-	}, {
-		"id": "MiniMax-M2.1",
-		"object": "model",
-		"owned_by": "minimax"
-	}, {
-		"id": "MiniMax-M2.1-lightning",
-		"object": "model",
-		"owned_by": "minimax"
-	}, {
-		"id": "MiniMax-M2.5",
-		"object": "model",
-		"owned_by": "minimax"
-	}, {
-		"id": "abab6.5-chat",
-		"object": "model",
-		"owned_by": "minimax"
-	}, {
-		"id": "abab6.5s-chat",
-		"object": "model",
-		"owned_by": "minimax"
-	}, {
-		"id": "abab6.5t-chat",
-		"object": "model",
-		"owned_by": "minimax"
-	}, {
-		"id": "minimax-m1",
-		"object": "model",
-		"owned_by": "minimax"
-	}, {
-		"id": "minimax-text-01",
-		"object": "model",
-		"owned_by": "minimax"
-	}, {
-		"id": "hunyuan-functioncall",
-		"object": "model",
-		"owned_by": "hunyuan"
-	}, {
-		"id": "hunyuan-large",
-		"object": "model",
-		"owned_by": "hunyuan"
-	}, {
-		"id": "hunyuan-large-longcontext",
-		"object": "model",
-		"owned_by": "hunyuan"
-	}, {
-		"id": "hunyuan-large-role",
-		"object": "model",
-		"owned_by": "hunyuan"
-	}, {
-		"id": "hunyuan-lite",
-		"object": "model",
-		"owned_by": "hunyuan"
-	}, {
-		"id": "hunyuan-pro",
-		"object": "model",
-		"owned_by": "hunyuan"
-	}, {
-		"id": "hunyuan-role",
-		"object": "model",
-		"owned_by": "hunyuan"
-	}, {
-		"id": "hunyuan-standard",
-		"object": "model",
-		"owned_by": "hunyuan"
-	}, {
-		"id": "hunyuan-standard-256K",
-		"object": "model",
-		"owned_by": "hunyuan"
-	}, {
-		"id": "hunyuan-turbo",
-		"object": "model",
-		"owned_by": "hunyuan"
-	}, {
-		"id": "hunyuan-turbo-latest",
-		"object": "model",
-		"owned_by": "hunyuan"
-	}, {
-		"id": "hunyuan-turbo-vision",
-		"object": "model",
-		"owned_by": "hunyuan"
-	}, {
-		"id": "hunyuan-vision",
-		"object": "model",
-		"owned_by": "hunyuan"
-	}]
-} %
+	"data": [
+		{
+			"id": "ASR_NonStreaming",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "speech2text"
+		},
+		{
+			"id": "ASR_NonStreaming_TS",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "speech2text"
+		},
+		{
+			"id": "ASR_Streaming",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "speech2text"
+		},
+		{
+			"id": "ASR_Streaming_Diarization",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "speech2text"
+		},
+		{
+			"id": "mimo-v2-audio-asr",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "speech2text"
+		},
+		{
+			"id": "mimo-v2-audio-realtime",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "realtime"
+		},
+		{
+			"id": "tts-multivoice-v1",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "tts"
+		},
+		{
+			"id": "DeepSeek-R1-0528",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "Mi-BRAG-VL",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "MiASRQwen3-8B-GP",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "MiLM2.1-13B-Chat",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "MiMo-VL-7B-RL",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "MiMo-VL-7B-RL-0808",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "MiniMax-M2.5",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "PaddleOCR-VL-0.9B",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen-235B-A22B",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen2.5-72B-Instruct-GPTQ-Int4",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen2.5-VL-72B-Instruct-AWQ",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen3-235B-A22B",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen3-235B-A22B-Instruct-2507",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen3-32B",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "autoglm-phone-9b",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-v3.1",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-5",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "kimi-k2.5",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "midashenglm-7b-1021-bf16",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "mimo-claw-0301",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "mimo-claw-0306",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "mimo-claw-0307-rl",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "mimo-claw-latest",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "mimo-v2-audio-tts",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "mimo-v2-flash",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "mimo-v2-omni",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "mimo-v2-pro",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "mimo-v2-tts",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen25-coder-7b",
+			"object": "model",
+			"owned_by": "xiaomi",
+			"model_type": "llm"
+		},
+		{
+			"id": "gemini-2.0-flash-001",
+			"object": "model",
+			"owned_by": "vertex_ai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gemini-2.0-flash-lite-001",
+			"object": "model",
+			"owned_by": "vertex_ai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gemini-2.5-computer-use-preview-10-2025",
+			"object": "model",
+			"owned_by": "vertex_ai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gemini-2.5-flash",
+			"object": "model",
+			"owned_by": "vertex_ai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gemini-2.5-flash-lite",
+			"object": "model",
+			"owned_by": "vertex_ai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gemini-2.5-flash-lite-preview-09-2025",
+			"object": "model",
+			"owned_by": "vertex_ai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gemini-2.5-pro",
+			"object": "model",
+			"owned_by": "vertex_ai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gemini-3-flash-preview",
+			"object": "model",
+			"owned_by": "vertex_ai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gemini-3-pro-preview",
+			"object": "model",
+			"owned_by": "vertex_ai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gemini-3-pro-preview-pt",
+			"object": "model",
+			"owned_by": "vertex_ai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gemini-3.1-flash-lite-preview",
+			"object": "model",
+			"owned_by": "vertex_ai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gemini-3.1-pro-preview",
+			"object": "model",
+			"owned_by": "vertex_ai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gemini-3.1-pro-preview-pt",
+			"object": "model",
+			"owned_by": "vertex_ai",
+			"model_type": "llm"
+		},
+		{
+			"id": "whisper",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "speech2text"
+		},
+		{
+			"id": "tts-hd",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "tts"
+		},
+		{
+			"id": "text-embedding-3-large",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "text-embedding-3-small",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "text-embedding-ada-002",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "gpt-4.1",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-4.1-mini",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-4.1-nano",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-4o",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-4o-audio-preview",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-4o-mini",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-4o-mini-audio-preview",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-4o-mini-transcribe",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-4o-transcribe",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5-chat",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5-codex",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5-codex-1",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5-codex-2",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5-codex-3",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5-codex-4",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5-codex-5",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5-mini",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5-nano",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5-pro",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-chat",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-1",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-2",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-3",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-4",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-5",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-6",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-7",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-8",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-9",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-max",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-max-1",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-max-2",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-max-3",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-max-4",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-max-5",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-max-6",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-max-7",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-max-8",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-max-9",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.1-codex-mini",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.2",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.2-2",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.2-3",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.2-4",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.2-chat",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.2-codex",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.2-codex-1",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.2-codex-2",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.2-codex-3",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.2-codex-4",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.2-codex-5",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.2-codex-6",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.2-codex-7",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.2-codex-8",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.2-codex-9",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.3-codex",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.3-codex-1",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.3-codex-2",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.3-codex-3",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.3-codex-4",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.3-codex-5",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.3-codex-6",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.3-codex-7",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.3-codex-8",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.3-codex-9",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.4",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5.4-pro",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-oss-120b",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "grok-3",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "grok-3-mini",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "o1",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "o1-mini",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "o3",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "o3-mini",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "o4-mini",
+			"object": "model",
+			"owned_by": "azure_openai",
+			"model_type": "llm"
+		},
+		{
+			"id": "embedding-2",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "embedding-3",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "text_embedding",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "glm-4-air",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4-air-0111",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4-air-250414",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4-airx",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4-flash",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4-flash-250414",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4-flashx",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4-long",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4-plus",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4.1v-thinking-flash",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4.1v-thinking-flashx",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4.5",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4.5-air",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4.5-airx",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4.5-flash",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4.5-x",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4.5v",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4.6",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4.6v",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4.7",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4v-flash",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4v-plus",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-5",
+			"object": "model",
+			"owned_by": "zhipuai",
+			"model_type": "llm"
+		},
+		{
+			"id": "gte-rerank-v2",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "rerank"
+		},
+		{
+			"id": "qwen3-rerank",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "rerank"
+		},
+		{
+			"id": "multimodal-embedding-v1",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "text-embedding-v1",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "text-embedding-v2",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "text-embedding-v3",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "text-embedding-v4",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "tongyi-embedding-vision-flash",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "tongyi-embedding-vision-plus",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "deepseek-r1",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-r1-distill-qwen-14b",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-r1-distill-qwen-32b",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-v3",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-v3.1",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-v3.2",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-v3.2-exp",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "farui-plus",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "kimi-k2-thinking",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "kimi-k2.5",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qvq-max",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qvq-max-latest",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-coder-turbo-0919",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-coder-turbo-latest",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-flash",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-flash-2025-07-28",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-long",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-math-plus",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-math-plus-0919",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-math-plus-latest",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-math-turbo-latest",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-max",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-max-latest",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-mt-plus",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-mt-turbo",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-plus",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-plus-0919",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-plus-2025-01-25",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-plus-2025-04-28",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-plus-2025-07-28",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-plus-2025-09-11",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-plus-latest",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-turbo",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-turbo-latest",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-vl-max",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-vl-max-2025-01-25",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-vl-max-latest",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-vl-plus",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen-vl-plus-latest",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen2.5-0.5b-instruct",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen2.5-1.5b-instruct",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen2.5-14b-instruct",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen2.5-14b-instruct-1m",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen2.5-32b-instruct",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen2.5-3b-instruct",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen2.5-72b-instruct",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen2.5-7b-instruct",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen2.5-7b-instruct-1m",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen2.5-vl-3b-instruct",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen2.5-vl-72b-instruct",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen2.5-vl-7b-instruct",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-0.6b",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-1.7b",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-14b",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-235b-a22b",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-235b-a22b-instruct-2507",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-235b-a22b-thinking-2507",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-30b-a3b",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-30b-a3b-instruct-2507",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-32b",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-4b",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-8b",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-coder-30b-a3b-instruct",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-coder-480b-a35b-instruct",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-coder-plus",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-coder-plus-2025-09-23",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-max",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-max-2025-09-23",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-max-2026-01-23",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-max-preview",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-next-80b-a3b-instruct",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-next-80b-a3b-thinking",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-omni-flash-2025-12-01",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-vl-235b-a22b-instruct",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-vl-235b-a22b-thinking",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-vl-30b-a3b-instruct",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-vl-30b-a3b-thinking",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-vl-flash",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-vl-flash-2025-10-15",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-vl-flash-2026-01-22",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-vl-plus",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-vl-plus-2025-09-23",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3.5-122b-a10b",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3.5-27b",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3.5-35b-a3b",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3.5-397b-a17b",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3.5-flash",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3.5-flash-2026-02-23",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3.5-plus",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3.5-plus-2026-02-15",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwq-32b",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwq-plus",
+			"object": "model",
+			"owned_by": "tongyi",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-r1",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-v3",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "ernie-3.5-128k",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "ernie-4.0-turbo-128k",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "ernie-4.5-turbo-128k",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "ernie-4.5-turbo-32k",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "ernie-5.0-thinking-latest",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "ernie-5.0-thinking-preview",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "ernie-lite-pro-128k",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "ernie-speed-pro-128k",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "ernie-x1-turbo-32k",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-0.6b",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-1.7b",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-14b",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-235b-a22b",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-30b-a3b",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-32b",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-4b",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-8b",
+			"object": "model",
+			"owned_by": "baidu_qianfan",
+			"model_type": "llm"
+		},
+		{
+			"id": "bce-reranker-base_v1",
+			"object": "model",
+			"owned_by": "wenxin",
+			"model_type": "rerank"
+		},
+		{
+			"id": "bge-large-en",
+			"object": "model",
+			"owned_by": "wenxin",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "bge-large-zh",
+			"object": "model",
+			"owned_by": "wenxin",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "embedding-v1",
+			"object": "model",
+			"owned_by": "wenxin",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "tao-8k",
+			"object": "model",
+			"owned_by": "wenxin",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "ernie-3.5-128k",
+			"object": "model",
+			"owned_by": "wenxin",
+			"model_type": "llm"
+		},
+		{
+			"id": "ernie-3.5-8k",
+			"object": "model",
+			"owned_by": "wenxin",
+			"model_type": "llm"
+		},
+		{
+			"id": "ernie-4.0-8k",
+			"object": "model",
+			"owned_by": "wenxin",
+			"model_type": "llm"
+		},
+		{
+			"id": "ernie-4.0-8k-latest",
+			"object": "model",
+			"owned_by": "wenxin",
+			"model_type": "llm"
+		},
+		{
+			"id": "ernie-4.0-turbo-128k",
+			"object": "model",
+			"owned_by": "wenxin",
+			"model_type": "llm"
+		},
+		{
+			"id": "ernie-4.0-turbo-8k",
+			"object": "model",
+			"owned_by": "wenxin",
+			"model_type": "llm"
+		},
+		{
+			"id": "ernie-lite-pro-128k",
+			"object": "model",
+			"owned_by": "wenxin",
+			"model_type": "llm"
+		},
+		{
+			"id": "ernie-speed-128k",
+			"object": "model",
+			"owned_by": "wenxin",
+			"model_type": "llm"
+		},
+		{
+			"id": "ernie-speed-8k",
+			"object": "model",
+			"owned_by": "wenxin",
+			"model_type": "llm"
+		},
+		{
+			"id": "DeepseekV3.2",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "KAT-Coder-ProV1",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-r1-0528",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-v3-0324",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek/deepseek-v3.1-terminus",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "gemini-2.0-flash-20250609",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "gemini-2.5-flash",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "gemini-2.5-flash-lite",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "gemini-2.5-pro",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-4.5",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "glm-5",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-4.1",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-4.1-mini",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-4.1-nano",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-4o",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-4o-mini",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5-mini",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "gpt-5-nano",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "grok-3",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "grok-4",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "kimi-k2-instruct",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "pa/claude-haiku-4-5-20251001",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "pa/claude-opus-4-5-20251101",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "pa/claude-opus-4-6",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "pa/claude-sonnet-4-5-20250929",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "pa/claude-sonnet-4-6",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen2.5-72b-instruct",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen2.5-7b-instruct",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "qwen3-30b-a3b",
+			"object": "model",
+			"owned_by": "ppio",
+			"model_type": "llm"
+		},
+		{
+			"id": "bge-reranker-large",
+			"object": "model",
+			"owned_by": "cloudml",
+			"model_type": "rerank"
+		},
+		{
+			"id": "bge-reranker-v2-m3",
+			"object": "model",
+			"owned_by": "cloudml",
+			"model_type": "rerank"
+		},
+		{
+			"id": "bge-m3",
+			"object": "model",
+			"owned_by": "cloudml",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "BAAI/bge-reranker-v2-m3",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "rerank"
+		},
+		{
+			"id": "Qwen/Qwen3-Reranker-0.6B",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "rerank"
+		},
+		{
+			"id": "Qwen/Qwen3-Reranker-4B",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "rerank"
+		},
+		{
+			"id": "Qwen/Qwen3-Reranker-8B",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "rerank"
+		},
+		{
+			"id": "netease-youdao/bce-reranker-base_v1",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "rerank"
+		},
+		{
+			"id": "BAAI/bge-large-en-v1.5",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "BAAI/bge-large-zh-v1.5",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "BAAI/bge-m3",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "Qwen/Qwen3-Embedding-0.6B",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "Qwen/Qwen3-Embedding-4B",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "Qwen/Qwen3-Embedding-8B",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "netease-youdao/bce-embedding-base_v1",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "ByteDance-Seed/Seed-OSS-36B-Instruct",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Pro/Qwen/Qwen2.5-VL-7B-Instruct",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Pro/deepseek-ai/DeepSeek-R1",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Pro/deepseek-ai/DeepSeek-V3",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Pro/deepseek-ai/DeepSeek-V3.1-Terminus",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Pro/deepseek-ai/DeepSeek-V3.2",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Pro/deepseek-ai/DeepSeek-V3.2-Exp",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Pro/moonshotai/Kimi-K2-Instruct",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Pro/moonshotai/Kimi-K2-Instruct-0905",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Pro/moonshotai/Kimi-K2.5",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Pro/zai-org/GLM-5",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen2.5-14B-Instruct",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen2.5-32B-Instruct",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen2.5-72B-Instruct",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen2.5-72B-Instruct-128K",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen2.5-7B-Instruct",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen2.5-Coder-32B-Instruct",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen2.5-Coder-7B-Instruct",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen2.5-VL-32B-Instruct",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen2.5-VL-72B-Instruct",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen3-14B",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen3-235B-A22B",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen3-235B-A22B-Instruct-2507",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen3-235B-A22B-Thinking-2507",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen3-30B-A3B",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen3-32B",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen3-8B",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen3-VL-8B-Instruct",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "Qwen/Qwen3-VL-8B-Thinking",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "THUDM/GLM-4.1V-9B-Thinking",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "THUDM/glm-4-9b-chat",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-ai/DeepSeek-OCR",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-ai/DeepSeek-R1",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-ai/DeepSeek-V3",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-ai/DeepSeek-V3.1-Terminus",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-ai/DeepSeek-V3.2",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-ai/DeepSeek-V3.2-Exp",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "moonshotai/Kimi-K2-Instruct",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "moonshotai/Kimi-K2-Instruct-0905",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "moonshotai/Kimi-K2-Thinking",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "moonshotai/Kimi-K2-Thinking-Turbo",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "zai-org/GLM-4.5",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "zai-org/GLM-4.5-Air",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "zai-org/GLM-4.6",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "zai-org/GLM-4.6v",
+			"object": "model",
+			"owned_by": "siliconflow",
+			"model_type": "llm"
+		},
+		{
+			"id": "volc.bigasr.auc_turbo",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "speech2text"
+		},
+		{
+			"id": "Doubao-Seedream-4.0",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "image_generation"
+		},
+		{
+			"id": "Doubao-Seedream-4.5",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "image_generation"
+		},
+		{
+			"id": "Doubao-Seedream-5.0-lite",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "image_generation"
+		},
+		{
+			"id": "VolcTextTrans-20200601",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "text_translation"
+		},
+		{
+			"id": "Doubao-embedding",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "Doubao-embedding-vision-250615",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "Doubao-embedding-vision-251215",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "doubao-embedding-large-text-250515",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "DeepSeek-V3-0324",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "DeepSeek-V3.1",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "Doubao-1.5-vision-pro-32k-250115",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "Doubao-pro-4k",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "Doubao-vision-lite-32k",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "Doubao-vision-pro-32k",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-r1-250528",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-v3-1-terminus",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-v3-2-251201",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "deepseek-v3-250324",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-1-5-lite-32k-250115",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-1-5-pro-32k-250115",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-1-5-thinking-pro-250415",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-1-5-thinking-pro-m-250428",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-1-5-thinking-vision-pro-250428",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-1-5-ui-tars-250428",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-1.5-ui-tars-250328",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-1.5-vision-lite-250315",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-1.5-vision-pro-250328",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-seed-1-6-250615",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-seed-1-6-251015",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-seed-1-6-flash-250615",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-seed-1-6-flash-250828",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-seed-1-6-lite-251015",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-seed-1-6-thinking-250615",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-seed-1-6-thinking-250715",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-seed-1-6-vision-250815",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-seed-1-8-251215",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-seed-1-8-251228",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-seed-2-0-code-preview-260215",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-seed-2-0-lite-260215",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-seed-2-0-mini-260215",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-seed-2-0-pro-260215",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "doubao-seed-code-preview-251028",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "kimi-k2-250711",
+			"object": "model",
+			"owned_by": "volcengine_maas",
+			"model_type": "llm"
+		},
+		{
+			"id": "embo-01",
+			"object": "model",
+			"owned_by": "minimax",
+			"model_type": "text-embedding"
+		},
+		{
+			"id": "MiniMax-M2",
+			"object": "model",
+			"owned_by": "minimax",
+			"model_type": "llm"
+		},
+		{
+			"id": "MiniMax-M2.1",
+			"object": "model",
+			"owned_by": "minimax",
+			"model_type": "llm"
+		},
+		{
+			"id": "MiniMax-M2.1-lightning",
+			"object": "model",
+			"owned_by": "minimax",
+			"model_type": "llm"
+		},
+		{
+			"id": "MiniMax-M2.5",
+			"object": "model",
+			"owned_by": "minimax",
+			"model_type": "llm"
+		},
+		{
+			"id": "abab6.5-chat",
+			"object": "model",
+			"owned_by": "minimax",
+			"model_type": "llm"
+		},
+		{
+			"id": "abab6.5s-chat",
+			"object": "model",
+			"owned_by": "minimax",
+			"model_type": "llm"
+		},
+		{
+			"id": "abab6.5t-chat",
+			"object": "model",
+			"owned_by": "minimax",
+			"model_type": "llm"
+		},
+		{
+			"id": "minimax-m1",
+			"object": "model",
+			"owned_by": "minimax",
+			"model_type": "llm"
+		},
+		{
+			"id": "minimax-text-01",
+			"object": "model",
+			"owned_by": "minimax",
+			"model_type": "llm"
+		},
+		{
+			"id": "hunyuan-functioncall",
+			"object": "model",
+			"owned_by": "hunyuan",
+			"model_type": "llm"
+		},
+		{
+			"id": "hunyuan-large",
+			"object": "model",
+			"owned_by": "hunyuan",
+			"model_type": "llm"
+		},
+		{
+			"id": "hunyuan-large-longcontext",
+			"object": "model",
+			"owned_by": "hunyuan",
+			"model_type": "llm"
+		},
+		{
+			"id": "hunyuan-large-role",
+			"object": "model",
+			"owned_by": "hunyuan",
+			"model_type": "llm"
+		},
+		{
+			"id": "hunyuan-lite",
+			"object": "model",
+			"owned_by": "hunyuan",
+			"model_type": "llm"
+		},
+		{
+			"id": "hunyuan-pro",
+			"object": "model",
+			"owned_by": "hunyuan",
+			"model_type": "llm"
+		},
+		{
+			"id": "hunyuan-role",
+			"object": "model",
+			"owned_by": "hunyuan",
+			"model_type": "llm"
+		},
+		{
+			"id": "hunyuan-standard",
+			"object": "model",
+			"owned_by": "hunyuan",
+			"model_type": "llm"
+		},
+		{
+			"id": "hunyuan-standard-256K",
+			"object": "model",
+			"owned_by": "hunyuan",
+			"model_type": "llm"
+		},
+		{
+			"id": "hunyuan-turbo",
+			"object": "model",
+			"owned_by": "hunyuan",
+			"model_type": "llm"
+		},
+		{
+			"id": "hunyuan-turbo-latest",
+			"object": "model",
+			"owned_by": "hunyuan",
+			"model_type": "llm"
+		},
+		{
+			"id": "hunyuan-turbo-vision",
+			"object": "model",
+			"owned_by": "hunyuan",
+			"model_type": "llm"
+		},
+		{
+			"id": "hunyuan-vision",
+			"object": "model",
+			"owned_by": "hunyuan",
+			"model_type": "llm"
+		}
+	]
+}
