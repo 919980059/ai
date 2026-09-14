@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>HyperFrames 创作主流程</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#070d1f; font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
+  #canvas { position:relative; width:2000px; height:920px; overflow:hidden;
+    background:
+      radial-gradient(1100px 560px at 18% -8%, rgba(38,70,153,.35) 0%, rgba(10,17,40,0) 60%),
+      radial-gradient(900px 520px at 92% 108%, rgba(76,53,148,.28) 0%, rgba(10,17,40,0) 55%),
+      #0a1128; }
+  #canvas::before { content:""; position:absolute; left:0; top:0; width:2000px; height:920px;
+    background-image:linear-gradient(rgba(125,165,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(125,165,255,.05) 1px, transparent 1px);
+    background-size:50px 50px; }
+
+  .bar { position:absolute; left:70px; top:52px; width:58px; height:5px; border-radius:3px;
+    background:linear-gradient(90deg,#22d3ee,#818cf8); }
+  .brand { position:absolute; left:70px; top:66px; font-family:"SF Mono",Menlo,Consolas,monospace;
+    font-size:14px; letter-spacing:.32em; color:#22d3ee; text-transform:uppercase; }
+  .fig { position:absolute; left:1560px; top:74px; width:370px; text-align:right;
+    font-family:"SF Mono",Menlo,Consolas,monospace; font-size:13px; letter-spacing:.24em; color:#5d6f9b; }
+  h1.t { position:absolute; left:70px; top:90px; font-size:38px; font-weight:700; color:#f0f5ff; letter-spacing:.02em; }
+  .sub { position:absolute; left:70px; top:150px; font-size:16.5px; color:#8ca0cc; }
+
+  .card { position:absolute; border-radius:14px; padding:16px 18px 12px;
+    background:linear-gradient(180deg, rgba(24,36,70,.94), rgba(15,24,50,.94));
+    border:1px solid rgba(120,150,220,.22); }
+  .stage { font-family:"SF Mono",Menlo,Consolas,monospace; font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; }
+  .card h3 { font-size:21px; font-weight:700; color:#eef3ff; margin:7px 0 9px; }
+  .pt { font-size:14px; color:#9dabcf; line-height:1.66; }
+
+  .cy { border-color:rgba(34,211,238,.42); box-shadow:0 0 28px rgba(34,211,238,.10), inset 0 0 22px rgba(34,211,238,.045); }
+  .cy .stage { color:#22d3ee; }
+  .sk { border-color:rgba(56,189,248,.42); box-shadow:0 0 28px rgba(56,189,248,.10), inset 0 0 22px rgba(56,189,248,.045); }
+  .sk .stage { color:#38bdf8; }
+  .in { border-color:rgba(129,140,248,.45); box-shadow:0 0 28px rgba(129,140,248,.12), inset 0 0 22px rgba(129,140,248,.05); }
+  .in .stage { color:#818cf8; }
+  .vi { border-color:rgba(167,139,250,.45); box-shadow:0 0 28px rgba(167,139,250,.12), inset 0 0 22px rgba(167,139,250,.05); }
+  .vi .stage { color:#a78bfa; }
+  .gr { border-color:rgba(52,211,153,.45); box-shadow:0 0 28px rgba(52,211,153,.12), inset 0 0 22px rgba(52,211,153,.05); }
+  .gr .stage { color:#34d399; }
+  .am { border:1.5px dashed rgba(245,177,76,.62); background:linear-gradient(180deg, rgba(52,41,20,.55), rgba(32,25,12,.55));
+    box-shadow:0 0 26px rgba(245,177,76,.09); }
+  .am .stage { color:#f5b14c; }
+
+  .ln { position:absolute; }
+  .ln.h { border-top:2px dashed var(--c, rgba(126,166,255,.55)); }
+  .ln.v { border-left:2px dashed var(--c, rgba(126,166,255,.55)); }
+  .hd { position:absolute; width:0; height:0; border-top:6px solid transparent; border-bottom:6px solid transparent;
+    border-left:10px solid var(--c, #7ea6ff); }
+  .hd.l { border-left-width:0; border-right:10px solid var(--c, #7ea6ff); }
+  .hd.d { border:0; border-left:6px solid transparent; border-right:6px solid transparent; border-top:10px solid var(--c, #7ea6ff); }
+  .hd.u { border:0; border-left:6px solid transparent; border-right:6px solid transparent; border-bottom:10px solid var(--c, #7ea6ff); }
+  .lb { position:absolute; font-family:"SF Mono",Menlo,Consolas,monospace; font-size:12.5px;
+    background:rgba(10,17,40,.92); padding:3px 10px; border-radius:6px; white-space:nowrap; }
+  .lb.bam { color:#f0c27a; border:1px solid rgba(245,177,76,.4); }
+  .lb.bbl { color:#b9cdf6; border:1px solid rgba(126,166,255,.35); }
+
+  .legend { position:absolute; left:60px; top:820px; width:1880px; height:60px; border-radius:12px;
+    border:1px solid rgba(120,150,220,.2); background:rgba(12,19,44,.72);
+    display:flex; align-items:center; gap:36px; padding:0 26px; font-size:13.5px; color:#8ca0cc; }
+  .sw { display:inline-block; width:34px; border-top:2px dashed #7ea6ff; margin-right:9px; vertical-align:middle; }
+  .sw.a { border-top-color:#f5b14c; }
+  .sw.g { border-top-color:#34d399; }
+  .sep { color:#3a4a74; }
+  .meta { margin-left:auto; font-family:"SF Mono",Menlo,Consolas,monospace; font-size:12.5px; letter-spacing:.18em; color:#5d6f9b; }
+</style>
+</head>
+<body>
+<div id="canvas">
+  <div class="bar"></div>
+  <div class="brand">MICO · HYPERFRAMES CREATION PIPELINE</div>
+  <div class="fig">FIG. 01 · CREATION</div>
+  <h1 class="t">创作主流程 · 从一句话需求到成片</h1>
+  <div class="sub">路由 → 简报 → 素材 → 编排 → 双重门禁 → 渲染发布 —— 任何一步不达标都打回重做，门禁不过不渲染</div>
+
+  <!-- Row 1 -->
+  <div class="card cy" style="left:60px; top:250px; width:340px; height:205px;">
+    <div class="stage">STAGE 01 · INTAKE</div>
+    <h3>💬 需求一句话</h3>
+    <p class="pt">· 输入：产品页 URL / PR / 文案</p>
+    <p class="pt">· 明确交付物形态与时长</p>
+    <p class="pt">· 本例：SkyNomad 30s ｜ POCO 10s</p>
+  </div>
+  <div class="card cy" style="left:445px; top:250px; width:340px; height:205px;">
+    <div class="stage">STAGE 02 · ROUTE</div>
+    <h3>🧭 意图路由</h3>
+    <p class="pt">· /hyperframes 统一入口</p>
+    <p class="pt">· 匹配 10 条工作流之一</p>
+    <p class="pt">· 本例 → /product-launch-video</p>
+  </div>
+  <div class="card sk" style="left:830px; top:250px; width:340px; height:205px;">
+    <div class="stage">STAGE 03 · BRIEF</div>
+    <h3>📋 需求简报</h3>
+    <p class="pt">· 意图访谈产出 BRIEF.md</p>
+    <p class="pt">· 唯一需求事实源</p>
+    <p class="pt">· 后续只读简报，不重开路由</p>
+  </div>
+  <div class="card sk" style="left:1215px; top:250px; width:340px; height:205px;">
+    <div class="stage">STAGE 04 · MEDIA</div>
+    <h3>🖼️ 素材采集</h3>
+    <p class="pt">· 网站捕获 + resolve 取材</p>
+    <p class="pt">· BGM / 图标 / logo / TTS</p>
+    <p class="pt">· 可复用素材优先</p>
+  </div>
+  <div class="card in" style="left:1600px; top:250px; width:340px; height:205px;">
+    <div class="stage">STAGE 05 · AUTHOR</div>
+    <h3>✍️ 合成编排</h3>
+    <p class="pt">· index.html 主时间轴</p>
+    <p class="pt">· 场景子合成 composition-src</p>
+    <p class="pt">· GSAP 注册 __timelines</p>
+  </div>
+
+  <!-- Row 2 -->
+  <div class="card am" style="left:1600px; top:565px; width:340px; height:205px;">
+    <div class="stage">STAGE 06 · GATE 1</div>
+    <h3>✅ 校验门禁</h3>
+    <p class="pt">· npm run check 全量</p>
+    <p class="pt">· lint / 运行时 / 布局 / 对比度</p>
+    <p class="pt">· ❌ 有错误 → 打回编排</p>
+  </div>
+  <div class="card am" style="left:1215px; top:565px; width:340px; height:205px;">
+    <div class="stage">STAGE 07 · GATE 2</div>
+    <h3>👁️ 审片门禁</h3>
+    <p class="pt">· preview --background 常驻</p>
+    <p class="pt">· 人工看片逐段过</p>
+    <p class="pt">· 🪄 观感反馈 → 画面/声音回修</p>
+  </div>
+  <div class="card vi" style="left:830px; top:565px; width:340px; height:205px;">
+    <div class="stage">STAGE 08 · RENDER</div>
+    <h3>🎞️ 无头渲染</h3>
+    <p class="pt">· npm run render</p>
+    <p class="pt">· 逐帧 seek + 截图</p>
+    <p class="pt">· MP4 + 混音 WAV</p>
+  </div>
+  <div class="card vi" style="left:445px; top:565px; width:340px; height:205px;">
+    <div class="stage">STAGE 09 · VERIFY</div>
+    <h3>🔍 逐帧验收</h3>
+    <p class="pt">· 尾帧黑场 / 音频指标</p>
+    <p class="pt">· ASR 全文回听</p>
+    <p class="pt">· 对照简报逐项打勾</p>
+  </div>
+  <div class="card gr" style="left:60px; top:565px; width:340px; height:205px;">
+    <div class="stage">STAGE 10 · DELIVER</div>
+    <h3>📦 交付</h3>
+    <p class="pt">· publish 拿分享链接</p>
+    <p class="pt">· 或直接交付 MP4</p>
+    <p class="pt">· 项目入仓 · 版本可复现</p>
+  </div>
+
+  <!-- Row 1 arrows (right) -->
+  <div class="ln h" style="left:402px; top:352px; width:32px;"></div>
+  <div class="hd" style="left:434px; top:346px;"></div>
+  <div class="ln h" style="left:787px; top:352px; width:32px;"></div>
+  <div class="hd" style="left:819px; top:346px;"></div>
+  <div class="ln h" style="left:1172px; top:352px; width:32px;"></div>
+  <div class="hd" style="left:1204px; top:346px;"></div>
+  <div class="ln h" style="left:1557px; top:352px; width:32px;"></div>
+  <div class="hd" style="left:1589px; top:346px;"></div>
+
+  <!-- 5 -> 6 down -->
+  <div class="ln v" style="left:1810px; top:458px; height:104px;"></div>
+  <div class="hd d" style="left:1804px; top:554px;"></div>
+
+  <!-- Loop A: check fail -> back to author (amber, up) -->
+  <div class="ln v" style="left:1770px; top:466px; height:96px; --c:rgba(245,177,76,.7);"></div>
+  <div class="hd u" style="left:1764px; top:456px; --c:#f0a83f;"></div>
+  <div class="lb bam" style="left:1600px; top:514px;">❌ 有错误 · 打回</div>
+
+  <!-- Loop B: review not satisfied -> back to author (amber elbow) -->
+  <div class="ln v" style="left:1385px; top:505px; height:60px; --c:rgba(245,177,76,.7);"></div>
+  <div class="ln h" style="left:1385px; top:505px; width:305px; --c:rgba(245,177,76,.7);"></div>
+  <div class="ln v" style="left:1690px; top:466px; height:39px; --c:rgba(245,177,76,.7);"></div>
+  <div class="hd u" style="left:1684px; top:456px; --c:#f0a83f;"></div>
+  <div class="lb bam" style="left:1130px; top:512px;">🪄 观感反馈 · 画面/声音回修</div>
+
+  <!-- Row 2 arrows (left) -->
+  <div class="ln h" style="left:1562px; top:692px; width:36px;"></div>
+  <div class="hd l" style="left:1553px; top:686px;"></div>
+  <div class="ln h" style="left:1177px; top:692px; width:36px;"></div>
+  <div class="hd l" style="left:1168px; top:686px;"></div>
+  <div class="ln h" style="left:792px; top:692px; width:36px;"></div>
+  <div class="hd l" style="left:783px; top:686px;"></div>
+  <div class="ln h" style="left:407px; top:692px; width:36px;"></div>
+  <div class="hd l" style="left:398px; top:686px;"></div>
+
+  <!-- Legend -->
+  <div class="legend">
+    <span><span class="sw"></span>主链 · 自动执行</span>
+    <span><span class="sw a"></span>门禁 / 打回循环</span>
+    <span><span class="sw g"></span>交付出口</span>
+    <span class="sep">|</span>
+    <span>门禁不过 = 不渲染：check 0 错误 + 人工审片通过才进渲染</span>
+    <span class="meta">HYPERFRAMES@0.8.31 / 0.8.33</span>
+  </div>
+</div>
+</body>
+</html>

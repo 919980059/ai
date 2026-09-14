@@ -1,0 +1,312 @@
+<template>
+  <style>
+    /*
+      03-tagline-lockup — the closing lockup (titlecard-reveal, Adapt).
+      The graded footage holds beneath a deepening black scrim while the
+      four-element lockup — tracked full-name label "POCO F9 ULTRA",
+      "Ultrapower Unbound", 1px POCO-yellow hairline, and the one-line
+      spec ribbon (platform · display · camera · battery · charging) —
+      assembles as one continuous gesture, holds in allocated stillness,
+      then resolves in a film-out: the ambient footage melts to black
+      first (the -ftb asset copy, black from media 1.90 = global 10.51),
+      the lockup and phone ghost follow (2.85–3.09 local = global
+      10.46–10.70), and the film's final frame is pure black — by design
+      and by necessity: the render's last MP4 capture is a torn-down page
+      where every timed DOM element is hidden and only the never-hidden
+      ambient media keeps painting, parked at its window end at full
+      brightness; no DOM authoring touches those pixels, so the parked
+      media frame must itself be black (see index.html's ambient note).
+      The product steps back to make room: the phone layer rises to a
+      0.6 ghost across the cut (Chapter 2 carries no phone layer, so the
+      ghost is a fresh emergence over the dissolving dark stage), then
+      recedes to 84% while the lockup assembles — present and quiet
+      through the read, leaving with the film-out. The ambient footage is
+      a host-level element in index.html (its window 7.61–10.74, media
+      0.45–2.015 of the 2.16s source); Product Polish grade is applied
+      upstream on that element — no filters authored here. The scrim is a
+      DOM layer over the footage, not media grading.
+    */
+    @font-face{font-family:"POCOTech";font-weight:300;font-style:normal;font-display:block;src:url("assets/fonts/POCOTech-Light.woff") format("woff");}
+    @font-face{font-family:"POCOTech";font-weight:400;font-style:normal;font-display:block;src:url("assets/fonts/POCOTech-Regular.woff") format("woff");}
+    @font-face{font-family:"POCOTech";font-weight:500;font-style:normal;font-display:block;src:url("assets/fonts/POCOTech-Medium.woff") format("woff");}
+    @font-face{font-family:"POCOTech";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/POCOTech-SemiBold.woff") format("woff");}
+
+    /* Root: styled by #root, never a class. z-index:1 lifts this frame's DOM
+       layers (scrim + lockup) above the assembler-hoisted host video element,
+       which is appended after the scene slots with z-index auto. */
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      container-type: size;
+      z-index: 1;
+      font-family: "POCOTech";
+    }
+    #root > video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Phone layer — Frame 3's copy of the canonical product position (left
+       46cqw / top 3.6cqh / 52cqw square box; identical to Frames 1 and 2 —
+       change all three together or none). Authored hidden; the rise fromTo
+       below reveals it. Beneath the scrim in DOM (scrim paints after it). */
+    [id="03-tagline-lockup-phone"] {
+      position: absolute;
+      inset: 0;
+    }
+    [id="03-tagline-lockup-phone-img"] {
+      position: absolute;
+      left: 46cqw;
+      top: 3.6cqh;
+      width: 52cqw;
+      height: 52cqw;
+      object-fit: contain;
+      opacity: 0;
+    }
+
+    /* Full-bleed dim over the footage — deepens ~35% → ~50% across Scene 1.
+       A dedicated full-duration clip layer, never a background on #root. */
+    .tlk-scrim {
+      position: absolute;
+      inset: 0;
+      background: #000000;
+    }
+
+    /* The lockup lives inside the top-83% content band (keep-out built into
+       the layout box); flex centering puts it at the band's optical center. */
+    .tlk-lockup {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 83%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .tlk-label {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #FFCB05;
+      line-height: 1.2;
+    }
+    .tlk-tagline {
+      font-size: 8cqw;
+      font-weight: 400;
+      line-height: 1.04;
+      color: #FFFFFF;
+      white-space: nowrap;
+      margin-top: 1.6cqw;
+    }
+    .tlk-hairline {
+      width: 18cqw;
+      height: 1px;
+      background: #FFCB05;
+      margin-top: 2.2cqw;
+    }
+    /* Spec ribbon — the one-line selling-point footnote under the lockup:
+       platform · display · camera · battery · charging (official specs).
+       Authored hidden; the fromTo below reveals it as the lockup's coda. */
+    .tlk-ribbon {
+      font-size: 17px;
+      font-weight: 300;
+      letter-spacing: 2.4px;
+      color: rgba(255, 255, 255, 0.58);
+      white-space: nowrap;
+      margin-top: 2.4cqw;
+      opacity: 0;
+    }
+  </style>
+
+  <!-- No data-start on a sub-composition root: the host scene slot carries the
+       placement (start/duration on the wrapper div in index.html). (Incident
+       record: the render that dropped every DOM layer of this frame was caused
+       by data-hidden — a Studio save-time visibility marker — on the host slot
+       in index.html; the render runtime honors it as an unconditional
+       display:none on the bare render page, where no Studio shell recomputes
+       it. data-start was a red herring; the slot attribute has been removed.) -->
+  <div data-hf-id="hf-5fd1" id="root" data-composition-id="03-tagline-lockup" data-width="1920" data-height="1080" data-duration="3.13">
+    <!-- Full-bleed background candidate: the POCO F9 Ultra Live cinematography
+         demo loop, continuing from Frame 2. Single continuous 0.5× play across
+         the 3.13s window (media 0.45 → 2.015s of the 2.16s source — no loop
+         wrap, no restart; the rate and media-start live on the host element
+         in index.html). The Frame 2→3 cut re-phases backward ~1.2s inside
+         the crossfade window, where the dissolve, the scrim crossfade, and
+         the phone ghost-rise dominate the read. Handoff-in/out boundary
+         state: x 0, y 0, scale 1, opacity 1. -->
+    <!-- approved frame video hoisted by assemble-index -->
+
+    <!-- The product steps back: Frame 3's copy of the canonical phone layer,
+         AUTHORED HIDDEN (opacity 0) — it rises to a 0.6 ghost across the
+         0.5s overlap window (global 7.61–8.11) over Chapter 2's dissolving
+         dark stage (incoming root paints above — transition-compositing
+         law; see the runtime notes in 02-name-reveal.html). Then it recedes
+         to 84% while the lockup assembles. One DOM layer BENEATH the scrim:
+         at 0.6 opacity under the deepening 0.35 → 0.5 scrim the ghost's
+         bright streaks settle near ~30% ink — present, quiet, and legible
+         under the white tagline. -->
+    <div data-hf-id="hf-z3v8" class="clip" id="03-tagline-lockup-phone" data-start="0" data-duration="3.13" data-track-index="0">
+      <img data-hf-id="hf-h9s4" id="03-tagline-lockup-phone-img" src="assets/product-hero.png" alt="POCO F9 Ultra product render">
+    </div>
+
+    <!-- Full-bleed scrim clip: crossfades in 0 → ~35% against Chapter 2's
+         fading dark stage over the cut, then deepens to ~50% for the
+         closing read. -->
+    <div data-hf-id="hf-cuqs" class="clip tlk-scrim" id="03-tagline-lockup-scrim" data-start="0" data-duration="3.13" data-track-index="1"></div>
+
+    <!-- The four-element lockup: full-name label above, tagline, hairline,
+         spec ribbon beneath. Timed to the full slot like its siblings
+         (semantics only: an earlier theory that timing decided what
+         survived into the render's final capture was disproven — that
+         capture is a torn-down page that hides EVERY timed DOM element
+         regardless of window; the end-frame flash was the ambient media
+         itself, fixed asset-side via the -ftb copy. The film-out exits
+         below fade this lockup out at 2.85–3.09 so the last designed
+         frame meets the black the media has already reached.) -->
+    <div data-hf-id="hf-9va8" class="clip tlk-lockup" id="03-tagline-lockup-lockup" data-start="0" data-duration="3.13">
+      <div data-hf-id="hf-6r4j" class="tlk-label" id="03-tagline-lockup-label">POCO F9 ULTRA</div>
+      <div data-hf-id="hf-9qzi" class="tlk-tagline" id="03-tagline-lockup-tagline">Ultrapower Unbound</div>
+      <div data-hf-id="hf-evqc" class="tlk-hairline" id="03-tagline-lockup-hairline"></div>
+      <div data-hf-id="hf-rbn1" class="tlk-ribbon" id="03-tagline-lockup-ribbon">SNAPDRAGON® 8 ELITE GEN 5 · 6.9″ 185HZ AMOLED · 200MP OIS · 8050MAH · 100W HYPERCHARGE</div>
+    </div>
+  </div>
+
+  <script>
+    // Frame 3 — Ultrapower Unbound: the one move is the lockup's single
+    // continuous assembly (label → hairline → tagline), completing at 1.54s
+    // (cut-time 9.15s, the deepest breathing point), with the spec ribbon
+    // settling in as the coda at 1.15–1.85s and the product receding to a
+    // ghost behind it (rise across the cut, pull-back across the assembly);
+    // then allocated stillness to 2.85s, and the film-out — every layer
+    // fades 2.85–3.09 (global 10.46–10.70) under the ambient footage's own
+    // fade-to-black (the -ftb copy, black from global 10.51), so the film's
+    // final frame is pure black and the torn-down final capture (which
+    // shows only the parked, now-black media) joins it without a seam.
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    const byId = (id) => document.getElementById(id);
+    const scrim = byId("03-tagline-lockup-scrim");
+    const phoneImg = byId("03-tagline-lockup-phone-img");
+    const label = byId("03-tagline-lockup-label");
+    const tagline = byId("03-tagline-lockup-tagline");
+    const hairline = byId("03-tagline-lockup-hairline");
+    const ribbon = byId("03-tagline-lockup-ribbon");
+
+    // Scene 1 (0.0–0.50s): the incoming 0.5s crossfade — the frame is
+    // text-free beneath it; the scrim fades 0 → ~35% against Frame 2's
+    // scrim fading out over the same window, keeping the dim continuous
+    // across the cut. (The scene wrapper never tweens opacity — below 1
+    // it would form a stacking context and drop this subtree beneath the
+    // hoisted video, so the crossfade lives in the frame timelines.)
+    tl.fromTo(scrim, { opacity: 0 }, { opacity: 0.35, duration: 0.5, ease: "power2.inOut" }, 0);
+
+    // Scene 1b (0.50–0.90s): first visible instant — the scrim deepens
+    // ~35% → ~50%. immediateRender: false is load-bearing: this tween
+    // conflicts with the Scene-1 scrim tween on the same property, so its
+    // pending immediateRender defers to the timeline's first render —
+    // which lands on the slot's first visible frame (local ~0) and would
+    // paint 0.35 one frame early, doubling the dim with Frame 2's
+    // still-held 0.35 scrim at the cut for that single frame. With the
+    // flag the first render shows the Scene-1 tween's 0 and the dim stays
+    // continuous across the cut as designed. Same law as Frame 2's exit
+    // tweens; verified against gsap 3.14.2.
+    tl.fromTo(
+      scrim,
+      { opacity: 0.35 },
+      { opacity: 0.5, duration: 0.4, ease: "power2.out", immediateRender: false },
+      0.5
+    );
+
+    // Phone ghost-rise (0.0–0.50s): the product never leaves the screen.
+    // Rises 0 → 0.6 across the overlap window, crossfading against Frame
+    // 2's phone fading 1 → 0 over the identical window — composite
+    // presence declines smoothly from full to ghost with no instant of
+    // absence. No immediateRender flag needed: the from-state (opacity 0)
+    // is the authored CSS state, so any construction-time paint writes the
+    // value the sheet already holds.
+    tl.fromTo(
+      phoneImg,
+      { opacity: 0 },
+      { opacity: 0.6, duration: 0.5, ease: "power2.inOut" },
+      0
+    );
+
+    // Scene 2 (0.50–1.54s): the ONE move — the lockup assembles as one
+    // continuous gesture, starting at the first visible instant; completion
+    // stays at 1.54s (cut-time 9.15s, the deepest breathing point). The
+    // phone recedes in step: a 1.1s pull-back to 84% about its own center,
+    // clearing the center for the tagline while keeping the product on
+    // screen to the final frame. No immediateRender flag on the recede:
+    // from-state (scale 1) equals the authored transform-free state and no
+    // earlier tween touches scale.
+    tl.fromTo(
+      phoneImg,
+      { scale: 1 },
+      { scale: 0.84, duration: 1.1, ease: "power2.inOut", transformOrigin: "50% 50%" },
+      0.5
+    );
+    tl.fromTo(label, { opacity: 0 }, { opacity: 1, duration: 0.7, ease: "power2.out" }, 0.5);
+    tl.fromTo(hairline, { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power2.out" }, 0.65);
+    tl.fromTo(
+      tagline,
+      { opacity: 0, y: 32 },
+      { opacity: 1, y: 0, duration: 0.74, ease: "power3.out" },
+      0.8
+    );
+
+    // The coda — the spec ribbon rises under the hairline at 1.15s, a
+    // quiet postscript after the lockup's 1.54s completion (cut-time
+    // 9.46s): full name and slogan hold the read while the one-line
+    // selling points settle beneath. From-state (opacity 0) equals the
+    // authored CSS; no immediateRender flag needed on the entrance.
+    tl.fromTo(
+      ribbon,
+      { opacity: 0, y: 14 },
+      { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
+      1.15
+    );
+
+    // Scene 3 (1.54–2.85s): allocated stillness — nothing moves but the
+    // footage's own light-drift while the final swell resolves under the
+    // held read.
+
+    // The film-out (2.85–3.09s local = global 10.46–10.70): the lockup and
+    // the phone ghost melt to black in one gesture, tracking the ambient
+    // footage's own fade (the -ftb copy is black from global 10.51) so the
+    // last designed frame (10.70) already sits at black — and the render's
+    // torn-down final capture (every timed DOM element hidden; only the
+    // parked, now-black media painting) joins the film without a seam.
+    // These exits conflict with the entrances on opacity, so they carry
+    // immediateRender: false (deferred-paint law; the hairline's entrance
+    // touches only scaleX, making its flag technically redundant — the
+    // from-state equals the authored default — applied uniformly with the
+    // group). The scrim does NOT exit: black over black media is inert.
+    [label, tagline, hairline, ribbon].forEach((el) => {
+      tl.fromTo(
+        el,
+        { opacity: 1 },
+        { opacity: 0, duration: 0.24, ease: "power2.inOut", immediateRender: false },
+        2.85
+      );
+    });
+    tl.fromTo(
+      phoneImg,
+      { opacity: 0.6 },
+      { opacity: 0, duration: 0.24, ease: "power2.inOut", immediateRender: false },
+      2.85
+    );
+
+    // Full-span anchor: the timeline's duration equals the frame slot
+    // (3.13s), same law as Frames 1 and 2.
+    tl.to({}, { duration: 3.13 }, 0);
+
+    window.__timelines["03-tagline-lockup"] = tl;
+  </script>
+</template>

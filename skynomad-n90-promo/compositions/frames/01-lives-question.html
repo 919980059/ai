@@ -1,0 +1,147 @@
+<template>
+  <style>
+    @font-face{font-family:"MiSans VF";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/MiSansVF.ttf") format("truetype");}
+    @font-face{font-family:"JetBrains Mono";font-weight:340;font-style:normal;font-display:block;src:url("assets/fonts/JetBrainsMono-Regular.ttf") format("truetype");}
+
+    /* 影界 frame — near-black ground lives on the lowest clip, never on #root */
+    #root{
+      position:absolute; inset:0; overflow:hidden;
+      container-type:size;
+      font-family:"MiSans VF",sans-serif;
+      color:#FFFFFF;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* track 0 — photographic world: the one continuous camera push lives here */
+    .f01-hero{position:absolute;inset:0;background:#050507;transform-origin:50% 54%;will-change:transform;}
+    .f01-heroimg{position:absolute;inset:-32px;width:calc(100% + 64px);height:calc(100% + 64px);object-fit:cover;display:block;will-change:opacity,filter;}
+    .f01-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,7,0.62) 0%,rgba(5,5,7,0.55) 34%,rgba(5,5,7,0.52) 56%,rgba(5,5,7,0.26) 74%,rgba(5,5,7,0.34) 100%);}
+
+    /* track 1 — type stage, fixed while the world pushes (parallax focus) */
+    .f01-type{position:absolute;inset:0;}
+    .f01-stage{position:absolute;left:0;right:0;top:454px;height:0;}
+    .f01-beat1{position:absolute;left:0;right:0;top:-0.5em;text-align:center;font-size:14.6cqw;font-weight:340;line-height:1;letter-spacing:-0.018em;white-space:nowrap;will-change:transform,opacity,filter;}
+    .f01-qline{position:absolute;left:0;right:0;top:-0.5em;display:flex;justify-content:center;font-size:7.5cqw;font-weight:340;line-height:1;letter-spacing:-0.012em;white-space:nowrap;will-change:transform;}
+    .f01-chunk1,.f01-chunk2{display:inline-block;will-change:transform,opacity,filter;}
+
+    /* track 2 — ghost wordmark (white-keyed from the light-ground webp) */
+    .f01-wordmark{position:absolute;inset:0;}
+    .f01-wm{position:absolute;left:62px;top:26px;display:block;will-change:opacity;}
+
+    /* track 3 — pagenum chrome */
+    .f01-pagenumwrap{position:absolute;inset:0;}
+    /* pagenum as a paper tag — the caption card language, miniaturized for chrome.
+       Ink on its own paper: contrast is deterministic over any photograph. */
+    .f01-pagenum{position:absolute;right:44px;bottom:26px;font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:340;letter-spacing:0.08em;color:rgba(0,0,0,0.75);background:#FFFFFF;border:1px solid #000000;padding:5px 10px 6px;white-space:nowrap;will-change:opacity;}
+  </style>
+
+  <div data-hf-id="hf-7e1l" id="root" data-composition-id="01-lives-question" data-width="1920" data-height="1080" data-duration="3.8">
+
+    <!-- track 0 · 暗色整车 hero 全幅 + 影界 veil — 相机慢推的目标层 -->
+    <div data-hf-id="hf-bwwm" class="clip f01-hero" data-start="0" data-duration="3.8" data-track-index="0">
+      <img data-hf-id="hf-ttec" class="f01-heroimg" src="assets/1.jpg" alt="">
+      <div data-hf-id="hf-z3s8" class="f01-veil"></div>
+    </div>
+
+    <!-- track 1 · 提问双短语 — kinetic beats, 同一中心换拍 -->
+    <div data-hf-id="hf-k3dz" class="clip f01-type" data-start="0" data-duration="3.8" data-track-index="1">
+      <div data-hf-id="hf-giiy" class="f01-stage">
+        <div data-hf-id="hf-ankn" class="f01-beat1" data-layout-allow-overlap="">一辆车</div>
+        <div data-hf-id="hf-jy5f" class="f01-qline"><span data-hf-id="hf-f34s" class="f01-chunk1">能装下</span><span data-hf-id="hf-qub9" class="f01-chunk2">多少种生活？</span></div>
+      </div>
+    </div>
+
+    <!-- track 2 · 小米澎程字标 ghost — luminance-keyed to a white silhouette -->
+    <div data-hf-id="hf-x2yv" class="clip f01-wordmark" data-start="0" data-duration="3.8" data-track-index="2">
+      <svg data-hf-id="hf-yxw6" class="f01-wm" width="420" height="236.25" viewBox="0 0 2560 1440" aria-hidden="true" focusable="false">
+        <defs data-hf-id="hf-mh0t">
+          <filter data-hf-id="hf-h7jf" id="f01-wm-key" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
+            <!-- white out the RGB, set alpha = 1 − luminance: light ground keys to 0, dark glyphs stay -->
+            <fecolormatrix data-hf-id="hf-951y" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  -0.2126 -0.7152 -0.0722 0 1" />
+          </filter>
+        </defs>
+        <image data-hf-id="hf-cu6r" href="assets/wordmark-xiaomipengcheng.webp" x="0" y="0" width="2560" height="1440" filter="url(#f01-wm-key)" />
+      </svg>
+    </div>
+
+    <!-- track 3 · pagenum -->
+    <div data-hf-id="hf-t1u6" class="clip f01-pagenumwrap" data-start="0" data-duration="3.8" data-track-index="3">
+      <span data-hf-id="hf-fr9v" class="f01-pagenum" data-layout-allow-overlap="">01 / 07</span>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      var ID = "01-lives-question";
+      window.__timelines = window.__timelines || {};
+
+      var root =
+        document.querySelector('div[data-composition-id="' + ID + '"] #root') ||
+        document.querySelector('#root[data-composition-id="' + ID + '"]');
+      if (!root || typeof gsap === "undefined") { return; }
+
+      var find = function (sel) { return root.querySelector(sel); };
+      var hero    = find(".f01-hero");
+      var heroImg = find(".f01-heroimg");
+      var beat1   = find(".f01-beat1");
+      var chunk1  = find(".f01-chunk1");
+      var chunk2  = find(".f01-chunk2");
+      var qline   = find(".f01-qline");
+      var wm      = find(".f01-wm");
+      var pn      = find(".f01-pagenum");
+
+      /* 「能装下」 starts dead-center where 「一辆车」 was; when 「多少种生活？」
+         arrives the line re-centers, so chunk1 begins half of chunk2's width
+         right of its final slot. Measured from layout (CJK glyphs are full-width,
+         so the value is font-stable); arithmetic fallback if laid out hidden. */
+      var c2w = chunk2 ? chunk2.offsetWidth : 0;
+      var shift = c2w > 0 ? c2w / 2 : (1920 * 0.075 * 6 * 0.982) / 2;
+
+      var tl = gsap.timeline({ paused: true });
+
+      /* Scene 1 (0–0.25) 冷开定场 — photo soft-blur-in out of black; the ONE
+         continuous camera push starts at t=0, linear to 1.06, never re-pushes. */
+      tl.fromTo(hero, { scale: 1 }, { scale: 1.06, duration: 3.8, ease: "none" }, 0);
+      tl.fromTo(heroImg,
+        { opacity: 0, filter: "blur(26px)" },
+        { opacity: 1, filter: "blur(0px)", duration: 0.55, ease: "power2.out" }, 0);
+
+      /* chrome rides the 定场 — ghost wordmark top-left, pagenum bottom-right */
+      tl.fromTo(wm, { opacity: 0 }, { opacity: 0.45, duration: 0.7, ease: "power2.out" }, 0.22);
+      tl.fromTo(pn, { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 0.34);
+
+      /* Scene 2 (0.25–1.02) 第一拍 — 「一辆车」 lands as ONE unit on the VO
+         syllable, smooth long-tail settle, no overshoot. */
+      tl.fromTo(beat1,
+        { opacity: 0, scale: 1.16, filter: "blur(10px)" },
+        { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.62, ease: "power3.out" }, 0.25);
+
+      /* Scene 3 (1.02–2.3) 中心同位换拍 — 「一辆车」 shrinks and fades to yield;
+         「能装下」 (VO 1.35) takes the same dead center; 「多少种生活？」 (VO 2.30)
+         completes the question there while chunk1 glides to its final slot
+         (velocity-matched). */
+      tl.fromTo(beat1,
+        { opacity: 1, scale: 1, filter: "blur(0px)" },
+        { opacity: 0, scale: 0.88, filter: "blur(7px)", duration: 0.42, ease: "power2.in", immediateRender: false }, 1.02);
+      tl.fromTo(chunk1,
+        { x: shift, opacity: 0, scale: 1.12, filter: "blur(9px)" },
+        { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "power3.out" }, 1.35);
+      tl.fromTo(chunk2,
+        { opacity: 0, y: 26, filter: "blur(10px)" },
+        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55, ease: "power3.out" }, 2.30);
+      tl.fromTo(chunk1,
+        { x: shift },
+        { x: 0, duration: 0.55, ease: "power3.out", immediateRender: false }, 2.30);
+
+      /* Scene 4 (2.3–3.8) 悬问静持 — held read; only a subtle jitter on the
+         question line, fully settled before the VO tail (3.24). The camera
+         keeps its rate to 1.06 — the subject moves, not fake life. */
+      tl.fromTo(qline, { x: 0 }, { x: 2.2, duration: 0.34, ease: "power1.inOut", immediateRender: false }, 2.80);
+      tl.fromTo(qline, { x: 2.2 }, { x: 0, duration: 0.42, ease: "power1.inOut", immediateRender: false }, 3.15);
+
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

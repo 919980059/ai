@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  :root{
+    --cyan:#22d3ee; --sky:#38bdf8; --indigo:#818cf8; --violet:#a78bfa;
+    --amber:#fbbf24; --green:#34d399; --nblue:#60a5fa;
+    --txt:#e8f0ff; --sub:#9fb4d9; --faint:rgba(150,175,220,.55);
+    --line:rgba(120,160,255,.16);
+    --mono:"SF Mono",Menlo,Consolas,"Courier New",monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{width:2000px;background:#03081a;font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased;}
+  #canvas{position:relative;width:2000px;height:1090px;overflow:hidden;
+    background:
+      radial-gradient(900px 520px at 10% -5%, rgba(34,211,238,.11), transparent 60%),
+      radial-gradient(1100px 640px at 90% 105%, rgba(139,92,246,.13), transparent 60%),
+      radial-gradient(760px 440px at 55% 45%, rgba(59,130,246,.07), transparent 65%),
+      linear-gradient(160deg,#030815 0%,#071130 52%,#040a1e 100%);
+  }
+  #canvas::before{content:"";position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(96,165,250,.05) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(96,165,250,.05) 1px,transparent 1px);
+    background-size:50px 50px;
+    -webkit-mask-image:radial-gradient(ellipse 75% 70% at 50% 42%,#000 30%,transparent 95%);
+  }
+  svg.wires{position:absolute;inset:0;z-index:1;}
+  .node{position:absolute;z-index:3;border-radius:14px;
+    background:linear-gradient(180deg,rgba(20,32,64,.88),rgba(10,18,40,.92));
+    border:1px solid var(--line);
+    box-shadow:0 10px 30px rgba(0,0,0,.45),inset 0 1px 0 rgba(160,200,255,.08);
+  }
+  /* ---------- title ---------- */
+  .titlewrap{position:absolute;top:22px;left:0;width:100%;text-align:center;z-index:3;}
+  .tpill{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;
+    letter-spacing:3px;color:#67e8f9;padding:6px 20px;border-radius:999px;
+    border:1px solid rgba(34,211,238,.35);background:rgba(34,211,238,.07);}
+  .tpill::before,.tpill::after{content:"";width:28px;height:1px;background:linear-gradient(90deg,transparent,rgba(103,232,249,.7));}
+  .tpill::after{transform:scaleX(-1);}
+  h1{margin-top:10px;font-size:46px;font-weight:800;letter-spacing:2px;
+    background:linear-gradient(92deg,#7dd3fc 5%,#eef6ff 42%,#c4b5fd 95%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    text-shadow:0 0 42px rgba(99,166,255,.35);}
+  .tsub{margin-top:9px;font-size:17px;color:var(--sub);letter-spacing:1px;}
+  .tsub b{color:#cfe3ff;font-weight:600;}
+  /* ---------- badges / chips ---------- */
+  .bdg{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:12px;
+    padding:4px 11px;border-radius:999px;white-space:nowrap;}
+  .bdg-a{color:#67e8f9;background:rgba(34,211,238,.10);border:1px solid rgba(34,211,238,.38);}
+  .bdg-l{color:#c4b5fd;background:rgba(167,139,250,.10);border:1px solid rgba(167,139,250,.40);}
+  .mchip{display:inline-flex;align-items:center;font-family:var(--mono);font-size:12.5px;color:#bcd2f5;
+    padding:4px 10px;border-radius:6px;background:rgba(70,110,200,.14);border:1px solid rgba(120,160,255,.22);}
+  /* ---------- input row ---------- */
+  .entry{padding:16px 20px;}
+  .etitle{font-size:20px;font-weight:700;color:var(--txt);display:flex;align-items:center;gap:8px;}
+  .etitle .en{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--faint);margin-left:auto;}
+  .skillcard{border-color:rgba(167,139,250,.32)!important;
+    box-shadow:0 10px 30px rgba(0,0,0,.45),0 0 26px rgba(139,92,246,.12),inset 0 1px 0 rgba(180,160,255,.10)!important;}
+  /* ---------- stage cards ---------- */
+  .stage{padding:18px 22px 14px;--hue:var(--cyan);display:flex;flex-direction:column;
+    border-color:color-mix(in srgb,var(--hue) 30%,transparent);
+    box-shadow:0 12px 34px rgba(0,0,0,.5),0 0 30px color-mix(in srgb,var(--hue) 10%,transparent),inset 0 1px 0 rgba(170,210,255,.09);}
+  .stage::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;border-radius:14px 14px 0 0;
+    background:linear-gradient(90deg,color-mix(in srgb,var(--hue) 85%,transparent),color-mix(in srgb,var(--hue) 10%,transparent));}
+  .ghost{position:absolute;top:4px;right:14px;font-family:var(--mono);font-size:56px;font-weight:800;
+    color:color-mix(in srgb,var(--hue) 13%,transparent);line-height:1;pointer-events:none;}
+  .shead{display:flex;align-items:center;gap:10px;}
+  .sicon{font-size:28px;filter:drop-shadow(0 0 10px color-mix(in srgb,var(--hue) 45%,transparent));}
+  .stitle{font-size:23px;font-weight:700;color:#eef4ff;letter-spacing:1px;}
+  .sen{font-family:var(--mono);font-size:11.5px;letter-spacing:2px;color:color-mix(in srgb,var(--hue) 88%,#fff);margin-top:8px;}
+  .srow2{display:flex;align-items:center;margin-top:10px;}
+  .sdiv{height:1px;margin:12px 0 10px;background:linear-gradient(90deg,color-mix(in srgb,var(--hue) 30%,transparent),transparent 85%);}
+  /* timeline steps */
+  .steps{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;position:relative;padding-left:24px;}
+  .steps::before{content:"";position:absolute;left:8px;top:14px;bottom:14px;width:2px;border-radius:1px;
+    background:linear-gradient(180deg,color-mix(in srgb,var(--hue) 55%,transparent),color-mix(in srgb,var(--hue) 12%,transparent));}
+  .step{position:relative;display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;
+    background:color-mix(in srgb,var(--hue) 7%,transparent);border:1px solid color-mix(in srgb,var(--hue) 20%,transparent);
+    font-size:14.5px;color:#c9d8f5;white-space:nowrap;}
+  .step::after{content:"";position:absolute;left:-21px;top:50%;transform:translateY(-50%);
+    width:8px;height:8px;border-radius:50%;
+    background:color-mix(in srgb,var(--hue) 90%,#fff);
+    box-shadow:0 0 9px color-mix(in srgb,var(--hue) 70%,transparent);}
+  .step .sidx{flex:none;font-family:var(--mono);font-size:10px;color:color-mix(in srgb,var(--hue) 90%,#fff);
+    background:color-mix(in srgb,var(--hue) 16%,transparent);border:1px solid color-mix(in srgb,var(--hue) 35%,transparent);
+    border-radius:4px;padding:2px 7px;}
+  .looprow{flex:none;display:flex;align-items:center;gap:9px;margin-top:11px;padding:8px 12px;border-radius:8px;
+    border:1px dashed rgba(251,191,36,.45);background:rgba(251,191,36,.06);font-size:13.5px;color:#fcd34d;}
+  .passrow{flex:none;display:flex;align-items:center;gap:9px;margin-top:11px;padding:8px 12px;border-radius:8px;
+    border:1px solid rgba(52,211,153,.45);background:rgba(52,211,153,.08);font-size:13.5px;color:#6ee7b7;}
+  /* ---------- output row ---------- */
+  .ocard{--hue:var(--cyan);padding:16px 20px;border-color:color-mix(in srgb,var(--hue) 32%,transparent);
+    box-shadow:0 12px 34px rgba(0,0,0,.5),0 0 28px color-mix(in srgb,var(--hue) 10%,transparent),inset 0 1px 0 rgba(170,210,255,.09);}
+  .ocard::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;border-radius:14px 14px 0 0;
+    background:linear-gradient(90deg,color-mix(in srgb,var(--hue) 85%,transparent),color-mix(in srgb,var(--hue) 8%,transparent));}
+  .otitle{font-size:19px;font-weight:700;color:#f0f5ff;display:flex;align-items:center;gap:9px;}
+  .odesc{margin-top:10px;font-family:var(--mono);font-size:12.5px;color:#a9bfe6;letter-spacing:.5px;}
+  .gcard{--hue:var(--green);border-color:color-mix(in srgb,var(--hue) 38%,transparent);
+    background:linear-gradient(180deg,rgba(14,40,38,.85),rgba(8,22,26,.92))!important;
+    box-shadow:0 12px 34px rgba(0,0,0,.5),0 0 30px color-mix(in srgb,var(--hue) 15%,transparent),inset 0 1px 0 rgba(170,255,220,.10)!important;}
+  .gcard::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;border-radius:14px 14px 0 0;
+    background:linear-gradient(90deg,#34d399,rgba(52,211,153,.06));}
+  /* ---------- labels on wires ---------- */
+  .wlabel{position:absolute;z-index:2;font-size:14px;color:#6ee7b7;letter-spacing:.5px;white-space:nowrap;}
+  /* ---------- footer ---------- */
+  .footer{position:absolute;left:70px;right:70px;top:975px;z-index:3;}
+  .fhr{height:1px;background:linear-gradient(90deg,transparent,rgba(120,160,255,.22) 12%,rgba(120,160,255,.22) 88%,transparent);}
+  .frow{display:flex;align-items:center;margin-top:16px;}
+  .lg{display:flex;align-items:center;gap:20px;font-size:14px;color:var(--sub);white-space:nowrap;}
+  .lg .it{display:flex;align-items:center;gap:7px;}
+  .dot{width:10px;height:10px;border-radius:50%;}
+  .dashsw{width:28px;border-top:2px dashed rgba(251,191,36,.75);}
+  .gradsw{width:28px;height:4px;border-radius:2px;background:linear-gradient(90deg,#22d3ee,#a78bfa);box-shadow:0 0 8px rgba(99,166,255,.6);}
+  .roles{margin-left:auto;display:flex;gap:10px;}
+  .role{font-size:14px;color:#d5e2f8;padding:8px 15px;border-radius:9px;
+    background:rgba(16,26,52,.7);border:1px solid rgba(120,160,255,.20);white-space:nowrap;}
+  .fbtm{margin-top:18px;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:3px;color:rgba(110,140,190,.42);}
+  /* ---------- deco ---------- */
+  .corner{position:absolute;width:30px;height:30px;z-index:2;border-color:rgba(125,180,255,.38);border-style:solid;border-width:0;}
+  .c-tl{top:20px;left:20px;border-top-width:2px;border-left-width:2px;}
+  .c-tr{top:20px;right:20px;border-top-width:2px;border-right-width:2px;}
+  .c-bl{bottom:20px;left:20px;border-bottom-width:2px;border-left-width:2px;}
+  .c-br{bottom:20px;right:20px;border-bottom-width:2px;border-right-width:2px;}
+  .deco{position:absolute;z-index:2;font-family:var(--mono);font-size:11px;letter-spacing:2px;color:rgba(120,150,210,.5);}
+  .cross{position:absolute;z-index:2;width:12px;height:12px;color:rgba(125,180,255,.22);}
+  .cross::before,.cross::after{content:"";position:absolute;background:currentColor;}
+  .cross::before{left:5px;top:0;width:2px;height:12px;}
+  .cross::after{top:5px;left:0;height:2px;width:12px;}
+</style>
+</head>
+<body>
+<div id="canvas">
+
+  <svg class="wires" width="2000" height="1090" viewBox="0 0 2000 1090">
+    <defs>
+      <linearGradient id="busGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#22d3ee"/><stop offset=".35" stop-color="#38bdf8"/>
+        <stop offset=".68" stop-color="#818cf8"/><stop offset="1" stop-color="#a78bfa"/>
+      </linearGradient>
+      <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+        <feGaussianBlur stdDeviation="3.2" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <marker id="mBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#8cbeff"/></marker>
+      <marker id="mViolet" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/></marker>
+      <marker id="mGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+    </defs>
+
+    <!-- input -> skill card dashed link -->
+    <line x1="742" y1="228" x2="796" y2="228" stroke="rgba(167,139,250,.55)" stroke-width="2.5" stroke-dasharray="5 5"/>
+    <!-- input -> stage 1 (straight down) -->
+    <line x1="310" y1="286" x2="310" y2="320" stroke="rgba(148,180,255,.85)" stroke-width="3" marker-end="url(#mBlue)" filter="url(#glow)"/>
+
+    <!-- pipeline beam -->
+    <line x1="100" y1="551" x2="1900" y2="551" stroke="url(#busGrad)" stroke-width="12" opacity=".16" filter="url(#glow)"/>
+    <line x1="100" y1="551" x2="1900" y2="551" stroke="url(#busGrad)" stroke-width="4.5" marker-end="url(#mViolet)" filter="url(#glow)"/>
+    <g stroke="#38bdf8" stroke-width="3" fill="none" filter="url(#glow)">
+      <polyline points="524,541 535,551 524,561"/><polyline points="538,541 549,551 538,561"/>
+    </g>
+    <g stroke="#818cf8" stroke-width="3" fill="none" filter="url(#glow)">
+      <polyline points="984,541 995,551 984,561"/><polyline points="998,541 1009,551 998,561"/>
+    </g>
+    <g stroke="#a78bfa" stroke-width="3" fill="none" filter="url(#glow)">
+      <polyline points="1444,541 1455,551 1444,561"/><polyline points="1458,541 1469,551 1458,561"/>
+    </g>
+
+    <!-- stage4 -> outputs (trunk + 3-way fork) -->
+    <line x1="1690" y1="778" x2="1690" y2="794" stroke="rgba(52,211,153,.9)" stroke-width="3" filter="url(#glow)"/>
+    <line x1="380" y1="794" x2="1615" y2="794" stroke="rgba(52,211,153,.65)" stroke-width="3" filter="url(#glow)"/>
+    <line x1="380" y1="794" x2="380" y2="802" stroke="rgba(148,180,255,.85)" stroke-width="3" marker-end="url(#mBlue)" filter="url(#glow)"/>
+    <line x1="980" y1="794" x2="980" y2="802" stroke="rgba(148,180,255,.85)" stroke-width="3" marker-end="url(#mBlue)" filter="url(#glow)"/>
+    <line x1="1615" y1="794" x2="1615" y2="802" stroke="rgba(52,211,153,.9)" stroke-width="3" marker-end="url(#mGreen)" filter="url(#glow)"/>
+  </svg>
+
+  <div class="corner c-tl"></div><div class="corner c-tr"></div>
+  <div class="corner c-bl"></div><div class="corner c-br"></div>
+  <div class="deco" style="left:64px;top:36px;">⬡ MICO SKILL</div>
+  <div class="deco" style="right:64px;top:36px;">PRODUCT-FASTLANE</div>
+  <div class="cross" style="left:394px;top:114px;"></div>
+  <div class="cross" style="left:1594px;top:114px;"></div>
+  <div class="cross" style="left:120px;top:762px;"></div>
+  <div class="cross" style="left:1876px;top:762px;"></div>
+
+  <!-- ============ TITLE ============ -->
+  <div class="titlewrap">
+    <div class="tpill">MICO · SKILL PIPELINE</div>
+    <h1>产品站 Skill 执行流程</h1>
+    <div class="tsub">流程固化 <b>▸</b> 代码生成 <b>▸</b> 校验修复 <b>▸</b> Agent 自检&nbsp;&nbsp;——&nbsp;&nbsp;研发流程固化为<b>可版本化、可回归测试</b>的代码</div>
+  </div>
+
+  <!-- ============ INPUT ROW ============ -->
+  <div class="node entry" style="left:100px;top:172px;width:620px;height:112px;">
+    <div class="etitle">📦 输入<span class="en">INPUT</span></div>
+    <div style="display:flex;align-items:center;gap:22px;margin-top:14px;">
+      <div style="display:flex;gap:8px;"><span class="mchip">PSB</span><span class="mchip">Figma</span></div>
+      <div style="width:1px;height:30px;background:rgba(120,160,255,.18);"></div>
+      <div style="display:flex;gap:8px;"><span class="mchip">--site</span><span class="mchip">--platform both</span></div>
+    </div>
+  </div>
+
+  <div class="node entry skillcard" style="left:800px;top:172px;width:1130px;height:112px;">
+    <div class="etitle">⚙️ product-fastlane Skill<span class="bdg bdg-l" style="margin-left:auto;">脚本流水线</span></div>
+    <div style="margin-top:13px;font-size:14px;color:#dce6fb;">PSB-first · 双仓库（产品站 / 活动站）· 仓库 Profile 隔离差异 · 每步有明确脚本入口 / 成功判定 / 失败动作</div>
+    <div style="margin-top:7px;font-family:var(--mono);font-size:11.5px;letter-spacing:1px;color:rgba(196,181,253,.75);">STATUS 状态机：ok / needs_agent / blocked · fail-closed</div>
+  </div>
+
+  <!-- ============ STAGE CARDS ============ -->
+  <div class="node stage" style="left:100px;top:326px;width:420px;height:450px;--hue:var(--cyan);">
+    <div class="ghost">01</div>
+    <div class="shead"><span class="sicon">🔧</span><span class="stitle">流程固化</span></div>
+    <div class="sen">STAGE 01 · SOLIDIFY</div>
+    <div class="srow2"><span class="bdg bdg-a">🤖 脚本流水线</span></div>
+    <div class="sdiv"></div>
+    <div class="steps">
+      <div class="step"><span class="sidx">S0</span>worktree + feature 分支 · 多站同批</div>
+      <div class="step"><span class="sidx">S1</span>依赖预检 · 端口隔离</div>
+      <div class="step"><span class="sidx">S2</span>解析设计源 PSB / Figma · India 刷 Key</div>
+      <div class="step"><span class="sidx">S3</span>生成 profile + 步骤调度表</div>
+      <div class="step"><span class="sidx">S4</span>L0-L3 风险分级</div>
+    </div>
+  </div>
+
+  <div class="node stage" style="left:560px;top:326px;width:420px;height:450px;--hue:var(--sky);">
+    <div class="ghost">02</div>
+    <div class="shead"><span class="sicon">⚡</span><span class="stitle">代码生成</span></div>
+    <div class="sen">STAGE 02 · GENERATE</div>
+    <div class="srow2"><span class="bdg bdg-a">🤖 脚本流水线</span></div>
+    <div class="sdiv"></div>
+    <div class="steps">
+      <div class="step"><span class="sidx">L0</span>模板匹配 · 命中即用</div>
+      <div class="step"><span class="sidx">L1</span>布局装配 · 模板 + 组件</div>
+      <div class="step"><span class="sidx">L2</span>局部重排 · 局部重写</div>
+      <div class="step"><span class="sidx">L3</span>全量生成 · 整屏兜底</div>
+      <div class="step"><span class="sidx">OUT</span>双端代码 TSX / SCSS</div>
+    </div>
+  </div>
+
+  <div class="node stage" style="left:1020px;top:326px;width:420px;height:450px;--hue:var(--indigo);">
+    <div class="ghost">03</div>
+    <div class="shead"><span class="sicon">🧪</span><span class="stitle">校验修复</span></div>
+    <div class="sen">STAGE 03 · VALIDATE</div>
+    <div class="srow2"><span class="bdg bdg-a">🤖 自动修复</span></div>
+    <div class="sdiv"></div>
+    <div class="steps">
+      <div class="step"><span class="sidx">V1</span>换行 / 行高检测 · 行数断点保真</div>
+      <div class="step"><span class="sidx">V2</span>宽度自动修复 · ≤ PSB×1.15</div>
+      <div class="step"><span class="sidx">V3</span>格式化 ESLint + Prettier + Stylelint</div>
+      <div class="step"><span class="sidx">V4</span>图文对齐 · 视觉中心（--validate）</div>
+      <div class="step"><span class="sidx">V5</span>transKey 审计 · 宿主壳层（--validate）</div>
+    </div>
+    <div class="looprow">↺ 修复失败 → needs_agent，不越界改写</div>
+  </div>
+
+  <div class="node stage" style="left:1480px;top:326px;width:420px;height:450px;--hue:var(--violet);">
+    <div class="ghost">04</div>
+    <div class="shead"><span class="sicon">📸</span><span class="stitle">Agent 自检</span></div>
+    <div class="sen">STAGE 04 · SELF-CHECK</div>
+    <div class="srow2"><span class="bdg bdg-a">🤖 嵌套 Agent</span></div>
+    <div class="sdiv"></div>
+    <div class="steps">
+      <div class="step"><span class="sidx">C1</span>截图快检 · 逐屏视觉</div>
+      <div class="step"><span class="sidx">C2</span>深度自检 · 嵌套 Agent 循环</div>
+      <div class="step"><span class="sidx">C3</span>transKey 覆盖率审计</div>
+      <div class="step"><span class="sidx">C4</span>验收报告 final-review-report</div>
+    </div>
+    <div class="passrow">✓ 全部通过 · ready-for-user-acceptance</div>
+  </div>
+
+  <div class="wlabel" style="left:1706px;top:780px;">通过 ✓</div>
+
+  <!-- ============ OUTPUT ROW ============ -->
+  <div class="node ocard" style="left:100px;top:806px;width:560px;height:125px;--hue:var(--nblue);">
+    <div class="otitle">✅ 产出<span style="font-family:var(--mono);font-size:11px;letter-spacing:2px;color:rgba(150,175,220,.6);font-weight:400;">OUTPUT</span></div>
+    <div class="odesc">status = ok ▸ 输出证据链与产物路径 · 可回溯</div>
+  </div>
+
+  <div class="node ocard" style="left:700px;top:806px;width:560px;height:125px;--hue:var(--cyan);">
+    <div class="otitle">📄 验收报告</div>
+    <div class="odesc">final-review-report · ready-for-user-acceptance</div>
+  </div>
+
+  <div class="node ocard gcard" style="left:1300px;top:806px;width:630px;height:125px;">
+    <div class="otitle">🚀 构建产物</div>
+    <div class="odesc">FDS CDN 上传 + 本地引用回填 · 残留引用入清单</div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <div class="footer">
+    <div class="fhr"></div>
+    <div class="frow">
+      <div class="lg">
+        <span class="it"><span class="dot" style="background:#22d3ee;box-shadow:0 0 8px #22d3ee;"></span>🤖 Skill 脚本执行</span>
+        <span class="it"><span class="dot" style="background:#a78bfa;box-shadow:0 0 8px #a78bfa;"></span>▸ 调度表步骤</span>
+        <span class="it"><span class="dashsw"></span>↺ 失败回修</span>
+        <span class="it"><span class="gradsw"></span>执行光束</span>
+      </div>
+      <div class="roles">
+        <span class="role">步骤调度表 — 脚本入口 · 成功判定 · 失败动作</span>
+        <span class="role">fail-closed — 阻断即停 · 不越界</span>
+      </div>
+    </div>
+    <div class="fbtm">SOLIDIFY ▸ GENERATE ▸ VALIDATE ▸ SELF-CHECK · SKILL AS CODE · POWERED BY MICO</div>
+  </div>
+
+</div>
+</body>
+</html>

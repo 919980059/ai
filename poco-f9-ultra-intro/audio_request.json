@@ -1,0 +1,26 @@
+{
+  "lines": [
+    {
+      "id": "01",
+      "sfx": [
+        "none — the soothing bed alone carries the immersion beat"
+      ]
+    },
+    {
+      "id": "02",
+      "sfx": [
+        "none — the title's arrival is carried by landing on the music's breath",
+        "not by a sting"
+      ]
+    },
+    {
+      "id": "03",
+      "sfx": [
+        "none — the swell itself carries the payoff"
+      ]
+    }
+  ],
+  "bgm": {
+    "mode": "none"
+  }
+}

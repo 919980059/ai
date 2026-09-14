@@ -1,0 +1,168 @@
+<template>
+  <style>
+    @font-face{font-family:"MiSans VF";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/MiSansVF.ttf") format("truetype");}
+    @font-face{font-family:"JetBrains Mono";font-weight:340;font-style:normal;font-display:block;src:url("assets/fonts/JetBrainsMono-Regular.ttf") format("truetype");}
+
+    #root{position:relative;width:1920px;height:1080px;overflow:hidden;container-type:size;}
+
+    .f03-track{position:absolute;inset:0;}
+
+    /* — ground: paper field, one sun-bloom (diagonal to the top-left anchor), header chrome — */
+    .f03-paper{position:absolute;inset:0;background:#FFFFFF;}
+    .f03-bloom{position:absolute;left:1040px;top:300px;width:980px;height:980px;background:radial-gradient(circle,rgba(100,60,49,0.16) 0%,rgba(220,191,183,0.42) 30%,rgba(207,168,157,0.26) 55%,rgba(255,255,255,0) 80%);}
+    .f03-headrule{position:absolute;left:77px;top:96px;width:1766px;height:1px;background:#000000;}
+    .f03-microlabel{position:absolute;left:77px;top:60px;font-family:"MiSans VF";font-weight:340;font-size:13px;letter-spacing:0.18em;line-height:1;color:#000000;}
+    .f03-pagenum{position:absolute;right:77px;bottom:34px;font-family:"JetBrains Mono";font-weight:340;font-size:13px;letter-spacing:0.08em;line-height:1;color:#000000;opacity:0.75;}
+
+    /* — 2+2+3 anchor panel, top-left slot — */
+    .f03-anchor{position:absolute;left:77px;top:116px;width:640px;height:360px;box-sizing:border-box;border:1px solid #000000;background:#FFFFFF;will-change:transform;}
+    .f03-anchor img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;}
+
+    /* — manifesto lines, display scale, right of the anchor panel — */
+    .f03-manifesto{position:absolute;left:795px;top:148px;width:1048px;font-family:"MiSans VF";font-weight:340;color:#000000;}
+    .f03-line{font-size:136px;line-height:1.06;letter-spacing:-0.012em;white-space:nowrap;}
+    .f03-line2{margin-top:14px;}
+    .f03-ch{display:inline-block;will-change:transform;}
+    .f03-dash{position:absolute;left:832px;top:222px;}
+
+    /* — mode-card strand row below the anchor panel — */
+    .f03-card{position:absolute;top:516px;width:562px;will-change:transform;}
+    #f03-card1{left:77px;}
+    #f03-card2{left:679px;}
+    #f03-card3{left:1281px;}
+    .f03-cardimg{width:100%;height:282px;box-sizing:border-box;border:1px solid #000000;overflow:hidden;background:#FFFFFF;}
+    .f03-cardimg img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;}
+    .f03-cardlabel{margin-top:14px;border-top:1px solid rgba(0,0,0,0.2);padding-top:12px;display:flex;align-items:baseline;gap:14px;will-change:transform;}
+    .f03-cardnum{font-family:"JetBrains Mono";font-weight:340;font-size:14px;letter-spacing:0.04em;line-height:1;color:#000000;}
+    .f03-cardtitle{font-family:"MiSans VF";font-weight:340;font-size:30px;line-height:1;letter-spacing:0.02em;color:#000000;}
+    .f03-cardmode{margin-left:auto;font-family:"MiSans VF";font-weight:340;font-size:13px;letter-spacing:0.18em;line-height:1;color:#000000;}
+    .f03-jit{will-change:transform;}
+  </style>
+
+  <div data-hf-id="hf-bipp" id="root" data-composition-id="03-space-answers" data-width="1920" data-height="1080" data-duration="5.6">
+
+    <!-- ground + chrome (paper, sun-bloom, header rule, micro-label, pagenum) -->
+    <div data-hf-id="hf-qmu7" class="clip f03-track" data-start="0" data-duration="5.6" data-track-index="0">
+      <div data-hf-id="hf-6448" class="f03-paper"></div>
+      <div data-hf-id="hf-1gp7" class="f03-bloom"></div>
+      <div data-hf-id="hf-whu2" class="f03-headrule"></div>
+      <div data-hf-id="hf-5156" class="f03-microlabel" id="f03-microlabel">智能可变空间</div>
+      <div data-hf-id="hf-n9bk" class="f03-pagenum" data-layout-allow-overlap="">03 / 07</div>
+    </div>
+
+    <!-- Scene 1 — 2+2+3 anchor panel -->
+    <div data-hf-id="hf-moq6" class="clip f03-track" data-start="0" data-duration="5.6" data-track-index="1">
+      <div data-hf-id="hf-6iuy" class="f03-anchor" id="f03-anchor"><img data-hf-id="hf-f6d2" src="assets/12.jpg" alt=""></div>
+    </div>
+
+    <!-- Scenes 2–3 — manifesto lines + drawn em-dash -->
+    <div data-hf-id="hf-iqm5" class="clip f03-track" data-start="0" data-duration="5.6" data-track-index="2">
+      <div data-hf-id="hf-73u0" class="f03-manifesto">
+        <div data-hf-id="hf-nowg" class="f03-line f03-line1" id="f03-line1"><span data-hf-id="hf-n8ze" class="f03-ch">一</span><span data-hf-id="hf-ei8s" class="f03-ch">个</span><span data-hf-id="hf-n7fw" class="f03-ch">空</span><span data-hf-id="hf-59pa" class="f03-ch">间</span><span data-hf-id="hf-zt5i" class="f03-ch">，</span></div>
+        <div data-hf-id="hf-duzy" class="f03-line f03-line2" id="f03-line2"><span data-hf-id="hf-rmcp" class="f03-ch">不</span><span data-hf-id="hf-gi0k" class="f03-ch">止</span><span data-hf-id="hf-h332" class="f03-ch">一</span><span data-hf-id="hf-hoa1" class="f03-ch">种</span><span data-hf-id="hf-zr0e" class="f03-ch">答</span><span data-hf-id="hf-xt9e" class="f03-ch">案</span></div>
+        <svg data-hf-id="hf-7jzv" class="f03-dash" width="216" height="16" viewBox="0 0 216 16" xmlns="http://www.w3.org/2000/svg">
+          <path data-hf-id="hf-4uto" id="f03-dashpath" d="M 1 8 L 198 8" fill="none" stroke="#643C31" stroke-width="1" />
+          <rect data-hf-id="hf-h5d9" id="f03-dashnode" x="191" y="1" width="14" height="14" fill="#643C31" opacity="0" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Scene 4 — three mode cards, strand row -->
+    <div data-hf-id="hf-hyyc" class="clip f03-track" data-start="0" data-duration="5.6" data-track-index="3">
+      <div data-hf-id="hf-cynv" class="f03-card" id="f03-card1">
+        <div data-hf-id="hf-veup" class="f03-cardimg"><img data-hf-id="hf-npjc" src="assets/16-1.jpg" alt=""></div>
+        <div data-hf-id="hf-tv7l" class="f03-cardlabel" id="f03-label1"><span data-hf-id="hf-30cg" class="f03-cardnum">01</span><span data-hf-id="hf-thbg" class="f03-cardtitle">会客厅</span><span data-hf-id="hf-jpud" class="f03-cardmode">对坐</span></div>
+      </div>
+      <div data-hf-id="hf-2368" class="f03-card" id="f03-card2">
+        <div data-hf-id="hf-oulh" class="f03-cardimg"><img data-hf-id="hf-uoow" src="assets/19-3cover.jpg" alt=""></div>
+        <div data-hf-id="hf-xtbm" class="f03-cardlabel" id="f03-label2"><span data-hf-id="hf-1tfd" class="f03-cardnum">02</span><span data-hf-id="hf-3c47" class="f03-cardtitle">电影院</span><span data-hf-id="hf-bthz" class="f03-cardmode">后排影院</span></div>
+      </div>
+      <div data-hf-id="hf-2uu1" class="f03-card" id="f03-card3">
+        <div data-hf-id="hf-fmon" class="f03-jit" id="f03-jit3">
+          <div data-hf-id="hf-q1ik" class="f03-cardimg"><img data-hf-id="hf-obxk" src="assets/17-1cover.jpg" alt=""></div>
+          <div data-hf-id="hf-1rfn" class="f03-cardlabel" id="f03-label3"><span data-hf-id="hf-27qe" class="f03-cardnum">03</span><span data-hf-id="hf-81lr" class="f03-cardtitle">卧房</span><span data-hf-id="hf-9yam" class="f03-cardmode">床·露营</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+      window.__timelines["03-space-answers"] = tl;
+
+      /* duration pad — root timeline spans the full 5.6s frame */
+      tl.to({}, { duration: 5.6 }, 0);
+
+      /* Scene 1 (0.0–0.25) — anchor panel short direct-into-slot from the left (mid-entrance at t=0 per handoff) */
+      tl.fromTo("#f03-anchor",
+        { x: -130, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo("#f03-microlabel",
+        { y: 10, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 0.06);
+
+      /* Scene 2 (0.25–1.55) — 「一个空间，」 per-character word-beat, VO syllables 0.24–1.18 */
+      var l1Starts = [0.25, 0.44, 0.63, 0.82, 1.01];
+      var l1Chars = document.querySelectorAll("#f03-line1 .f03-ch");
+      for (var i = 0; i < l1Chars.length; i++) {
+        tl.fromTo(l1Chars[i],
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, l1Starts[i]);
+      }
+
+      /* Scene 3 (1.55–2.90) — 「不止一种答案」 same word-beat cascade, VO syllables 1.55–2.90 */
+      var l2Starts = [1.56, 1.78, 2.00, 2.22, 2.49, 2.70];
+      var l2Chars = document.querySelectorAll("#f03-line2 .f03-ch");
+      for (var j = 0; j < l2Chars.length; j++) {
+        tl.fromTo(l2Chars[j],
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.42, ease: "power3.out" }, l2Starts[j]);
+      }
+
+      /* Scene 3 — em-dash as wine hairline, svg-path-draw across the VO dash 2.90–3.26 */
+      var dashPath = document.getElementById("f03-dashpath");
+      var dashLen = dashPath.getTotalLength();
+      dashPath.style.strokeDasharray = String(dashLen);
+      dashPath.style.strokeDashoffset = String(dashLen);
+      tl.to(dashPath, { strokeDashoffset: 0, duration: 0.26, ease: "power2.out" }, 2.95);
+      tl.fromTo("#f03-dashnode",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.12, ease: "power1.out" }, 3.11);
+
+      /* Scene 4 (3.30–4.97) — mode cards on strict VO cues, short direct-into-slot (~0.3s),
+         center-outward order: sides emerge from toward the row center, center rises from below */
+      tl.fromTo("#f03-card1",
+        { x: 90, y: 24, opacity: 0, scale: 0.98 },
+        { x: 0, y: 0, opacity: 1, scale: 1, duration: 0.3, ease: "power3.out" }, 3.30);
+      tl.fromTo("#f03-label1",
+        { y: 12, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.28, ease: "power3.out" }, 3.48);
+
+      tl.fromTo("#f03-card2",
+        { x: 0, y: 30, opacity: 0, scale: 0.98 },
+        { x: 0, y: 0, opacity: 1, scale: 1, duration: 0.3, ease: "power3.out" }, 3.66);
+      tl.fromTo("#f03-label2",
+        { y: 12, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.28, ease: "power3.out" }, 3.84);
+
+      tl.fromTo("#f03-card3",
+        { x: -90, y: 24, opacity: 0, scale: 0.98 },
+        { x: 0, y: 0, opacity: 1, scale: 1, duration: 0.3, ease: "power3.out" }, 4.05);
+      tl.fromTo("#f03-label3",
+        { y: 12, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.28, ease: "power3.out" }, 4.23);
+
+      /* Scene 5 (4.97–5.6) — full formation, stillness; only the newest card keeps a subtle jitter */
+      tl.fromTo("#f03-jit3",
+        { y: 0 },
+        { y: 1.4, duration: 0.16, ease: "power1.inOut" }, 5.08);
+      tl.fromTo("#f03-jit3",
+        { y: 1.4 },
+        { y: 0, duration: 0.22, ease: "power2.out", immediateRender: false }, 5.24);
+    })();
+  </script>
+</template>

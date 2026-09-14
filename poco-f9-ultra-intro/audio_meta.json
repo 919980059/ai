@@ -1,0 +1,62 @@
+{
+  "bgm": {
+    "path": "assets/bgm/track-cut.wav",
+    "volume": 0.6,
+    "query": null,
+    "duration_s": 10.74,
+    "carve": {
+      "sources": ["voiceover"],
+      "strength": 0.45,
+      "dynamic": true,
+      "note": "v7 remix: bed was 7.2dB hotter than VO RMS and won every band (worst 250-500Hz +14.8dB) — bed 0.9->0.6 (-3.5dB) + carve 0.25->0.45 (4 bands incl 2.5kHz, level floor -10.6dB)"
+    }
+  },
+  "bgm_pending": false,
+  "voices": [
+    {
+      "id": "el-vo-01",
+      "path": "assets/vo/vo-01-name.wav",
+      "text": "POCO F9 Ultra.",
+      "engine": "kokoro-local",
+      "voice": "af_sky",
+      "speed": 1.1,
+      "start_s": 0.55,
+      "duration_s": 1.71,
+      "group": "voiceover"
+    },
+    {
+      "id": "el-vo-02",
+      "path": "assets/vo/vo-02-platform.wav",
+      "text": "Snapdragon 8 Elite Gen 5.",
+      "engine": "kokoro-local",
+      "voice": "af_sky",
+      "speed": 1.1,
+      "start_s": 2.55,
+      "duration_s": 2.33,
+      "group": "voiceover"
+    },
+    {
+      "id": "el-vo-03",
+      "path": "assets/vo/vo-03-imaging.wav",
+      "text": "Imaging unbound. Two hundred megapixels.",
+      "engine": "kokoro-local",
+      "voice": "af_sky",
+      "speed": 1.15,
+      "start_s": 4.92,
+      "duration_s": 2.47,
+      "group": "voiceover"
+    },
+    {
+      "id": "el-vo-04",
+      "path": "assets/vo/vo-04-lockup.wav",
+      "text": "POCO F9 Ultra. Ultrapower unbound.",
+      "engine": "kokoro-local",
+      "voice": "af_sky",
+      "speed": 1.15,
+      "start_s": 7.7,
+      "duration_s": 2.82,
+      "group": "voiceover"
+    }
+  ],
+  "sfx": []
+}

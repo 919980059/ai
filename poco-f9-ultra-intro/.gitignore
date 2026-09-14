@@ -1,0 +1,20 @@
+# 依赖
+node_modules/
+
+# 可再生的重产物：网站捕获缓存（含 108MB page.html）、框架快照
+capture/
+snapshots/
+
+# 渲染产物：只保留最终成片（例外规则在下方）
+renders/*
+!renders/poco-f9-ultra-intro_2026-09-09_15-20-07.mp4
+
+# 框架运行缓存
+.thumbnails/
+.waveform-cache/
+
+# macOS
+.DS_Store
+
+# TTS 词级时间戳（transcribe 每次运行都会覆盖，用完即删）
+transcript.json

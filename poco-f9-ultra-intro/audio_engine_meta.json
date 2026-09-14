@@ -1,0 +1,21 @@
+{
+  "tts_provider": null,
+  "voice_id": null,
+  "bgm": {
+    "path": "assets/bgm/track-cut.wav",
+    "volume": 0.9,
+    "mode": "detached-seed-loop",
+    "duration_s": 10.74
+  },
+  "bgm_pending": false,
+  "bgm_provider": "musicgen",
+  "bgm_pid": 86295,
+  "bgm_log": "/Users/mi/workspace/.codex-worktrees/nrfe-xlab/feature/product-fastlane-final/videos/poco-f9-ultra-intro/assets/bgm/bgm-1788873280931.log",
+  "bgm_mode": "detached-seed-loop",
+  "bgm_target_duration_s": 10.74,
+  "bgm_seed_duration_s": 28,
+  "bgm_loop_count": 2,
+  "voices": [],
+  "sfx": [],
+  "total_duration_s": 0
+}

@@ -1,0 +1,227 @@
+<template>
+  <style>
+    @font-face{font-family:"MiSans VF";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/MiSansVF.ttf") format("truetype");}
+    @font-face{font-family:"JetBrains Mono";font-weight:340;font-style:normal;font-display:block;src:url("assets/fonts/JetBrainsMono-Regular.ttf") format("truetype");}
+
+    /* 影界 frame — near-black ground lives inside the world, never on #root */
+    #root{
+      position:absolute; inset:0; overflow:hidden;
+      container-type:size;
+      font-family:"MiSans VF",sans-serif;
+      color:#FFFFFF;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* track 0 — the ONE oversized world; the whole journey is camera
+       scale/x/y on this wrapper (single source of truth, no CSS transition) */
+    .f06-stage{position:absolute;inset:0;}
+    .f06-world{
+      position:absolute;inset:0;
+      transform-origin:50% 50%;
+      will-change:transform,filter;
+    }
+    .f06-ground{position:absolute;inset:0;background:#050507;}
+
+    /* 昆仑横幅长条 — oversized inside the world (extends past world bounds;
+       #root clips at frame edge, marker covers the deliberate overflow) */
+    .f06-bannerGrp{position:absolute;inset:0;will-change:filter,opacity;}
+    .f06-banner{position:absolute;left:-340px;top:-60px;width:2600px;height:1156px;object-fit:cover;display:block;}
+
+    /* mono 技术站位 along the banner's lower band */
+    .f06-st{position:absolute;opacity:0;will-change:transform,opacity,filter;}
+    .f06-st1{left:900px;top:520px;}
+    .f06-st2{left:1480px;top:520px;}
+    .f06-stline{display:block;width:210px;height:1px;background:rgba(100,60,49,0.78);margin-bottom:10px;}
+    .f06-sttxt{display:block;font-family:"JetBrains Mono","MiSans VF",monospace;font-size:24px;font-weight:340;letter-spacing:0.06em;color:#FFFFFF;white-space:nowrap;}
+
+    /* 海边观景 — full-bleed inside the world, revealed at the pull-back */
+    .f06-sea{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;will-change:transform,opacity;}
+
+    /* 影界 veil — darkens whatever is beneath the number for legibility */
+    .f06-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,7,0.50) 0%,rgba(5,5,7,0.18) 46%,rgba(5,5,7,0.44) 100%);}
+
+    /* 1705 数字区 — center-left at rest; block positioned in px so every
+       camera target is a pure constant (zero runtime measurement) */
+    .f06-numGrp{position:absolute;left:80px;top:304px;width:840px;opacity:0;will-change:opacity,filter;}
+    .f06-num{
+      display:block;width:100%;text-align:center;
+      font-size:360px;font-weight:340;line-height:0.92;letter-spacing:-0.04em;
+      font-variant-numeric:tabular-nums;color:#FFFFFF;
+      transform-origin:center center;will-change:transform;
+    }
+    .f06-kmlabel{
+      display:block;margin-top:20px;text-align:center;
+      font-family:"JetBrains Mono","MiSans VF",monospace;font-size:22px;font-weight:340;
+      letter-spacing:0.14em;color:#FFFFFF;opacity:0;will-change:transform,opacity,filter;
+    }
+
+    /* 「远方」 — lands upper-right of the number at the pull-back */
+    .f06-far{
+      position:absolute;left:1100px;top:300px;width:400px;text-align:center;
+      font-size:160px;font-weight:340;line-height:1;letter-spacing:-0.01em;color:#FFFFFF;
+      opacity:0;will-change:transform,opacity,filter;
+    }
+
+    /* track 1 — pagenum chrome, fixed to the frame while the world travels */
+    .f06-pagewrap{position:absolute;inset:0;}
+    /* pagenum as a paper tag — ink on its own paper, deterministic over the photo world */
+    .f06-pagenum{position:absolute;right:44px;bottom:26px;font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:340;letter-spacing:0.08em;color:rgba(0,0,0,0.75);background:#FFFFFF;border:1px solid #000000;padding:5px 10px 6px;white-space:nowrap;opacity:0;will-change:opacity;}
+  </style>
+
+  <div data-hf-id="hf-xy7z" id="root" data-composition-id="06-range-1705" data-width="1920" data-height="1080" data-duration="5.3">
+
+    <!-- track 0 · 影界 world — 昆仑横幅 + 技术站位 + 1705 数字区 + 海边观景, one camera -->
+    <div data-hf-id="hf-r8ss" class="clip f06-stage" data-start="0" data-duration="5.3" data-track-index="0">
+      <div data-hf-id="hf-vbvy" class="f06-world" data-layout-allow-overflow="">
+        <div data-hf-id="hf-3wtk" class="f06-ground"></div>
+
+        <div data-hf-id="hf-a240" class="f06-bannerGrp">
+          <img data-hf-id="hf-wt0t" class="f06-banner" src="assets/28.jpg" alt="">
+          <div data-hf-id="hf-ybex" class="f06-st f06-st1">
+            <span data-hf-id="hf-h5mf" class="f06-stline"></span>
+            <span data-hf-id="hf-n2ky" class="f06-sttxt">76kWh 龙甲电池</span>
+          </div>
+          <div data-hf-id="hf-29iy" class="f06-st f06-st2">
+            <span data-hf-id="hf-diuv" class="f06-stline"></span>
+            <span data-hf-id="hf-17l3" class="f06-sttxt">60L 油箱</span>
+          </div>
+        </div>
+
+        <img data-hf-id="hf-2uev" class="f06-sea" src="assets/20-4.jpg" alt="">
+        <div data-hf-id="hf-6ewt" class="f06-veil"></div>
+
+        <div data-hf-id="hf-9vm4" class="f06-numGrp">
+          <span data-hf-id="hf-xjvb" class="f06-num" id="f06-num" data-layout-allow-overlap="">0</span>
+          <span data-hf-id="hf-nhau" class="f06-kmlabel">km · CLTC 综合续航</span>
+        </div>
+
+        <div data-hf-id="hf-twb7" class="f06-far">远方</div>
+      </div>
+    </div>
+
+    <!-- track 1 · pagenum -->
+    <div data-hf-id="hf-6pz0" class="clip f06-pagewrap" data-start="0" data-duration="5.3" data-track-index="1">
+      <span data-hf-id="hf-eht1" class="f06-pagenum" data-layout-allow-overlap="">06 / 07</span>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script>
+    (function () {
+      var ID = "06-range-1705";
+      window.__timelines = window.__timelines || {};
+
+      var root =
+        document.querySelector('div[data-composition-id="' + ID + '"] #root') ||
+        document.querySelector('#root[data-composition-id="' + ID + '"]');
+      if (!root || typeof gsap === "undefined") { return; }
+
+      var find = function (sel) { return root.querySelector(sel); };
+      var world     = find(".f06-world");
+      var bannerGrp = find(".f06-bannerGrp");
+      var st1       = find(".f06-st1");
+      var st2       = find(".f06-st2");
+      var sea       = find(".f06-sea");
+      var numGrp    = find(".f06-numGrp");
+      var num       = find(".f06-num");
+      var kmlabel   = find(".f06-kmlabel");
+      var far       = find(".f06-far");
+      var pn        = find(".f06-pagenum");
+
+      /* ── Camera ─────────────────────────────────────────────────────────
+         One state, one writer. cam = {scale, x, y} on the single .world
+         wrapper; every leg is a sequential fromTo tween on it, so any seek
+         reproduces the exact mid-leg pose. All world layout is authored in
+         absolute px, so every leg target below is a precomputed constant —
+         no getBoundingClientRect anywhere, not even at setup.
+
+         center-on-world-point math: x = −(px−960)·s, y = −(py−540)·s        */
+      var cam = { scale: 2.60, x: 884, y: 312 };
+      function applyCamera() {
+        world.style.transform =
+          "translate(" + cam.x + "px," + cam.y + "px) scale(" + cam.scale + ")";
+      }
+
+      /* leg poses (precomputed):
+         P0 start  — tight on banner texture:  center (620, 420)  @ s 2.60
+         P1 track  — lateral along the banner: center (1750, 430) @ s 2.42
+         P2 dive   — landed on the 1705 zone:  center (500, 470)  @ s 1.30
+         P3 rest   — the widened world:        center (960, 540)  @ s 1.00  */
+      var P0 = { scale: 2.60, x:  884, y:  312 };
+      var P1 = { scale: 2.42, x: -1911, y: 266 };
+      var P2 = { scale: 1.30, x:  598, y:   91 };
+      var P3 = { scale: 1.00, x:    0, y:    0 };
+
+      var tl = gsap.timeline({ paused: true, onUpdate: applyCamera });
+
+      /* Scene 1 (0–0.20) 影界启程 — world holds the start pose; the first
+         tween's from-state IS the pose (immediateRender at build). */
+
+      /* Scene 2 (0.20–1.10) 横向推进 — pan-stations tracking along the
+         banner, slow-fast-slow; velocity-peak blur rides the wrapper,
+         resolves to zero at the landing. */
+      tl.fromTo(cam, { scale: P0.scale, x: P0.x, y: P0.y },
+        { scale: P1.scale, x: P1.x, y: P1.y, duration: 0.87, ease: "power2.inOut" }, 0.20);
+      tl.fromTo(world, { filter: "blur(0px)" },
+        { filter: "blur(13px)", duration: 0.42, ease: "power1.in", immediateRender: false }, 0.20);
+      tl.fromTo(world, { filter: "blur(13px)" },
+        { filter: "blur(0px)", duration: 0.45, ease: "power2.out", immediateRender: false }, 0.62);
+
+      /* 技术站位 soft-blur-in as the camera's crop reaches each one */
+      tl.fromTo(st1,
+        { opacity: 0, y: 16, filter: "blur(8px)" },
+        { opacity: 0.9, y: 0, filter: "blur(0px)", duration: 0.34, ease: "power2.out", immediateRender: false }, 0.50);
+      tl.fromTo(st2,
+        { opacity: 0, y: 16, filter: "blur(8px)" },
+        { opacity: 0.9, y: 0, filter: "blur(0px)", duration: 0.34, ease: "power2.out", immediateRender: false }, 0.78);
+
+      /* chrome — the pagenum paper tag settles in early, riding above the traveling world */
+      tl.fromTo(pn, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, 0.30);
+
+      /* Scene 3 (1.10–2.76) 俯冲落数字 — power4.out violent arrival; the
+         banner group falls out of focus behind (DoF), the number reveals
+         sharp and counts 0→1705 with its scale growing (读音毕数字毕). */
+      tl.fromTo(cam, { scale: P1.scale, x: P1.x, y: P1.y },
+        { scale: P2.scale, x: P2.x, y: P2.y, duration: 1.66, ease: "power4.out", immediateRender: false }, 1.10);
+      tl.fromTo(bannerGrp, { filter: "blur(0px)" },
+        { filter: "blur(14px)", duration: 0.70, ease: "power2.in", immediateRender: false }, 1.12);
+
+      tl.fromTo(numGrp, { opacity: 0, filter: "blur(12px)" },
+        { opacity: 1, filter: "blur(0px)", duration: 0.35, ease: "power2.out", immediateRender: false }, 1.14);
+
+      var count = { v: 0 };
+      tl.fromTo(count, { v: 0 },
+        { v: 1705, duration: 1.62, ease: "power2.out", immediateRender: false,
+          onUpdate: function () { num.textContent = Math.round(count.v); } }, 1.14);
+      tl.fromTo(num, { scale: 0.86 },
+        { scale: 1, duration: 1.62, ease: "power2.out", immediateRender: false }, 1.14);
+
+      tl.fromTo(kmlabel,
+        { opacity: 0, y: 14, filter: "blur(8px)" },
+        { opacity: 0.85, y: 0, filter: "blur(0px)", duration: 0.35, ease: "power3.out", immediateRender: false }, 2.30);
+
+      /* Scene 4 (2.76–3.13) 破折号屏息 — the journey's only held shot:
+         no tween touches the camera across this window. */
+
+      /* Scene 5 (3.13–3.93) 远方拉开 — pull-back to rest; the seascape
+         rises from behind the number, the banner dissolves, 「远方」lands. */
+      tl.fromTo(cam, { scale: P2.scale, x: P2.x, y: P2.y },
+        { scale: P3.scale, x: P3.x, y: P3.y, duration: 0.80, ease: "power3.inOut", immediateRender: false }, 3.13);
+      tl.fromTo(sea, { opacity: 0, y: 70 },
+        { opacity: 1, y: 0, duration: 0.77, ease: "power2.out", immediateRender: false }, 3.13);
+      tl.fromTo(bannerGrp, { opacity: 1 },
+        { opacity: 0, duration: 0.37, ease: "power1.in", immediateRender: false }, 3.13);
+      tl.fromTo(far,
+        { opacity: 0, y: 18, filter: "blur(10px)" },
+        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.47, ease: "power3.out", immediateRender: false }, 3.13);
+
+      /* Scene 6 (3.95–5.30) 静持 — number + seascape dead static to the
+         frame end; the pad tween only pins the total duration. */
+      tl.to({}, { duration: 0.50 }, 4.80);
+
+      applyCamera();
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

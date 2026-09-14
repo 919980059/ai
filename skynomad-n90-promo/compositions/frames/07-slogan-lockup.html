@@ -1,0 +1,134 @@
+<template>
+<style>
+@font-face{font-family:"MiSans VF";font-weight:100 900;font-style:normal;font-display:block;src:url("assets/fonts/MiSansVF.ttf") format("truetype");}
+@font-face{font-family:"JetBrains Mono";font-weight:340;font-style:normal;font-display:block;src:url("assets/fonts/JetBrainsMono-Regular.ttf") format("truetype");}
+
+#root{position:relative;width:100%;height:100%;container-type:size;overflow:hidden;font-family:"MiSans VF",sans-serif;font-weight:340;color:#000000;}
+
+#f07-ground,#f07-lockup{position:absolute;inset:0;}
+#f07-ground{z-index:1;}
+#f07-lockup{z-index:2;}
+
+/* ── ground stack: the original bright studio photo of the car, shown as-is — no veil, no scrim ── */
+#f07-base{position:absolute;inset:0;background:linear-gradient(180deg,#f4f4f6 0%,#f2f2f4 52%,#efeff2 100%);}
+#f07-car{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;}
+/* pagenum as a paper tag — the caption card language, miniaturized for chrome */
+#f07-pagenum{position:absolute;right:4cqw;bottom:40px;font-family:"JetBrains Mono",monospace;font-weight:340;font-size:13px;letter-spacing:0.08em;color:rgba(0,0,0,0.75);background:#FFFFFF;border:1px solid #000000;padding:5px 10px 6px;white-space:nowrap;opacity:0;}
+
+/* ── wordmark band: light-ground asset luminance-keyed to its native dark glyphs; nested edge fades ── */
+#f07-wm-outer{position:absolute;left:536px;top:123px;width:848px;height:406px;z-index:2;
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0%,#000 14%,#000 90%,rgba(0,0,0,0) 100%);-webkit-mask-repeat:no-repeat;
+  mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0%,#000 14%,#000 90%,rgba(0,0,0,0) 100%);mask-repeat:no-repeat;}
+#f07-wm-band{position:absolute;inset:0;filter:url(#f07-wm-key);
+  -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0%,#000 12%,#000 88%,rgba(0,0,0,0) 100%);-webkit-mask-repeat:no-repeat;
+  mask-image:linear-gradient(90deg,rgba(0,0,0,0) 0%,#000 12%,#000 88%,rgba(0,0,0,0) 100%);mask-repeat:no-repeat;}
+.f07-wm-slice{position:absolute;top:0;width:212px;height:100%;background-image:url("assets/wordmark-xiaomipengcheng.webp");background-repeat:no-repeat;background-size:1528.79px 859.94px;clip-path:inset(0px 100% 0px 0px);}
+#f07-wm-s0{left:0px;background-position:-591.21px -262.76px;}
+#f07-wm-s1{left:212px;background-position:-803.21px -262.76px;}
+#f07-wm-s2{left:424px;background-position:-1015.21px -262.76px;}
+#f07-wm-s3{left:636px;background-position:-1227.21px -262.76px;}
+
+/* ── lockup text stack (all above the caption keep-out, bottom of stack y≈764 < 896) ── */
+#f07-slogan{position:absolute;left:0;top:520px;width:100%;text-align:center;z-index:3;font-size:4.6cqw;line-height:1.06;letter-spacing:-0.005em;color:#000000;}
+#f07-slogan-lead,.f07-ch{display:inline-block;opacity:0;}
+#f07-micro{position:absolute;left:0;top:648px;width:100%;text-align:center;z-index:3;font-size:22px;line-height:1.6;letter-spacing:0.18em;color:#000000;opacity:0;}
+#f07-hairline{position:absolute;left:720px;top:704px;width:480px;height:1px;z-index:3;background:rgba(100,60,49,0.55);opacity:0;}
+#f07-cta{position:absolute;left:0;top:726px;width:100%;text-align:center;z-index:3;font-family:"JetBrains Mono","MiSans VF",monospace;font-weight:340;font-size:27px;line-height:1.4;letter-spacing:0.06em;color:#000000;opacity:0;}
+</style>
+
+<div data-hf-id="hf-2ql8" id="root" data-composition-id="07-slogan-lockup" data-width="1920" data-height="1080">
+  <!-- luminance key for the wordmark band: native dark glyphs, light ground keyed out (same math as F1's white key, RGB kept) -->
+  <svg data-hf-id="hf-a1k2" width="0" height="0" style="position:absolute;" aria-hidden="true" focusable="false">
+    <defs data-hf-id="hf-b3m8">
+      <filter data-hf-id="hf-c4n9" id="f07-wm-key" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
+        <feColorMatrix data-hf-id="hf-d5p0" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -0.2126 -0.7152 -0.0722 0 1" />
+      </filter>
+    </defs>
+  </svg>
+
+  <div data-hf-id="hf-y19k" id="f07-ground" class="clip" data-start="0" data-duration="4.4" data-track-index="0">
+    <div data-hf-id="hf-lcqg" id="f07-base"></div>
+    <img data-hf-id="hf-0i5s" id="f07-car" src="assets/2.jpg" alt="">
+    <div data-hf-id="hf-5fw7" id="f07-pagenum" data-layout-allow-overlap="">07 / 07</div>
+  </div>
+
+  <div data-hf-id="hf-eclm" id="f07-lockup" class="clip" data-start="0" data-duration="4.4" data-track-index="1">
+    <div data-hf-id="hf-1s4l" id="f07-wm-outer">
+      <div data-hf-id="hf-fdk1" id="f07-wm-band">
+        <div data-hf-id="hf-6zqp" class="f07-wm-slice" id="f07-wm-s0"></div>
+        <div data-hf-id="hf-682w" class="f07-wm-slice" id="f07-wm-s1"></div>
+        <div data-hf-id="hf-evyr" class="f07-wm-slice" id="f07-wm-s2"></div>
+        <div data-hf-id="hf-axuq" class="f07-wm-slice" id="f07-wm-s3"></div>
+      </div>
+    </div>
+    <div data-hf-id="hf-3fsd" id="f07-slogan"><span data-hf-id="hf-lg0t" id="f07-slogan-lead">一车一世界，</span><span data-hf-id="hf-jvza" class="f07-ch" id="f07-ch1">自</span><span data-hf-id="hf-z735" class="f07-ch" id="f07-ch2">在</span><span data-hf-id="hf-60qr" class="f07-ch" id="f07-ch3">即</span><span data-hf-id="hf-iadd" class="f07-ch" id="f07-ch4">澎</span><span data-hf-id="hf-l5vp" class="f07-ch" id="f07-ch5">程</span></div>
+    <div data-hf-id="hf-ugxs" id="f07-micro">为那些活得明白、过得丰富的人而来</div>
+    <div data-hf-id="hf-xy2h" id="f07-hairline"></div>
+    <div data-hf-id="hf-2iir" id="f07-cta">预约试驾 · 26.99 万起</div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var tl = gsap.timeline({ paused: true });
+
+  /* Scene 1 — chrome: the pagenum paper tag settles with the lockup frame */
+  tl.fromTo("#f07-pagenum", { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "power2.out" }, 0.12);
+
+  /* Scene 2 — wordmark assembles left→right, segmented clip sweep, no bounce (0.25 → 1.41) */
+  var slices = document.querySelectorAll(".f07-wm-slice");
+  slices.forEach(function (sl, k) {
+    tl.fromTo(
+      sl,
+      { clipPath: "inset(0px 100% 0px 0px)", x: -14 },
+      { clipPath: "inset(0px 0% 0px 0px)", x: 0, duration: 0.5, ease: "power3.out" },
+      0.25 + k * 0.22
+    );
+  });
+
+  /* Scene 3 — slogan lands with the five syllables of 「自在即澎程」 */
+  tl.fromTo(
+    "#f07-slogan-lead",
+    { opacity: 0, y: -16 },
+    { opacity: 0.55, y: 0, duration: 0.44, ease: "power2.out" },
+    1.54
+  );
+  var cues = [1.54, 1.77, 2.00, 2.23, 2.46];
+  var chars = document.querySelectorAll(".f07-ch");
+  cues.forEach(function (c, i) {
+    tl.fromTo(
+      chars[i],
+      { opacity: 0, y: -34 },
+      { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" },
+      c
+    );
+  });
+
+  /* Scene 4 — closing stack, all motion complete by ~3.5 */
+  tl.fromTo(
+    "#f07-micro",
+    { opacity: 0, y: 10, filter: "blur(10px)" },
+    { opacity: 0.55, y: 0, filter: "blur(0px)", duration: 0.42, ease: "power2.out" },
+    2.85
+  );
+  tl.fromTo(
+    "#f07-hairline",
+    { opacity: 0, scaleX: 0 },
+    { opacity: 1, scaleX: 1, duration: 0.30, ease: "power3.inOut", transformOrigin: "left center" },
+    3.10
+  );
+  tl.fromTo(
+    "#f07-cta",
+    { opacity: 0, y: 12 },
+    { opacity: 0.92, y: 0, duration: 0.32, ease: "power3.out" },
+    3.20
+  );
+
+  /* Scene 5 — dead static 3.55→4.40; pin the root duration at exactly 4.4s */
+  tl.set({ pin: 0 }, { pin: 1 }, 4.4);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["07-slogan-lockup"] = tl;
+})();
+</script>
+</template>

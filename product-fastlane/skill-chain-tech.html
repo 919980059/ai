@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  :root{
+    --cyan:#22d3ee; --sky:#38bdf8; --indigo:#818cf8; --violet:#a78bfa;
+    --amber:#fbbf24; --green:#34d399; --nblue:#60a5fa;
+    --txt:#e8f0ff; --sub:#9fb4d9; --faint:rgba(150,175,220,.55);
+    --line:rgba(120,160,255,.16);
+    --mono:"SF Mono",Menlo,Consolas,"Courier New",monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{width:2000px;background:#03081a;font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased;}
+  #canvas{position:relative;width:2000px;height:1590px;overflow:hidden;
+    background:
+      radial-gradient(900px 520px at 8% -6%, rgba(34,211,238,.11), transparent 60%),
+      radial-gradient(1100px 620px at 92% 100%, rgba(139,92,246,.13), transparent 60%),
+      radial-gradient(760px 440px at 50% 30%, rgba(59,130,246,.07), transparent 65%),
+      linear-gradient(160deg,#030815 0%,#071130 52%,#040a1e 100%);
+  }
+  #canvas::before{content:"";position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(96,165,250,.05) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(96,165,250,.05) 1px,transparent 1px);
+    background-size:50px 50px;
+    -webkit-mask-image:radial-gradient(ellipse 75% 62% at 50% 32%,#000 30%,transparent 95%);
+  }
+  svg.wires{position:absolute;inset:0;z-index:1;}
+  .node{position:absolute;z-index:3;border-radius:14px;
+    background:linear-gradient(180deg,rgba(20,32,64,.88),rgba(10,18,40,.92));
+    border:1px solid var(--line);
+    box-shadow:0 10px 30px rgba(0,0,0,.45),inset 0 1px 0 rgba(160,200,255,.08);
+  }
+  .hcard{--hue:var(--nblue);border-color:color-mix(in srgb,var(--hue) 30%,transparent);
+    box-shadow:0 12px 34px rgba(0,0,0,.5),0 0 30px color-mix(in srgb,var(--hue) 10%,transparent),inset 0 1px 0 rgba(170,210,255,.09);}
+  .hcard::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;border-radius:14px 14px 0 0;
+    background:linear-gradient(90deg,color-mix(in srgb,var(--hue) 85%,transparent),color-mix(in srgb,var(--hue) 10%,transparent));}
+  /* ---------- title ---------- */
+  .titlewrap{position:absolute;top:24px;left:0;width:100%;text-align:center;z-index:3;}
+  .tpill{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;
+    letter-spacing:3px;color:#67e8f9;padding:6px 20px;border-radius:999px;
+    border:1px solid rgba(34,211,238,.35);background:rgba(34,211,238,.07);}
+  .tpill::before,.tpill::after{content:"";width:28px;height:1px;background:linear-gradient(90deg,transparent,rgba(103,232,249,.7));}
+  .tpill::after{transform:scaleX(-1);}
+  h1{margin-top:10px;font-size:42px;font-weight:800;letter-spacing:2px;
+    background:linear-gradient(92deg,#7dd3fc 5%,#eef6ff 42%,#c4b5fd 95%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    text-shadow:0 0 42px rgba(99,166,255,.35);}
+  .tsub{margin-top:9px;font-size:16.5px;color:var(--sub);letter-spacing:1px;}
+  .tsub b{color:#cfe3ff;font-weight:600;}
+  /* ---------- chain node ---------- */
+  .cn{padding:14px 14px 12px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;}
+  .cn .ic{font-size:26px;filter:drop-shadow(0 0 10px color-mix(in srgb,var(--hue) 45%,transparent));}
+  .cn .tt{font-size:18px;font-weight:700;color:#eef4ff;letter-spacing:.5px;}
+  .cn .en{font-family:var(--mono);font-size:9.5px;letter-spacing:1.5px;color:var(--faint);}
+  .cn .dd{font-size:12.5px;color:#a9bfe6;line-height:1.5;}
+  .mchip{display:inline-flex;align-items:center;font-family:var(--mono);font-size:12px;color:#bcd2f5;
+    padding:3px 9px;border-radius:6px;background:rgba(70,110,200,.14);border:1px solid rgba(120,160,255,.22);}
+  /* detail card (vertical) */
+  .dcard{--hue:var(--indigo);padding:16px 18px 14px;display:flex;flex-direction:column;
+    border-color:color-mix(in srgb,var(--hue) 30%,transparent);
+    box-shadow:0 12px 34px rgba(0,0,0,.5),0 0 30px color-mix(in srgb,var(--hue) 10%,transparent),inset 0 1px 0 rgba(170,210,255,.09);}
+  .dcard::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;border-radius:14px 14px 0 0;
+    background:linear-gradient(90deg,color-mix(in srgb,var(--hue) 85%,transparent),color-mix(in srgb,var(--hue) 10%,transparent));}
+  .dhead{display:flex;align-items:center;gap:10px;}
+  .dhead .ic{font-size:24px;filter:drop-shadow(0 0 10px color-mix(in srgb,var(--hue) 45%,transparent));}
+  .dhead .tt{font-size:19px;font-weight:700;color:#eef4ff;}
+  .bdg{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:11px;
+    padding:4px 10px;border-radius:999px;white-space:nowrap;}
+  .bdg-a{color:#67e8f9;background:rgba(34,211,238,.10);border:1px solid rgba(34,211,238,.38);}
+  .bdg-v{color:#c4b5fd;background:rgba(167,139,250,.10);border:1px solid rgba(167,139,250,.40);}
+  .bdg-y{color:#fcd34d;background:rgba(251,191,36,.10);border:1px solid rgba(251,191,36,.40);}
+  .lvl{padding:10px 12px;border-radius:10px;text-align:left;
+    background:color-mix(in srgb,var(--hue) 7%,transparent);border:1px solid color-mix(in srgb,var(--hue) 20%,transparent);}
+  .lvl .lh{display:flex;align-items:center;gap:9px;}
+  .lvl .ltag{flex:none;font-family:var(--mono);font-size:11px;font-weight:700;color:color-mix(in srgb,var(--hue) 90%,#fff);
+    background:color-mix(in srgb,var(--hue) 16%,transparent);border:1px solid color-mix(in srgb,var(--hue) 35%,transparent);
+    border-radius:4px;padding:2px 8px;}
+  .lvl .ln{font-size:15.5px;font-weight:700;color:#e4edff;}
+  .lvl .lc{margin-left:auto;font-size:11.5px;color:#93a8cf;white-space:nowrap;}
+  .lvl .ld{margin-top:6px;font-size:12.8px;color:#a9bfe6;line-height:1.5;}
+  .guard{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:8px;text-align:left;
+    border:1px dashed rgba(251,191,36,.45);background:rgba(251,191,36,.06);font-size:12.5px;color:#fcd34d;line-height:1.5;}
+  .sub{display:flex;align-items:flex-start;gap:9px;padding:8px 11px;border-radius:8px;text-align:left;
+    background:color-mix(in srgb,var(--hue) 7%,transparent);border:1px solid color-mix(in srgb,var(--hue) 20%,transparent);}
+  .sub .sidx{flex:none;font-family:var(--mono);font-size:10px;color:color-mix(in srgb,var(--hue) 90%,#fff);
+    background:color-mix(in srgb,var(--hue) 16%,transparent);border:1px solid color-mix(in srgb,var(--hue) 35%,transparent);
+    border-radius:4px;padding:2px 7px;margin-top:2px;}
+  .sub .st{font-size:14px;font-weight:600;color:#dbe6fa;line-height:1.35;}
+  .sub .sd{font-size:11.8px;color:#93a8cf;line-height:1.45;margin-top:3px;}
+  .looprow{display:flex;align-items:center;gap:8px;padding:7px 11px;border-radius:8px;
+    border:1px dashed rgba(251,191,36,.45);background:rgba(251,191,36,.06);font-size:12.5px;color:#fcd34d;}
+  .floatbadge{position:absolute;z-index:4;font-family:var(--mono);font-size:11.5px;color:#fcd34d;
+    padding:4px 12px;border-radius:999px;border:1px solid rgba(251,191,36,.4);background:rgba(10,16,34,.85);white-space:nowrap;}
+  /* ---------- schedule panel ---------- */
+  .sched{padding:20px 26px 16px;
+    border-color:rgba(167,139,250,.30)!important;
+    box-shadow:0 12px 34px rgba(0,0,0,.5),0 0 34px rgba(139,92,246,.12),inset 0 1px 0 rgba(180,160,255,.09)!important;}
+  .sched::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;border-radius:14px 14px 0 0;
+    background:linear-gradient(90deg,#818cf8,#a78bfa 55%,rgba(167,139,250,.05));}
+  .schedhead{display:flex;align-items:center;gap:16px;}
+  .schedhead .lt{font-size:21px;font-weight:700;color:#f0f5ff;display:flex;align-items:center;gap:9px;white-space:nowrap;}
+  .schedhead .le{font-family:var(--mono);font-size:10px;letter-spacing:2px;color:rgba(196,181,253,.65);white-space:nowrap;}
+  .schedhead .ld{font-size:13.5px;color:#b4c6ea;margin-left:auto;white-space:nowrap;}
+  .schedhead .ld b{color:#e8f0ff;}
+  .sched-tbl{width:100%;border-collapse:collapse;margin-top:13px;}
+  .sched-tbl th{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;padding:8px 14px;text-align:left;font-weight:600;}
+  th.c1{color:#c4b5fd;} th.c2{color:#d5e2f8;} th.c3{color:#7dd3fc;} th.c4{color:#6ee7b7;} th.c5{color:#fcd34d;}
+  .sched-tbl td{font-size:13.5px;color:#c9d8f5;padding:7.5px 14px;border-top:1px solid rgba(120,160,255,.10);}
+  .sched-tbl tr:nth-child(even) td{background:rgba(70,110,200,.045);}
+  td.tstep{font-family:var(--mono);font-size:12.5px;color:#c4b5fd;white-space:nowrap;}
+  td.tname{white-space:nowrap;}
+  td.tentry{font-family:var(--mono);font-size:12.3px;color:#7dd3fc;white-space:nowrap;}
+  td.tok{color:#6ee7b7;white-space:nowrap;}
+  td.tfail{color:#fcd34d;white-space:nowrap;}
+  /* ---------- bottom cards ---------- */
+  .bcard{--hue:var(--nblue);padding:15px 20px;border-color:color-mix(in srgb,var(--hue) 30%,transparent);
+    box-shadow:0 12px 34px rgba(0,0,0,.5),0 0 28px color-mix(in srgb,var(--hue) 9%,transparent),inset 0 1px 0 rgba(170,210,255,.09);}
+  .bcard::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;border-radius:14px 14px 0 0;
+    background:linear-gradient(90deg,color-mix(in srgb,var(--hue) 85%,transparent),color-mix(in srgb,var(--hue) 8%,transparent));}
+  .bcard .bt{font-size:17px;font-weight:700;color:#eef4ff;display:flex;align-items:center;gap:9px;}
+  .bcard .bd{margin-top:9px;font-size:13.5px;color:#b4c6ea;line-height:1.55;}
+  .bcard .bd b{color:#e8f0ff;}
+  .bcard .bd .mo{font-family:var(--mono);font-size:12px;color:#7dd3fc;}
+  /* ---------- footer ---------- */
+  .footer{position:absolute;left:70px;right:70px;top:1483px;z-index:3;}
+  .fhr{height:1px;background:linear-gradient(90deg,transparent,rgba(120,160,255,.22) 12%,rgba(120,160,255,.22) 88%,transparent);}
+  .frow{display:flex;align-items:center;margin-top:15px;}
+  .lg{display:flex;align-items:center;gap:20px;font-size:13.5px;color:var(--sub);white-space:nowrap;}
+  .lg .it{display:flex;align-items:center;gap:7px;}
+  .dot{width:10px;height:10px;border-radius:50%;}
+  .gradsw{width:28px;height:4px;border-radius:2px;background:linear-gradient(90deg,#22d3ee,#818cf8);box-shadow:0 0 8px rgba(99,166,255,.6);}
+  .dashsw{width:28px;border-top:2px dashed rgba(251,191,36,.75);}
+  .roles{margin-left:auto;display:flex;gap:10px;}
+  .role{font-size:13.5px;color:#d5e2f8;padding:8px 15px;border-radius:9px;
+    background:rgba(16,26,52,.7);border:1px solid rgba(120,160,255,.20);white-space:nowrap;}
+  .fbtm{margin-top:16px;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:3px;color:rgba(110,140,190,.42);}
+  /* ---------- deco ---------- */
+  .corner{position:absolute;width:30px;height:30px;z-index:2;border-color:rgba(125,180,255,.38);border-style:solid;border-width:0;}
+  .c-tl{top:20px;left:20px;border-top-width:2px;border-left-width:2px;}
+  .c-tr{top:20px;right:20px;border-top-width:2px;border-right-width:2px;}
+  .c-bl{bottom:20px;left:20px;border-bottom-width:2px;border-left-width:2px;}
+  .c-br{bottom:20px;right:20px;border-bottom-width:2px;border-right-width:2px;}
+  .deco{position:absolute;z-index:2;font-family:var(--mono);font-size:11px;letter-spacing:2px;color:rgba(120,150,210,.5);}
+  .wlabel{position:absolute;z-index:2;font-size:13.5px;color:#a78bfa;letter-spacing:.5px;white-space:nowrap;}
+</style>
+</head>
+<body>
+<div id="canvas">
+
+  <svg class="wires" width="2000" height="1590" viewBox="0 0 2000 1590">
+    <defs>
+      <linearGradient id="chainGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#60a5fa"/><stop offset=".4" stop-color="#38bdf8"/>
+        <stop offset=".75" stop-color="#818cf8"/><stop offset="1" stop-color="#a78bfa"/>
+      </linearGradient>
+      <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+        <feGaussianBlur stdDeviation="3.2" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <marker id="mGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/></marker>
+      <marker id="mGrey" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#8c9dc4"/></marker>
+    </defs>
+
+    <!-- main chain beam: default (solid) segment -->
+    <line x1="70" y1="500" x2="1488" y2="500" stroke="url(#chainGrad)" stroke-width="12" opacity=".16" filter="url(#glow)"/>
+    <line x1="70" y1="500" x2="1488" y2="500" stroke="url(#chainGrad)" stroke-width="4.5" filter="url(#glow)"/>
+    <!-- explicit-trigger (dashed amber) segment -->
+    <line x1="1488" y1="500" x2="1930" y2="500" stroke="#fbbf24" stroke-width="4" stroke-dasharray="10 7" marker-end="url(#mGreen)" filter="url(#glow)"/>
+
+    <g stroke="#38bdf8" stroke-width="3" fill="none" filter="url(#glow)">
+      <polyline points="244,490 255,500 244,510"/><polyline points="258,490 269,500 258,510"/>
+    </g>
+    <g stroke="#38bdf8" stroke-width="3" fill="none" filter="url(#glow)">
+      <polyline points="476,490 487,500 476,510"/><polyline points="490,490 501,500 490,510"/>
+    </g>
+    <g stroke="#818cf8" stroke-width="3" fill="none" filter="url(#glow)">
+      <polyline points="978,490 989,500 978,510"/><polyline points="982,490 993,500 982,510"/>
+    </g>
+    <g stroke="#818cf8" stroke-width="3" fill="none" filter="url(#glow)">
+      <polyline points="1180,490 1191,500 1180,510"/><polyline points="1184,490 1195,500 1184,510"/>
+    </g>
+    <g stroke="#fbbf24" stroke-width="3" fill="none" filter="url(#glow)">
+      <polyline points="1492,490 1503,500 1492,510"/><polyline points="1496,490 1507,500 1496,510"/>
+    </g>
+    <g stroke="#fbbf24" stroke-width="3" fill="none" filter="url(#glow)">
+      <polyline points="1734,490 1745,500 1734,510"/><polyline points="1738,490 1749,500 1738,510"/>
+    </g>
+
+    <!-- chain -> schedule panel (each step registered) -->
+    <line x1="1000" y1="790" x2="1000" y2="874" stroke="rgba(167,139,250,.65)" stroke-width="2.5" stroke-dasharray="6 6" marker-end="url(#mGrey)"/>
+  </svg>
+
+  <div class="corner c-tl"></div><div class="corner c-tr"></div>
+  <div class="corner c-bl"></div><div class="corner c-br"></div>
+  <div class="deco" style="left:64px;top:36px;">⬡ MICO SKILL</div>
+  <div class="deco" style="right:64px;top:36px;">PRODUCT-FASTLANE</div>
+
+  <!-- ============ TITLE ============ -->
+  <div class="titlewrap">
+    <div class="tpill">MICO · SKILL AS CODE</div>
+    <h1>产品站 Skill 化开发链路</h1>
+    <div class="tsub">从设计稿到合并 test —— <b>L0-L3 分级生成引擎</b> 逐屏生成，<b>步骤调度表</b> 驱动每一步：脚本入口 ▸ 成功判定 ▸ 失败动作</div>
+  </div>
+
+  <div class="wlabel" style="left:1016px;top:806px;">每步注册 ▾</div>
+  <div class="floatbadge" style="left:1478px;top:316px;">🙋 按需显式触发 · final_only</div>
+
+  <!-- ============ CHAIN NODES ============ -->
+  <div class="node cn hcard" style="left:70px;top:430px;width:170px;height:140px;--hue:var(--nblue);">
+    <span class="ic">🖼️</span><span class="tt">设计源</span>
+    <div style="display:flex;gap:6px;"><span class="mchip">PSB</span><span class="mchip">Figma</span></div>
+    <span class="dd" style="margin-top:-2px;">目录（默认）/ URL（可选）</span>
+    <span class="en">DESIGN SOURCE</span>
+  </div>
+
+  <div class="node cn hcard" style="left:272px;top:395px;width:200px;height:210px;--hue:var(--nblue);">
+    <span class="ic">🔍</span><span class="tt">解析 · 抽取</span>
+    <div style="width:100%;display:flex;flex-direction:column;gap:7px;">
+      <div class="sub" style="--hue:var(--nblue);"><span class="st">标准层 layers<span class="sd">双端归一化</span></div>
+      <div class="sub" style="--hue:var(--nblue);"><span class="st">style-targets<span class="sd">尺寸 / 颜色 / 字体目标</span></div>
+    </div>
+    <span class="en">PARSE & EXTRACT</span>
+  </div>
+
+  <div class="node dcard" style="left:504px;top:225px;width:470px;height:550px;--hue:var(--indigo);">
+    <div class="dhead">
+      <span class="ic">🧬</span><span class="tt">分级生成引擎</span>
+      <span class="bdg bdg-v" style="margin-left:auto;">按屏选择策略 · 逐级兜底</span>
+    </div>
+    <div class="guard" style="margin-top:10px;">📐 设计规范门禁 --design-spec-check · transKey 一致 / 缺 Key / 屏命名 → 生成前只读阻断</div>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:space-evenly;margin-top:8px;">
+      <div class="lvl">
+        <div class="lh"><span class="ltag">L0</span><span class="ln">模板匹配</span><span class="lc">整屏命中</span></div>
+        <div class="ld">设计稿与既有模板一致 → 直接复用模板结构，仅同步文案与素材</div>
+      </div>
+      <div class="lvl">
+        <div class="lh"><span class="ltag">L1</span><span class="ln">布局装配</span><span class="lc">标准布局</span></div>
+        <div class="ld">模板骨架 + 组件库（XmText / XmSup / XmScroll）按设计稿装配</div>
+      </div>
+      <div class="lvl">
+        <div class="lh"><span class="ltag">L2</span><span class="ln">局部重排</span><span class="lc">局部差异</span></div>
+        <div class="ld">保留命中区域，仅对差异区域重新排布生成</div>
+      </div>
+      <div class="lvl">
+        <div class="lh"><span class="ltag">L3</span><span class="ln">全量生成</span><span class="lc">全新布局</span></div>
+        <div class="ld">无可用模板 → 从标准层 layers 整屏生成兜底</div>
+      </div>
+    </div>
+    <div class="guard">✍️ 手写交互保护：manual-interaction 屏只同步文案 / 静态资源，不重写业务代码 · 未声明保护 → fail-closed 阻断</div>
+    <div style="text-align:center;margin-top:9px;font-family:var(--mono);font-size:9.5px;letter-spacing:1.5px;color:var(--faint);">L0-L3 GENERATION ENGINE</div>
+  </div>
+
+  <div class="node cn hcard" style="left:1006px;top:430px;width:170px;height:140px;--hue:var(--sky);">
+    <span class="ic">⚡</span><span class="tt">双端生成</span>
+    <div style="display:flex;gap:6px;"><span class="mchip">TSX</span><span class="mchip">SCSS</span></div>
+    <span class="dd" style="margin-top:-2px;">screenNN · 双端同构</span>
+    <span class="en">DUAL OUTPUT</span>
+  </div>
+
+  <div class="node dcard" style="left:1208px;top:320px;width:280px;height:360px;--hue:var(--cyan);">
+    <div class="dhead">
+      <span class="ic">🧪</span><span class="tt" style="font-size:18px;">默认校验</span>
+      <span class="bdg bdg-a" style="margin-left:auto;">🤖 默认执行</span>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:space-evenly;margin-top:8px;">
+      <div class="sub" style="--hue:var(--cyan);"><div><div class="st">换行检测</div><div class="sd">运行态行数 / 断点与设计一致</div></div></div>
+      <div class="sub" style="--hue:var(--cyan);"><div><div class="st">宽度自动修复</div><div class="sd">PSB 双向搜索 ≤ ×1.15 · 修完复检</div></div></div>
+      <div class="sub" style="--hue:var(--cyan);"><div><div class="st">确定性格式化</div><div class="sd">ESLint --fix + Prettier + Stylelint</div></div></div>
+    </div>
+    <div class="looprow">↺ 自动修复失败 → needs_agent 浮出</div>
+  </div>
+
+  <div class="node dcard" style="left:1520px;top:350px;width:210px;height:300px;--hue:var(--violet);">
+    <div class="dhead">
+      <span class="ic">📸</span><span class="tt" style="font-size:18px;">Agent 自检</span>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:space-evenly;margin-top:8px;">
+      <div class="sub" style="--hue:var(--violet);"><div><div class="st">截图快检</div><div class="sd">chrome-devtools 逐屏视觉</div></div></div>
+      <div class="sub" style="--hue:var(--violet);"><div><div class="st">深度自检</div><div class="sd">嵌套 Agent 修复循环</div></div></div>
+      <div class="sub" style="--hue:var(--violet);"><div><div class="st">覆盖率审计</div><div class="sd">transKey → 验收报告</div></div></div>
+    </div>
+    <div style="text-align:center;font-family:var(--mono);font-size:9.5px;letter-spacing:1.5px;color:var(--faint);">SELF-CHECK</div>
+  </div>
+
+  <div class="node cn hcard" style="left:1762px;top:430px;width:168px;height:140px;--hue:var(--green);
+    background:linear-gradient(180deg,rgba(14,40,38,.85),rgba(8,22,26,.92))!important;
+    border-color:rgba(52,211,153,.38)!important;
+    box-shadow:0 12px 34px rgba(0,0,0,.5),0 0 30px rgba(52,211,153,.14),inset 0 1px 0 rgba(170,255,220,.10)!important;">
+    <span class="ic">🔀</span><span class="tt">合并 test</span>
+    <span class="dd">Git 门禁<br>commit ▸ push</span>
+    <span class="en">MERGE TEST</span>
+  </div>
+
+  <!-- ============ SCHEDULE PANEL ============ -->
+  <div class="node sched" style="left:70px;top:880px;width:1860px;height:430px;">
+    <div class="schedhead">
+      <div class="lt">⚙️ 步骤调度表</div>
+      <div class="le">STEP SCHEDULE</div>
+      <div class="ld">每个环节注册为一条调度记录 —— Agent 按表推进，<b>研发流程本身成为可版本化、可回归测试的代码</b></div>
+    </div>
+    <table class="sched-tbl">
+      <thead>
+        <tr><th class="c1" style="width:90px;">STEP</th><th class="c2" style="width:220px;">环节</th><th class="c3">脚本入口</th><th class="c4" style="width:300px;">成功判定</th><th class="c5" style="width:280px;">失败动作</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="tstep">-1</td><td class="tname">🤖 worktree 初始化</td><td class="tentry">run_pipeline.py auto-worktree</td><td class="tok">feature 分支内执行</td><td class="tfail">创建失败 → 停</td></tr>
+        <tr><td class="tstep">0</td><td class="tname">🤖 前置依赖检查</td><td class="tentry">check_product_prerequisites.py</td><td class="tok">环境就绪 ≠ blocked</td><td class="tfail">blocked → 停</td></tr>
+        <tr><td class="tstep">2</td><td class="tname">🤖 PSB 设计解析</td><td class="tentry">build_assets_psb.py</td><td class="tok">assets_PSB.json 产出 · India 刷 Key</td><td class="tfail">解析失败 → 停</td></tr>
+        <tr><td class="tstep">5→6</td><td class="tname">🤖 代码生成（含默认校验）</td><td class="tentry">run_pipeline.py --site &lt;site&gt; --platform both</td><td class="tok">status = ok</td><td class="tfail">阻断 → 停</td></tr>
+        <tr><td class="tstep">5→6V</td><td class="tname">🙋 显式验证</td><td class="tentry">同上 + --validate</td><td class="tok">PSB / runtime·图文对齐 / 质量验证通过</td><td class="tfail">按验证报告处理</td></tr>
+        <tr><td class="tstep">8</td><td class="tname">🙋 截图快检</td><td class="tentry">chrome-devtools MCP</td><td class="tok">单轮视觉通过</td><td class="tfail">问题 → 修 → 重截</td></tr>
+        <tr><td class="tstep">9</td><td class="tname">🙋 深度自检</td><td class="tentry">run_ui_autofix_cycle.py</td><td class="tok">passed</td><td class="tfail">exhausted → 停</td></tr>
+        <tr><td class="tstep">10</td><td class="tname">🙋 最终验收</td><td class="tentry">audit_transkey_coverage.py</td><td class="tok">ready-for-acceptance</td><td class="tfail">not-ready → 停</td></tr>
+        <tr><td class="tstep">11</td><td class="tname">🙋 CDN 上传</td><td class="tentry">FDS 上传 + 引用回填</td><td class="tok">替换完成</td><td class="tfail">残留引用入清单</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ BOTTOM CARDS ============ -->
+  <div class="node bcard" style="left:70px;top:1338px;width:915px;height:115px;--hue:var(--cyan);">
+    <div class="bt">🌍 国际化内建<span style="font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--faint);font-weight:400;">I18N BUILT-IN</span></div>
+    <div class="bd"><b>transKey / RTL / 双市场 Profile</b> —— 国际站与 India 站的双市场差异，收敛在 <span class="mo">repository/profile.py</span> 一处维护</div>
+  </div>
+
+  <div class="node bcard" style="left:1015px;top:1338px;width:915px;height:115px;--hue:var(--violet);">
+    <div class="bt">👁️ CR 轻量化<span style="font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--faint);font-weight:400;">LIGHT CR</span></div>
+    <div class="bd"><b>单站目录隔离 + 组件化</b> —— CR 只需关注站点自身代码与版本号，review 模式固化，不再通读全仓</div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <div class="footer">
+    <div class="fhr"></div>
+    <div class="frow">
+      <div class="lg">
+        <span class="it"><span class="gradsw"></span>🤖 默认自动链路</span>
+        <span class="it"><span class="dashsw"></span>🙋 显式触发链路</span>
+        <span class="it"><span class="dot" style="background:#818cf8;box-shadow:0 0 8px #818cf8;"></span>🧬 L0-L3 分级引擎</span>
+        <span class="it"><span class="dot" style="background:#a78bfa;box-shadow:0 0 8px #a78bfa;"></span>⚙️ 步骤调度表</span>
+      </div>
+      <div class="roles">
+        <span class="role">final_only — 默认推进到脚本流水线结果即停</span>
+        <span class="role">fail-closed — 阻断即停 · 不越界</span>
+      </div>
+    </div>
+    <div class="fbtm">DESIGN SOURCE ▸ PARSE ▸ L0-L3 ENGINE ▸ DUAL OUTPUT ▸ VALIDATE ▸ SELF-CHECK ▸ MERGE TEST · SKILL AS CODE · POWERED BY MICO</div>
+  </div>
+
+</div>
+</body>
+</html>

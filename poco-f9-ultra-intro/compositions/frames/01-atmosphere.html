@@ -1,0 +1,382 @@
+<template>
+  <style>
+    /*
+      01-atmosphere — Chapter 1: the hero name (global 0–4.22, exits to 4.72).
+      The graded Live footage holds full-bleed while the name arrives in three
+      beats: the POCO brand stamp flashes center (0.15–1.4), a warm diagonal
+      light-sweep crosses BEHIND the product as the phone render rises out of
+      the black (0.65–2.1), then the title stack builds left — POCO / F9 /
+      ULTRA — and the platform ticker reads off the three headline specs
+      (1.3–3.2), followed by a held read to the cut.
+
+      The ambient footage's host window ends exactly AT 4.22, so the chapter
+      change reads as a deliberate cut-to-black into Chapter 2's dark camera
+      stage; every DOM layer here exits together across the 4.22–4.72 overlap
+      (transition-compositing law: both roots composite through the window,
+      Chapter 2's incoming root paints above). See 02-name-reveal.html.
+
+      Phone geometry (left 46cqw / top 3.6cqh / 52cqw square box) is the
+      canonical product position shared with Frame 3 — change together or
+      none. The frame's DOM paints above the host-level background footage
+      (#root z-index law, same as Frames 2 and 3).
+
+      Id note: digit-leading ids — all styling and GSAP targets use
+      [id="…"] attribute selectors / getElementById (same law as Frames 2
+      and 3; #01-… selectors are invalid CSS).
+    */
+    @font-face{font-family:"POCOTech";font-weight:300;font-style:normal;font-display:block;src:url("assets/fonts/POCOTech-Light.woff") format("woff");}
+    @font-face{font-family:"POCOTech";font-weight:400;font-style:normal;font-display:block;src:url("assets/fonts/POCOTech-Regular.woff") format("woff");}
+    @font-face{font-family:"POCOTech";font-weight:500;font-style:normal;font-display:block;src:url("assets/fonts/POCOTech-Medium.woff") format("woff");}
+    @font-face{font-family:"POCOTech";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/POCOTech-SemiBold.woff") format("woff");}
+
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      /* container law: cqw/cqh below resolve against this 1920×1080 ground */
+      container-type: size;
+      /* lifts this frame's DOM above the host-level background footage
+         (appended after the scene slots with z-index auto) — same law as
+         Frames 2 and 3. */
+      z-index: 1;
+      font-family: "POCOTech";
+    }
+
+    /* Light-sweep — one rotated warm band crossing the frame BEHIND the
+       phone (z-order: sweep 1 < scrim 2 < phone 3). Authored opacity 0;
+       the motion + envelope tweens below carry it. Height deliberately
+       over-tall so the 14° rotation still spans the frame; #root's
+       overflow: hidden clips the pokes. */
+    [id="01-atmosphere-sweep"] {
+      position: absolute;
+      left: 0;
+      top: -35cqh;
+      width: 44cqw;
+      height: 170cqh;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 214, 120, 0) 0%,
+        rgba(255, 236, 200, 0.5) 38%,
+        rgba(255, 255, 255, 0.65) 50%,
+        rgba(255, 236, 200, 0.5) 62%,
+        rgba(255, 214, 120, 0) 100%
+      );
+      opacity: 0;
+      z-index: 1;
+    }
+
+    /* Left scrim — contrast bed for the title stack and ticker. Deep enough
+       to hold 3:1+ for the tracked spec lines where the footage's light
+       streaks pass bottom-left (checker-measured bg luminance 0.313 under
+       the 0.74/0.58/42% stops — the longest row's tail at x≈756px sat on
+       only ~27% alpha; the 74% mid-stop holds ~36% there). This layer can
+       never dim the product: the phone paints at z-index 3, ABOVE this
+       bed (z 2) — deepening only darkens the footage behind. Fully
+       transparent by ~1075px. No exit tween by design: the ambient
+       footage's window ends AT the 4.22 cut and black-over-black is inert
+       for the remaining 0.5s of this slot. */
+    [id="01-atmosphere-leftscrim"] {
+      position: absolute;
+      inset: 0;
+      width: 56cqw;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.78) 0%,
+        rgba(0, 0, 0, 0.62) 52%,
+        rgba(0, 0, 0, 0.3) 74%,
+        rgba(0, 0, 0, 0) 100%
+      );
+      opacity: 0;
+      z-index: 2;
+    }
+
+    /* Phone layer — full-frame clip wrapper; the img inside carries the
+       canonical geometry. Authored hidden; revealed by the rise fromTo. */
+    [id="01-atmosphere-phone"] {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+    }
+    [id="01-atmosphere-phone-img"] {
+      position: absolute;
+      left: 46cqw;
+      top: 3.6cqh;
+      width: 52cqw;
+      height: 52cqw;
+      object-fit: contain;
+      opacity: 0;
+    }
+
+    /* Brand stamp — the center flash. padding-left compensates half the
+       letter-spacing so the tracked glyph group sits optically dead-center
+       (letter-spacing appends its final gap to the line box's right). */
+    [id="01-atmosphere-brand"] {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 42cqh;
+      text-align: center;
+      font-weight: 600;
+      font-size: 8cqw;
+      line-height: 1;
+      letter-spacing: 0.42em;
+      padding-left: 0.21em;
+      color: #ffcb05;
+      opacity: 0;
+      z-index: 4;
+    }
+
+    /* Title stack — left column on a 12cqw editorial grid, left-aligned;
+       padding-bottom lifts the block to sit high-left against the phone's
+       center-right mass (diagonal balance). */
+    [id="01-atmosphere-title"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 46cqw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding-left: 12cqw;
+      padding-bottom: 18cqh;
+      z-index: 5;
+    }
+    [id="01-atmosphere-title-label"] {
+      font-weight: 500;
+      font-size: 1.5cqw;
+      letter-spacing: 0.4em;
+      color: #ffcb05;
+      opacity: 0;
+    }
+    [id="01-atmosphere-title-name"] {
+      font-weight: 600;
+      font-size: 17cqw;
+      line-height: 0.95;
+      color: #ffffff;
+      opacity: 0;
+      margin-top: 1.2cqh;
+    }
+    /* 8.5cqw + 0.28em tracking lands the word's right edge at ~918px —
+       clear of the phone's ink (starts ~987px). */
+    [id="01-atmosphere-title-sub"] {
+      font-weight: 300;
+      font-size: 8.5cqw;
+      letter-spacing: 0.28em;
+      color: #ffffff;
+      opacity: 0;
+      margin-top: 0.6cqh;
+    }
+
+    /* Platform ticker — three spec rows, bottom-left on the same 12cqw
+       grid as the title stack. Yellow dash + tracked line, spec-sheet
+       register. */
+    [id="01-atmosphere-ticker"] {
+      position: absolute;
+      left: 12cqw;
+      bottom: 5cqh;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1cqh;
+      z-index: 6;
+    }
+    .tick-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      opacity: 0;
+    }
+    .tick-dash {
+      width: 30px;
+      height: 2px;
+      background: #ffcb05;
+      flex: none;
+    }
+    .tick-text {
+      font-weight: 400;
+      font-size: 1.5cqw;
+      letter-spacing: 0.18em;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+  </style>
+
+  <!-- No data-start on a sub-composition root — same law as Frames 2 and 3:
+       placement lives on the host scene slot. (Incident record: the earlier
+       render that dropped this frame's content was traced to data-hidden — a
+       Studio save-time visibility marker — on the host slot in index.html,
+       which the render runtime honors as an unconditional display:none; it was
+       unrelated to data-start. The slot attribute has been removed.) -->
+  <div data-hf-id="hf-c0iq" id="root" data-composition-id="01-atmosphere" data-width="1920" data-height="1080" data-duration="4.72">
+    <!-- Beat 2: the light-sweep (clip window = motion 0.65–1.65 + envelope
+         tail to 1.7; visibility toggles off exactly as it fades to 0). -->
+    <div data-hf-id="hf-sw1a" class="clip" id="01-atmosphere-sweep" data-start="0.65" data-duration="1.05" data-track-index="1"></div>
+
+    <!-- Contrast bed for the type (inert after the 4.22 cut; see CSS note). -->
+    <div data-hf-id="hf-lsc1" class="clip" id="01-atmosphere-leftscrim" data-start="0.4" data-duration="4.32" data-track-index="2"></div>
+
+    <!-- The product: official press render on the canonical geometry.
+         Entrance 0.85–2.1 (rise + settle), exit across the 4.22–4.72
+         overlap — Chapter 2 carries no phone layer, so the product must
+         leave with this frame. -->
+    <div data-hf-id="hf-k2m9" class="clip" id="01-atmosphere-phone" data-start="0" data-duration="4.72" data-track-index="3">
+      <img data-hf-id="hf-t4r7" id="01-atmosphere-phone-img" src="assets/product-hero.png" alt="POCO F9 Ultra product render">
+    </div>
+
+    <!-- Beat 1: the brand flash (clip window 0.15–1.4 = in + hold + out). -->
+    <div data-hf-id="hf-bst1" class="clip" id="01-atmosphere-brand" data-start="0.15" data-duration="1.25" data-track-index="4">POCO</div>
+
+    <!-- Beat 3: the name stack. -->
+    <div data-hf-id="hf-ttl1" class="clip" id="01-atmosphere-title" data-start="0" data-duration="4.72" data-track-index="5">
+      <div data-hf-id="hf-ttl2" id="01-atmosphere-title-label">POCO</div>
+      <!-- data-layout-allow-overlap: "F9" crosses Chapter 2's kicker during
+           the designed 4.22–4.72 chapter dissolve (both semi-transparent,
+           the crossing further dimmed under Chapter 2's rising stage
+           shadow). Waiver is local to this block per the layout audit's
+           placement rule — never hoist it to a scene/root. -->
+      <div data-hf-id="hf-ttl3" id="01-atmosphere-title-name" data-layout-allow-overlap="chapter-crossfade">F9</div>
+      <div data-hf-id="hf-ttl4" id="01-atmosphere-title-sub">ULTRA</div>
+    </div>
+
+    <!-- Beat 3b: platform spec ticker (official copy). -->
+    <div data-hf-id="hf-tck1" class="clip" id="01-atmosphere-ticker" data-start="0" data-duration="4.72" data-track-index="6">
+      <div data-hf-id="hf-tck2" class="tick-row" id="01-atmosphere-ticker-row1">
+        <div class="tick-dash"></div><span class="tick-text">SNAPDRAGON® 8 ELITE GEN 5</span>
+      </div>
+      <div data-hf-id="hf-tck3" class="tick-row" id="01-atmosphere-ticker-row2">
+        <div class="tick-dash"></div><span class="tick-text">VISIONBOOST D8 CHIPSET</span>
+      </div>
+      <div data-hf-id="hf-tck4" class="tick-row" id="01-atmosphere-ticker-row3">
+        <div class="tick-dash"></div><span class="tick-text">SOUND BY BOSE</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js" integrity="sha384-sG0Hv1tP1lZCk9KQmrIbY/XNwi+OY84GQqhMscbnsoBFqAz8KNCil1kvfL3Hbbk2" crossorigin="anonymous"></script>
+  <script>
+    // Frame 1 — Chapter 1, the hero name. Three beats on the opening bars:
+    // brand flash (0.15), light-sweep + product rise (0.65–2.1), name stack
+    // + platform ticker (1.3–3.2), then a held read to the 4.22 cut where
+    // everything exits together across the 0.5s overlap into Chapter 2's
+    // dark stage. All entrance from-states either equal the authored CSS
+    // (opacity 0) or sit on elements that are invisible until the tween
+    // starts, so no entrance needs immediateRender management.
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    const byId = (id) => document.getElementById(id);
+    const sweep = byId("01-atmosphere-sweep");
+    const leftscrim = byId("01-atmosphere-leftscrim");
+    const brand = byId("01-atmosphere-brand");
+    const phoneImg = byId("01-atmosphere-phone-img");
+    const titleLabel = byId("01-atmosphere-title-label");
+    const titleName = byId("01-atmosphere-title-name");
+    const titleSub = byId("01-atmosphere-title-sub");
+    const tickerRows = [
+      byId("01-atmosphere-ticker-row1"),
+      byId("01-atmosphere-ticker-row2"),
+      byId("01-atmosphere-ticker-row3"),
+    ];
+
+    // Beat 1 — POCO brand stamp: center flash in, hold, release out. The
+    // out-tween conflicts with the in-tween on opacity/scale, so
+    // immediateRender: false keeps its from-state from painting early.
+    tl.fromTo(
+      brand,
+      { opacity: 0, scale: 0.96 },
+      { opacity: 1, scale: 1, duration: 0.4, ease: "power3.out", transformOrigin: "50% 50%" },
+      0.15
+    );
+    tl.fromTo(
+      brand,
+      { opacity: 1, scale: 1 },
+      { opacity: 0, scale: 1.05, duration: 0.4, ease: "power2.inOut", immediateRender: false },
+      1.0
+    );
+
+    // Beat 1b — the contrast bed fades up 0.4–1.1, ahead of the name stack
+    // (1.3) so the type never lands on raw footage; the sweep (z1, below
+    // this bed at z2) dims slightly through the left zone as it crosses —
+    // reads as the light escaping into the clear right side. From-state
+    // (opacity 0) equals the authored CSS, so no immediateRender hazard.
+    // NO exit tween by design: the ambient footage's window ends AT 4.22,
+    // so past the cut this bed is black-over-black — inert — and Chapter
+    // 2's rising stage (DOM-later root) paints above it regardless.
+    tl.fromTo(leftscrim, { opacity: 0 }, { opacity: 1, duration: 0.7, ease: "power2.out" }, 0.4);
+
+    // Beat 2 — light-sweep: the rotated band crosses left→right behind the
+    // phone while the product rises. Motion and opacity envelope are
+    // separate tweens (different shapes); the envelope's second leg carries
+    // immediateRender: false because its from-state (0.7) differs from the
+    // authored 0 and it conflicts with the first leg on opacity.
+    tl.fromTo(
+      sweep,
+      { x: -1150, rotation: 14 },
+      { x: 1650, rotation: 14, duration: 1.0, ease: "power2.inOut" },
+      0.65
+    );
+    tl.fromTo(sweep, { opacity: 0 }, { opacity: 0.7, duration: 0.35, ease: "power2.out" }, 0.65);
+    tl.fromTo(
+      sweep,
+      { opacity: 0.7 },
+      { opacity: 0, duration: 0.4, ease: "power2.in", immediateRender: false },
+      1.3
+    );
+
+    // Beat 2b — the product rises out of the black: y +70 → 0 with a
+    // 1.06 → 1 scale settle, power3.out long tail. From-state opacity 0
+    // equals the authored CSS, so no immediateRender hazard.
+    tl.fromTo(
+      phoneImg,
+      { opacity: 0, y: 70, scale: 1.06 },
+      { opacity: 1, y: 0, scale: 1, duration: 1.25, ease: "power3.out", transformOrigin: "50% 50%" },
+      0.85
+    );
+
+    // Beat 3 — the name stacks up: label → F9 → ULTRA, staggered 0.12s,
+    // each a rise-and-settle; complete at 2.24s.
+    tl.fromTo(titleLabel, { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 1.3);
+    tl.fromTo(titleName, { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 1.42);
+    tl.fromTo(titleSub, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 1.54);
+
+    // Beat 3b — platform ticker: three spec rows, 0.18s stagger; complete
+    // at 3.16s, then a held read to the cut.
+    tickerRows.forEach((row, i) => {
+      tl.fromTo(row, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 2.3 + i * 0.18);
+    });
+
+    // Exits (4.22–4.72): every layer dissolves across the overlap into
+    // Chapter 2's dark stage — the title slides left as it fades, the
+    // phone lifts away, the ticker sinks. All conflict with their entrance
+    // tweens on opacity, so every exit carries immediateRender: false
+    // (deferred-paint law; see the long note in 02-name-reveal's exits).
+    tl.fromTo(
+      phoneImg,
+      { opacity: 1, y: 0 },
+      { opacity: 0, y: -30, duration: 0.5, ease: "power2.inOut", immediateRender: false },
+      4.22
+    );
+    [titleLabel, titleName, titleSub].forEach((el) => {
+      tl.fromTo(
+        el,
+        { opacity: 1 },
+        { opacity: 0, x: -40, duration: 0.5, ease: "power2.inOut", immediateRender: false },
+        4.22
+      );
+    });
+    tickerRows.forEach((row) => {
+      tl.fromTo(
+        row,
+        { opacity: 1 },
+        { opacity: 0, y: 12, duration: 0.5, ease: "power2.inOut", immediateRender: false },
+        4.22
+      );
+    });
+
+    // Full-span anchor: the timeline's duration equals the frame slot
+    // (4.22s content + the 0.5s crossfade tail).
+    tl.to({}, { duration: 4.72 }, 0);
+
+    window.__timelines["01-atmosphere"] = tl;
+  </script>
+</template>

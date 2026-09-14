@@ -1,0 +1,308 @@
+<template>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+
+  <style>
+    /* — staged brand fonts (project-root relative, shipped files only) — */
+    @font-face {
+      font-family: "MiSans VF";
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: block;
+      src: url("assets/fonts/MiSansVF.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "JetBrains Mono";
+      font-weight: 340;
+      font-style: normal;
+      font-display: block;
+      src: url("assets/fonts/JetBrainsMono-Regular.ttf") format("truetype");
+    }
+
+    /* — frame root: styled via #root, never a class here — */
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: transparent;
+      color: #000000;
+      font-family: "MiSans VF", sans-serif;
+      container-type: size;
+    }
+    #root,
+    #root * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* — paper ground: full-bleed on a clip layer, never on #root — */
+    #f04-ground {
+      position: absolute;
+      inset: 0;
+      background: #ffffff;
+    }
+
+    /* — one sun bloom, behind the numeral zone (upper-left) — */
+    #f04-bloom {
+      position: absolute;
+      inset: 0;
+    }
+    #f04-bloomglow {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      background: radial-gradient(
+        circle 660px at 500px 380px,
+        rgba(100, 60, 49, 0.38) 0%,
+        rgba(220, 191, 183, 0.45) 34%,
+        rgba(207, 168, 157, 0.2) 58%,
+        rgba(207, 168, 157, 0) 74%
+      );
+    }
+
+    /* — content — */
+    #f04-content {
+      position: absolute;
+      inset: 0;
+    }
+    #f04-stage {
+      position: absolute;
+      inset: 0;
+      transform-origin: 50% 40%;
+    }
+
+    /* micro-label — 超大后备厢 · CARGO (stage chrome, present from t=0) */
+    #f04-micro {
+      position: absolute;
+      left: 76px;
+      top: 112px;
+      font-size: 13px;
+      font-weight: 340;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #000000;
+      white-space: nowrap;
+    }
+
+    /* the count — numeral-jumbo, tabular, fixed-width wrap (no reflow).
+       Sized so the full 4-digit advance (2.376em @ MiSans 340 tabular)
+       clears the photo column with a ~60px gutter. */
+    #f04-numwrap {
+      position: absolute;
+      left: 97px; /* "1" ink bearing lands flush on the 76px margin */
+      top: 246px;
+      width: 1074px;
+      height: 378px;
+      opacity: 0;
+    }
+    #f04-num {
+      display: block;
+      font-family: "MiSans VF", sans-serif;
+      font-weight: 340;
+      font-size: 450px;
+      line-height: 0.84;
+      letter-spacing: -0.04em;
+      font-variant-numeric: tabular-nums;
+      color: #000000;
+      transform-origin: 0% 94%; /* grows up from the flush-left baseline */
+    }
+
+    /* unit label — 升后备厢, lands on the word ~1.4s */
+    #f04-unit {
+      position: absolute;
+      left: 76px;
+      top: 652px;
+      font-size: 88.32px; /* headline slot 4.6cqw */
+      line-height: 1.06;
+      font-weight: 340;
+      letter-spacing: -0.005em;
+      color: #000000;
+      opacity: 0;
+      white-space: nowrap;
+    }
+
+    /* 装载线 — thin fill track, aligned to the numeral's ink width */
+    #f04-track {
+      position: absolute;
+      left: 76px;
+      top: 782px;
+      width: 1070px;
+      height: 14px;
+      border: 1px solid rgba(0, 0, 0, 0.22);
+      background: rgba(0, 0, 0, 0.04);
+      opacity: 0;
+    }
+    #f04-fill {
+      width: 100%;
+      height: 100%;
+      background: #643c31; /* sun as the hairline voltage color */
+      transform: scaleX(0);
+      transform-origin: left center;
+    }
+
+    /* 兑现 — the two photo plates, right column */
+    #f04-hero {
+      position: absolute;
+      left: 1210px;
+      top: 146px;
+      width: 634px;
+      height: 357px;
+      border: 1px solid #000000;
+      background: #ffffff;
+      overflow: hidden;
+      opacity: 0;
+    }
+    #f04-ride {
+      position: absolute;
+      left: 1210px;
+      top: 539px;
+      width: 634px;
+      height: 317px;
+      border: 1px solid #000000;
+      background: #ffffff;
+      overflow: hidden;
+      opacity: 0;
+    }
+    #f04-hero img,
+    #f04-ride img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* pagenum — persistent chrome, bottom-right, ink 75% */
+    #f04-pagenum {
+      position: absolute;
+      right: 76px;
+      bottom: 26px;
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 340;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      color: rgba(0, 0, 0, 0.75);
+    }
+  </style>
+
+  <div data-hf-id="hf-vziq" id="root" data-composition-id="04-trunk-1831" data-width="1920" data-height="1080" data-duration="5">
+    <!-- track 0 · paper ground -->
+    <div data-hf-id="hf-naaw" id="f04-ground" class="clip" data-start="0" data-duration="5" data-track-index="0"></div>
+
+    <!-- track 1 · sun bloom behind the numeral zone -->
+    <div data-hf-id="hf-9o51" id="f04-bloom" class="clip" data-start="0" data-duration="5" data-track-index="1">
+      <div data-hf-id="hf-e8xs" id="f04-bloomglow"></div>
+    </div>
+
+    <!-- track 2 · content -->
+    <div data-hf-id="hf-p2pu" id="f04-content" class="clip" data-start="0" data-duration="5" data-track-index="2">
+      <div data-hf-id="hf-rqcg" id="f04-stage">
+        <div data-hf-id="hf-yn0o" id="f04-micro">超大后备厢 · CARGO</div>
+        <div data-hf-id="hf-tdba" id="f04-numwrap"><span data-hf-id="hf-wboq" id="f04-num" data-layout-allow-overlap="">1831</span></div>
+        <div data-hf-id="hf-9qx4" id="f04-unit">升后备厢</div>
+        <div data-hf-id="hf-xtd3" id="f04-track"><div data-hf-id="hf-k7ex" id="f04-fill"></div></div>
+        <div data-hf-id="hf-5ghm" id="f04-hero"><img data-hf-id="hf-qdae" src="assets/20.jpg" alt="超大后备厢"></div>
+        <div data-hf-id="hf-adx8" id="f04-ride"><img data-hf-id="hf-b21a" src="assets/20-2.jpg" alt="户外骑行装载"></div>
+      </div>
+      <div data-hf-id="hf-i25h" id="f04-pagenum" data-layout-allow-overlap="">04 / 07</div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+      window.__timelines["04-trunk-1831"] = tl;
+
+      // full-span anchor — the frame timeline spans its whole 5.0s window
+      tl.to({}, { duration: 5.0 }, 0);
+
+      var num = document.getElementById("f04-num");
+      var count = { v: 0 };
+
+      // Scene 1 (0–0.2) — paper stage: the sun bloom warms in behind the numeral zone
+      tl.fromTo(
+        "#f04-bloomglow",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.7, ease: "power2.out" },
+        0
+      );
+
+      // Scene 2 (0.24–1.51) — the count. Value, scale and fill share one linear
+      // journey (0.24 → 1.51): the number and the reading arrive together,
+      // no fast-then-crawl tail.
+      tl.fromTo(
+        "#f04-numwrap",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.16, ease: "power2.out" },
+        0.2
+      );
+      tl.to(
+        count,
+        {
+          v: 1831,
+          duration: 1.27,
+          ease: "none",
+          onUpdate: function () {
+            num.textContent = String(Math.round(count.v));
+          },
+        },
+        0.24
+      );
+      tl.fromTo(
+        "#f04-num",
+        { scale: 0.5 },
+        { scale: 1, duration: 1.27, ease: "none" },
+        0.24
+      );
+
+      // 装载线 — the thin track fills on the same journey, one beat with the number
+      tl.fromTo(
+        "#f04-track",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.22, ease: "power2.out" },
+        0.2
+      );
+      tl.fromTo(
+        "#f04-fill",
+        { scaleX: 0 },
+        { scaleX: 1, duration: 1.27, ease: "none" },
+        0.24
+      );
+
+      // macro whisper-push under the count, resolving with the number — then dead still
+      tl.fromTo(
+        "#f04-stage",
+        { scale: 1 },
+        { scale: 1.016, duration: 1.27, ease: "power2.out" },
+        0.24
+      );
+
+      // 「升后备厢」 — unit label lands on the word (~1.63)
+      tl.fromTo(
+        "#f04-unit",
+        { opacity: 0, y: 28 },
+        { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" },
+        1.63
+      );
+
+      // Scene 3 (2.96–3.95) — 兑现: trunk hero slots into the right panel on 「装下」
+      tl.fromTo(
+        "#f04-hero",
+        { opacity: 0, x: 56 },
+        { opacity: 1, x: 0, duration: 0.42, ease: "power3.out" },
+        2.96
+      );
+      // riding-lifestyle card follows — two-step staggered cascade, stop-in-slot
+      tl.fromTo(
+        "#f04-ride",
+        { opacity: 0, x: 56 },
+        { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" },
+        3.55
+      );
+
+      // Scene 4 (3.95–5.0) — held read: number holds its place, both cards rest,
+      // everything still to the frame edge. No exit — the root transition owns it.
+    })();
+  </script>
+</template>

@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    width:1680px; background:#08090c; color:#f4f3f0;
+    font-family:system-ui,-apple-system,"PingFang SC","Segoe UI",sans-serif;
+    padding:26px; -webkit-font-smoothing:antialiased;
+  }
+  .card {
+    position:relative; overflow:hidden;
+    background:
+      repeating-linear-gradient(0deg,  rgba(255,255,255,.016) 0 1px, transparent 1px 48px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,.016) 0 1px, transparent 1px 48px),
+      #0f131a;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:18px; padding:38px 48px 26px;
+  }
+  .card::before {
+    content:""; position:absolute; top:0; left:0; right:0; height:2.5px;
+    background:linear-gradient(90deg, #3987e5 0%, #1baf7a 55%, rgba(27,175,122,0) 92%);
+  }
+
+  /* ── header ─────────────────────────────── */
+  header { display:flex; justify-content:space-between; align-items:flex-start; }
+  header h1 { font-size:29px; font-weight:800; letter-spacing:1px; }
+  header .sub { font-size:14px; color:#b6bcc7; margin-top:8px; letter-spacing:.3px; }
+  header .sub b { color:#f4f3f0; font-weight:600; }
+
+  /* ── zones ──────────────────────────────── */
+  .zone { margin-top:24px; }
+  .zone-h { font-size:13px; font-weight:700; color:#8b93a0; letter-spacing:1.5px; margin-bottom:8px; }
+  .zone-h em { font-style:normal; color:#3987e5; margin-right:6px; text-shadow:0 0 12px rgba(57,135,229,.5); }
+
+  /* ── ① journey map ──────────────────────── */
+  .journey { position:relative; width:1536px; height:412px; }
+
+  .ticket {
+    position:absolute; left:0; top:6px; width:302px; height:118px;
+    border:1.5px solid #3a4250; border-radius:12px; background:#141924; padding:15px 18px 12px;
+  }
+  .ticket::after {
+    content:""; position:absolute; right:14px; top:10px; bottom:10px;
+    border-left:1.5px dashed #2a313b;
+  }
+  .ticket .k { font-size:10.5px; color:#8b93a0; letter-spacing:3px; }
+  .ticket .t { font-size:17px; font-weight:800; margin-top:7px; letter-spacing:.3px; }
+  .ticket .t i { font-style:normal; color:#8b93a0; font-weight:600; font-size:13px; margin-right:6px; }
+  .ticket .s { font-size:11px; color:#8b93a0; margin-top:5px; }
+
+  .elbow { position:absolute; left:30px; top:124px; height:116px; border-left:1.5px dotted #4d5665; }
+
+  .promise { position:absolute; left:302px; top:117px; width:839px; border-top:2px dashed #5d6673; }
+  .lane-tag {
+    position:absolute; left:334px; top:104px; font-size:10.5px; color:#8b93a0;
+    background:#0f131a; padding:0 8px; letter-spacing:2px;
+  }
+
+  .flag-pole { position:absolute; left:1139.5px; top:92px; width:2.5px; height:44px; background:#f4f3f0; }
+  .flag-pennant {
+    position:absolute; left:1142px; top:92px; width:0; height:0;
+    border-left:20px solid #f4f3f0; border-top:7.5px solid transparent; border-bottom:7.5px solid transparent;
+  }
+  .flag-label { position:absolute; right:403px; top:46px; text-align:right; }
+  .flag-label .a { font-size:15px; font-weight:800; }
+
+  .wash { position:absolute; left:1141.4px; top:104px; width:328.6px; height:158px; background:rgba(208,59,59,.09); }
+  .drop { position:absolute; left:1141.4px; top:124px; height:104px; border-left:2px dashed rgba(220,90,90,.55); }
+  .bracket {
+    position:absolute; left:1141.4px; top:140px; width:328.6px; height:9px;
+    border-left:1.5px solid #a85656; border-right:1.5px solid #a85656; border-bottom:1.5px solid #a85656;
+  }
+  .bracket-lab {
+    position:absolute; left:1305.7px; top:133px; transform:translateX(-50%);
+    background:#0f131a; border:1px solid rgba(220,90,90,.5); border-radius:999px;
+    padding:3px 12px; font-size:12px; font-weight:700; color:#ec8f8f; white-space:nowrap;
+  }
+
+  /* track band (segment lengths ∝ median days) */
+  .seg { position:absolute; top:228px; height:30px; }
+  .seg.queue { left:30px;    width:201.7px;  background:#232933; border-radius:15px 0 0 15px; }
+  .seg.dev   { left:233.7px; width:100.9px;  background:#3f4854; }
+  .seg.post  { left:336.6px; width:1133.4px; background:#d95926; border-radius:0 15px 15px 0;
+               box-shadow:0 0 22px rgba(217,89,38,.30); }
+
+  .st { position:absolute; border-radius:50%; }
+  .st.origin { left:24px;   top:237px; width:12px; height:12px; background:#8b93a0; border:2.5px solid #0f131a; }
+  .st.dev     { left:226.7px; top:234px; width:18px; height:18px; background:#0c0f15; border:4px solid #3987e5;
+                box-shadow:0 0 10px rgba(57,135,229,.4); }
+  .st.test    { left:329.6px; top:234px; width:18px; height:18px; background:#0c0f15; border:4px solid #3987e5;
+                box-shadow:0 0 10px rgba(57,135,229,.4); }
+  .st.ready   { left:792px;  top:235px; width:16px; height:16px; background:#0f131a; border:2.5px dashed #8b93a0; }
+  .st.done    {
+    left:1459px; top:232px; width:22px; height:22px; background:#3987e5;
+    border:3px solid #0f131a;
+    box-shadow:0 0 0 1.5px rgba(57,135,229,.55), 0 0 18px rgba(57,135,229,.5);
+    color:#fff; font-size:12px; font-weight:900; display:flex; align-items:center; justify-content:center;
+  }
+
+  .st-label { position:absolute; transform:translateX(-50%); white-space:nowrap; }
+  .st-label.origin-l { left:44px; top:204px; transform:none; font-size:12px; color:#8b93a0; }
+  .st-label.dev-l  { left:235.7px; top:193px; font-size:16px; font-weight:700; }
+  .st-label.test-l { left:338.6px; top:193px; font-size:16px; font-weight:700; }
+  .st-label.ready-l{ left:800px;   top:197px; font-size:14px; font-weight:600; color:#8b93a0; }
+  .st-label.done-l { left:1470px;  top:191px; font-size:17px; font-weight:800; color:#6da7ec; }
+
+  .seg-cap { position:absolute; top:266px; transform:translateX(-50%); font-size:11.5px; color:#b6bcc7; white-space:nowrap; background:#0f131a; padding:0 5px; }
+  .seg-cap.q { left:132.85px; }
+  .seg-cap.d { left:287px; }
+  .seg-cap.p { left:904px; color:#ee9a6a; font-weight:600; }
+
+  .leader { position:absolute; border-left:1.5px dotted #4d5665; }
+
+  /* passport stamps */
+  .stamp {
+    position:absolute; border:1.6px dashed #3987e5; border-radius:9px;
+    background:rgba(57,135,229,.09); padding:7px 13px 6px; white-space:nowrap;
+  }
+  .stamp .t { font-size:13.5px; font-weight:700; color:#7db3f2; letter-spacing:.4px; }
+  .stamp .s { font-size:10.5px; color:#8b93a0; margin-top:2.5px; letter-spacing:.2px; }
+  .stamp.gray { border-color:#5d6673; background:rgba(139,147,160,.08); }
+  .stamp.gray .t { color:#b6bcc7; }
+  .stamp.red { border-color:#d03b3b; background:rgba(208,59,59,.09); }
+  .stamp.red .t { color:#ec8f8f; }
+
+  .warn-chip {
+    position:absolute; left:1000px; top:358px; transform:translateX(-50%);
+    border:1.5px solid #d95926; border-radius:999px; background:rgba(217,89,38,.12);
+    padding:8px 18px; font-size:13px; font-weight:700; color:#ee9a6a; white-space:nowrap;
+    box-shadow:0 0 16px rgba(217,89,38,.22);
+  }
+  .scale-note { position:absolute; right:0; top:8px; font-size:10.5px; color:#5d6673; letter-spacing:1px; }
+
+  /* ── ② KPI tiles ────────────────────────── */
+  .tiles { display:flex; gap:26px; }
+  .tile {
+    flex:1; position:relative; overflow:hidden; background:#141924;
+    border:1px solid rgba(255,255,255,.09); border-radius:14px; padding:19px 24px 15px;
+  }
+  .tile::before { content:""; position:absolute; top:0; left:0; right:0; height:4px; background:var(--k);
+                  box-shadow:0 0 14px var(--glow); }
+  .t-label { font-size:14.5px; font-weight:700; color:#d3d8e0; }
+  .t-def   { font-size:11px; color:#8b93a0; margin-top:3px; letter-spacing:.3px; }
+  .t-hero  { font-size:50px; font-weight:800; letter-spacing:-1.5px; line-height:1.1; margin-top:7px;
+             text-shadow:0 0 30px var(--glow); }
+  .t-hero .unit { font-size:19px; font-weight:600; color:#b6bcc7; letter-spacing:0; margin-left:5px; }
+  .t-sub   { font-size:11.5px; color:#8b93a0; margin-top:3px; }
+
+  .mini { margin-top:13px; position:relative; height:42px; }
+  .ruler-bar { position:absolute; left:0; right:0; bottom:8px; height:5px; background:#232933; border-radius:3px; }
+  .ruler-tick { position:absolute; bottom:8px; width:2.5px; border-radius:2px; transform:translateX(-50%); }
+  .ruler-lab { position:absolute; transform:translateX(-50%); font-size:10px; white-space:nowrap; }
+  .ruler-end { position:absolute; bottom:5px; font-size:9.5px; color:#5d6673; }
+
+  .obar-row { display:flex; align-items:center; gap:10px; height:15px; margin-top:5px; }
+  .obar-row .lb { width:34px; font-size:10.5px; color:#8b93a0; text-align:right; }
+  .obar-row .tr { flex:1; height:6px; background:#232933; border-radius:3px; position:relative; }
+  .obar-row .fl { position:absolute; left:0; top:0; bottom:0; background:#d03b3b; border-radius:3px;
+                  box-shadow:0 0 8px rgba(208,59,59,.4); }
+  .obar-row .vl { width:36px; font-size:10.5px; color:#d3d8e0; font-weight:600; }
+
+  .spark { position:absolute; left:0; bottom:14px; display:flex; align-items:flex-end; gap:9px; }
+  .spark i { width:20px; background:#199e70; border-radius:3px 3px 0 0; display:block; position:relative;
+             box-shadow:0 0 8px rgba(25,158,112,.3); }
+  .spark-max { position:absolute; transform:translateX(-50%); font-size:10px; font-weight:700; color:#4ac487; }
+  .spark-axis { position:absolute; left:0; right:0; bottom:12.5px; border-top:1px solid #232933; }
+  .spark-w { position:absolute; bottom:-2px; font-size:9.5px; color:#5d6673; }
+
+  /* ── ④ before / after ───────────────────── */
+  .ba-row { display:flex; gap:20px; }
+  .ba {
+    flex:1; background:#141924; border:1px solid rgba(255,255,255,.09);
+    border-radius:14px; padding:13px 13px 12px;
+  }
+  .ba .name { font-size:12px; font-weight:800; color:#d3d8e0; margin-bottom:9px; text-align:center; letter-spacing:.5px; }
+  .ba .box { border-radius:9px; padding:8px 11px 7px; }
+  .ba .box .d { font-size:10.5px; }
+  .ba .box .v { font-size:12px; font-weight:700; margin-top:2px; letter-spacing:.3px; }
+  .ba .before { background:#0b0e14; }
+  .ba .before .d { color:#8b93a0; }
+  .ba .before .v { color:#b6bcc7; }
+  .ba .arrow { text-align:center; color:#5d6673; font-size:13px; line-height:1.1; margin:5px 0; }
+  .ba .after { background:rgba(57,135,229,.10); border:1px solid rgba(57,135,229,.32); }
+  .ba .after .d { color:#d3d8e0; }
+  .ba .after .v { color:#7db3f2; font-size:13.5px; }
+
+  /* ── ③ verdict ──────────────────────────── */
+  .formula { display:flex; align-items:center; justify-content:center; gap:13px; padding:14px 0 4px; }
+  .formula .eq { font-size:21px; font-weight:800; letter-spacing:1px; }
+  .pill {
+    display:flex; align-items:center; gap:9px; border:1.7px solid var(--k); border-radius:999px;
+    padding:9px 19px; background:#141924; font-size:16.5px; font-weight:700;
+    box-shadow:0 0 14px var(--glow);
+  }
+  .pill .dot { width:9px; height:9px; border-radius:50%; background:var(--k); box-shadow:0 0 8px var(--k); }
+  .formula .op { font-size:17px; color:#8b93a0; font-weight:600; }
+
+  .trio { display:flex; justify-content:center; align-items:center; gap:14px; margin-top:13px; }
+  .trio .who {
+    font-size:11.5px; font-weight:800; color:#8b93a0; letter-spacing:2px;
+    border:1px solid #3a4250; border-radius:8px; padding:7px 11px; background:rgba(255,255,255,.03);
+  }
+  .trio .tc {
+    font-size:12.5px; color:#b6bcc7; border:1px dashed #3a4250; border-radius:10px;
+    padding:7px 14px; background:rgba(255,255,255,.02);
+  }
+  .trio .tc b { color:#f4f3f0; font-weight:700; }
+
+  footer {
+    display:flex; justify-content:space-between; margin-top:22px; padding-top:12px;
+    border-top:1px solid #232933; font-size:11px; color:#8b93a0; letter-spacing:.3px;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <header>
+    <div>
+      <h1>产品站需求交付效率模型</h1>
+      <div class="sub"><b>状态流转自动打点</b> ｜ <b>承诺与实际分离</b> ｜ 零表结构改动</div>
+    </div>
+  </header>
+
+  <!-- ① journey -->
+  <section class="zone">
+    <div class="zone-h"><em>①</em>一条需求的旅程 · 状态流转自动打点</div>
+    <div class="journey">
+      <div class="scale-note">▸ 段长 ∝ 中位天数</div>
+
+      <div class="ticket">
+        <div class="k">需求录入 · 待开发</div>
+        <div class="t"><i>承诺</i>交付运营时间</div>
+        <div class="s">业务预期 · 录入时填写</div>
+      </div>
+      <div class="elbow"></div>
+
+      <div class="promise"></div>
+      <div class="flag-label">
+        <div class="a">业务预期交付</div>
+      </div>
+      <div class="flag-pole"></div>
+      <div class="flag-pennant"></div>
+
+      <div class="wash"></div>
+      <div class="drop"></div>
+      <div class="bracket"></div>
+      <div class="bracket-lab">滑点中位 +1d ｜ P90 +6d · 2026</div>
+
+      <div class="seg queue"></div>
+      <div class="seg dev"></div>
+      <div class="seg post"></div>
+
+      <div class="st origin"></div>
+      <div class="st dev"></div>
+      <div class="st test"></div>
+      <div class="st ready"></div>
+      <div class="st done">✓</div>
+
+      <div class="st-label origin-l">设计稿交付</div>
+      <div class="st-label dev-l">开发中</div>
+      <div class="st-label test-l">测试中</div>
+      <div class="st-label ready-l">待上线</div>
+      <div class="st-label done-l">已上线</div>
+
+      <div class="seg-cap q">排队段 2d ｜ P85 9d</div>
+      <div class="seg-cap d">开发段 1d ｜ 4d</div>
+      <div class="seg-cap p">提测后段 11d ｜ P85 17d ｜ n=27</div>
+
+      <div class="leader" style="left:30px;    top:258px; height:48px;"></div>
+      <div class="leader" style="left:235.7px; top:258px; height:100px;"></div>
+      <div class="leader" style="left:338.6px; top:258px; height:42px;"></div>
+      <div class="leader" style="left:800px;   top:258px; height:42px;"></div>
+      <div class="leader" style="left:1470px;  top:258px; height:42px;"></div>
+
+      <div class="stamp" style="left:6px; top:306px; transform:rotate(-2deg);">
+        <div class="t">⏱ 设计稿交付时间</div>
+      </div>
+      <div class="stamp" style="left:235.7px; top:358px; transform:translateX(-50%) rotate(1.5deg);">
+        <div class="t">⏱ 开发介入时间</div>
+        <div class="s">465 条</div>
+      </div>
+      <div class="stamp" style="left:338.6px; top:298px; transform:translateX(-50%) rotate(-1.5deg);">
+        <div class="t">⏱ 提测时间</div>
+        <div class="s">429 条</div>
+      </div>
+      <div class="stamp gray" style="left:800px; top:298px; transform:translateX(-50%) rotate(1deg);">
+        <div class="t">⏱ 可交付时间</div>
+        <div class="s">待激活 · 2 条</div>
+      </div>
+      <div class="stamp red" style="right:0px; top:298px; transform:rotate(-2deg);">
+        <div class="t">⏱ 实际上线时间</div>
+        <div class="s">129 条 ｜ 覆盖已上线 13%</div>
+      </div>
+
+      <div class="warn-chip">⚠ 周期大头 · 提测后段占 79%</div>
+    </div>
+  </section>
+
+  <!-- ② KPI -->
+  <section class="zone">
+    <div class="zone-h"><em>②</em>衡量什么 · 三个数字</div>
+    <div class="tiles">
+
+      <div class="tile" style="--k:#3987e5; --glow:rgba(57,135,229,.35);">
+        <div class="t-label">交付周期 P85</div>
+        <div class="t-def">开发介入时间 → 实际上线时间（自然日）</div>
+        <div class="t-hero">18<span class="unit">d</span></div>
+        <div class="t-sub">P50 9d · n=44</div>
+        <div class="mini">
+          <div class="ruler-bar"></div>
+          <div class="ruler-tick" style="left:42.8%; height:13px; background:#8b93a0;"></div>
+          <div class="ruler-lab" style="left:42.8%; bottom:26px; color:#8b93a0;">P50 9d</div>
+          <div class="ruler-tick" style="left:85.7%; height:19px; background:#3987e5;"></div>
+          <div class="ruler-lab" style="left:85.7%; bottom:32px; color:#7db3f2; font-weight:700;">P85 18d</div>
+          <div class="ruler-end" style="left:0;">0</div>
+          <div class="ruler-end" style="right:0;">21d</div>
+        </div>
+      </div>
+
+      <div class="tile" style="--k:#d03b3b; --glow:rgba(208,59,59,.35);">
+        <div class="t-label">准时率</div>
+        <div class="t-def">实际上线时间 ≤ 交付运营时间（业务预期）</div>
+        <div class="t-hero">49<span class="unit">%</span></div>
+        <div class="t-sub">2026 · n=63</div>
+        <div class="mini" style="padding-top:5px;">
+          <div class="obar-row">
+            <div class="lb">全史</div><div class="tr"><div class="fl" style="width:32%;"></div></div><div class="vl">32%</div>
+          </div>
+          <div class="obar-row">
+            <div class="lb">2026</div><div class="tr"><div class="fl" style="width:49%;"></div></div><div class="vl">49%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile" style="--k:#199e70; --glow:rgba(25,158,112,.35);">
+        <div class="t-label">每周吞吐量</div>
+        <div class="t-def">当周上线站点数</div>
+        <div class="t-hero">6.0<span class="unit">站点 / 周</span></div>
+        <div class="t-sub">近 8 周 · 波动 1–11 个站点</div>
+        <div class="mini">
+          <div class="spark-axis"></div>
+          <div class="spark">
+            <i style="height:20px;"></i><i style="height:17px;"></i><i style="height:3px;"></i>
+            <i style="height:26px;"></i><i style="height:3px;"></i>
+            <i style="height:32px;"><span class="spark-max" style="left:10px; top:-15px;">11</span></i>
+            <i style="height:23px;"></i><i style="height:15px;"></i>
+          </div>
+          <div class="spark-w" style="left:0;">W29</div>
+          <div class="spark-w" style="right:0;">W36</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ③ verdict -->
+  <section class="zone">
+    <div class="zone-h"><em>③</em>判定标准</div>
+    <div class="formula">
+      <span class="eq">效率提升 ＝</span>
+      <span class="pill" style="--k:#199e70; --glow:rgba(25,158,112,.30);"><span class="dot"></span>吞吐量 ↑</span>
+      <span class="op">＋</span>
+      <span class="pill" style="--k:#3987e5; --glow:rgba(57,135,229,.30);"><span class="dot"></span>周期 P85 ↓ 或持平</span>
+      <span class="op">＋</span>
+      <span class="pill" style="--k:#d03b3b; --glow:rgba(208,59,59,.30);"><span class="dot"></span>准时率 不降</span>
+    </div>
+    <div class="trio">
+      <span class="who">三识别</span>
+      <span class="tc">吞吐 ↑ 周期涨 → <b>并行积压的幻觉</b></span>
+      <span class="tc">周期 ↓ 提测后段涨 → <b>提效被发布吃掉</b></span>
+      <span class="tc">指标正常 · 待开发堆积 → <b>卡发布节奏</b></span>
+    </div>
+  </section>
+
+  <!-- ④ before / after -->
+  <section class="zone">
+    <div class="zone-h"><em>④</em>Before / After · 工作方式已换挡</div>
+    <div class="ba-row">
+
+      <div class="ba">
+        <div class="name">并行方式</div>
+        <div class="box before">
+          <div class="d">单人单行 · 按屏数×动画数估时</div>
+          <div class="v">3 天–3 周</div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="box after">
+          <div class="d">单人并行 3–5 个 · 30–40 屏不再制约</div>
+          <div class="v">单站 1–2 天</div>
+        </div>
+      </div>
+
+      <div class="ba">
+        <div class="name">设计稿审查</div>
+        <div class="box before">
+          <div class="d">人工检查 · 来回沟通反复</div>
+          <div class="v">0.5–2h</div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="box after">
+          <div class="d">mico 一键审查 · 阻断项打回</div>
+          <div class="v">分钟级</div>
+        </div>
+      </div>
+
+      <div class="ba">
+        <div class="name">前置环境</div>
+        <div class="box before">
+          <div class="d">手动搭分支 / 屏壳 / 本地服务</div>
+          <div class="v">≈1h</div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="box after">
+          <div class="d">Skill 一键生成 · 直进自测</div>
+          <div class="v">5min</div>
+        </div>
+      </div>
+
+      <div class="ba">
+        <div class="name">PSB / 需求变更</div>
+        <div class="box before">
+          <div class="d">人工逐处修正</div>
+          <div class="v">工作量放大</div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="box after">
+          <div class="d">一键全量 / 局部屏重跑</div>
+          <div class="v">1–2min</div>
+        </div>
+      </div>
+
+      <div class="ba">
+        <div class="name">复杂动画交互</div>
+        <div class="box before">
+          <div class="d">人工逐屏推进</div>
+          <div class="v">模型能力弱</div>
+        </div>
+        <div class="arrow">↓</div>
+        <div class="box after">
+          <div class="d">需求文档 / 问题记录交 Agent</div>
+          <div class="v">自动推进</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <span>数据源：【Pro】产品站需求管理 · 1029 条 · 基线 2026-09-03</span>
+    <span>分段样本 n=410 / 412 / 27 · 打点自动化激活后基线自动加厚</span>
+  </footer>
+
+</div>
+</body>
+</html>

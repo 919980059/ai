@@ -1,0 +1,319 @@
+<template>
+  <style>
+    /*
+      02-name-reveal — Chapter 2: Imaging Unbound (global 4.22–7.61, exits to
+      8.11). A deliberate chapter contrast: NO ambient footage under this
+      frame — the host background's window ends at the 4.22 cut, so the world
+      reads cut-to-black and a dark stage materializes around ONE camera card
+      on the right while the imaging story types up on the left.
+
+      The dark stage is the box-shadow hole trick: the stage element sits at
+      the exact card geometry with a fixed 2200px-spread shadow that dims
+      everything OUTSIDE the card to 8% transmission while the card's own
+      interior stays clear — the host-level demo footage (hoisted below every
+      frame root) shows through the hole and the frame's chrome paints above
+      it. NEVER tween the shadow itself; the entrance/exit tween the stage's
+      opacity, fading shadow + bezel + cover as one.
+
+      Card media (host elements in index.html, sources are the page's own
+      Live cinematography demos, 690×640 native → zero-crop at 636×590):
+        A (freestyle) 4.62–6.05 · B (portrait) 6.02–7.90, B after A in DOM
+      so B paints above through the 2-frame handoff — a deliberate HARD CUT
+      inside the card landing on the 6.02s BGM breathing point. A ignites at
+      4.62 UNDER the still-closed cover (no pop), the cover then "develops"
+      open; it closes again just before B's window ends so B never pops
+      either. No frame tween touches the footage — the cut is pure DOM
+      layering, deterministic under any seek.
+
+      Type stack (left): kicker (official section title "Imaging Unbound"),
+      a 0→200 count-up with a riding MP unit, and the two optic lines.
+      DOM order: stage first, type second — the type paints above the
+      stage's shadow. Digit-leading ids: all styling and GSAP targets use
+      [id="…"] attribute selectors (same law as Frames 1 and 3). No literal
+      media tag appears anywhere in this file's comments — the assembler's
+      hoist regex scans raw text.
+    */
+    @font-face{font-family:"POCOTech";font-weight:300;font-style:normal;font-display:block;src:url("assets/fonts/POCOTech-Light.woff") format("woff");}
+    @font-face{font-family:"POCOTech";font-weight:400;font-style:normal;font-display:block;src:url("assets/fonts/POCOTech-Regular.woff") format("woff");}
+    @font-face{font-family:"POCOTech";font-weight:500;font-style:normal;font-display:block;src:url("assets/fonts/POCOTech-Medium.woff") format("woff");}
+    @font-face{font-family:"POCOTech";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/POCOTech-SemiBold.woff") format("woff");}
+
+    /* Root: styled via #root, never a class. container-type: size is the
+       container law. z-index: 1 lifts the stage + type above the
+       host-level card footage (appended after the scene slots at z-auto) —
+       without it the cover and chrome would paint beneath the demos. */
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      container-type: size;
+      z-index: 1;
+      font-family: "POCOTech";
+    }
+
+    /* The dark stage — card geometry in px (matches the host elements
+       exactly: left 1072 / top 240 / 636×590, radius 16). Authored
+       opacity 0; the entrance fades the whole stage (shadow + bezel +
+       chrome) up as one. The faint second shadow is a warm halo hugging
+       the card. */
+    [id="02-name-reveal-stage"] {
+      position: absolute;
+      left: 1072px;
+      top: 240px;
+      width: 636px;
+      height: 590px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow:
+        0 0 0 2200px rgba(0, 0, 0, 0.92),
+        0 0 70px 14px rgba(255, 203, 5, 0.1);
+      opacity: 0;
+      z-index: 1;
+    }
+
+    /* The cover — the card's shutter. Authored CLOSED (opacity 1): demo A
+       ignites beneath it at local 0.40 (no pop), then it develops open;
+       it closes again for the exit. Slightly tighter radius so the shutter
+       never pokes outside the bezel. */
+    [id="02-name-reveal-cover"] {
+      position: absolute;
+      inset: 0;
+      border-radius: 15px;
+      background: #000000;
+      opacity: 1;
+    }
+
+    /* Camera-UI chrome — corner brackets + label chip, DOM-after the cover
+       so they stay visible while the shutter is closed (the card reads as
+       a dark viewfinder before the footage develops). */
+    .cam-bracket {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+    }
+    .cam-bracket--tl {
+      top: 12px;
+      left: 12px;
+      border-top: 2px solid #ffcb05;
+      border-left: 2px solid #ffcb05;
+    }
+    .cam-bracket--tr {
+      top: 12px;
+      right: 12px;
+      border-top: 2px solid #ffcb05;
+      border-right: 2px solid #ffcb05;
+    }
+    .cam-bracket--bl {
+      bottom: 12px;
+      left: 12px;
+      border-bottom: 2px solid #ffcb05;
+      border-left: 2px solid #ffcb05;
+    }
+    .cam-bracket--br {
+      bottom: 12px;
+      right: 12px;
+      border-bottom: 2px solid #ffcb05;
+      border-right: 2px solid #ffcb05;
+    }
+    [id="02-name-reveal-chip"] {
+      position: absolute;
+      top: 16px;
+      left: 50px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      /* 0.8 black: the pill sits over bright portrait samples (card A mean
+         136, card B mean 125); at 0.55 the yellow read 3.77:1 — this holds
+         4.5:1+ across the develop. */
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(255, 203, 5, 0.35);
+      font-weight: 500;
+      font-size: 15px;
+      letter-spacing: 0.22em;
+      color: #ffcb05;
+      white-space: nowrap;
+    }
+
+    /* Type stack — left column, vertically centered on the card's band
+       (240–830). Right edge 1018px keeps a 54px gutter to the card. */
+    [id="02-name-reveal-type"] {
+      position: absolute;
+      left: 173px;
+      top: 240px;
+      width: 845px;
+      height: 590px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 2;
+    }
+    [id="02-name-reveal-kicker"] {
+      font-weight: 500;
+      font-size: 15px;
+      letter-spacing: 0.38em;
+      color: #ffcb05;
+      opacity: 0;
+    }
+    /* Count row: the numeral counts 0→200 with the MP unit riding its
+       right edge — an odometer push, intentional. */
+    [id="02-name-reveal-countrow"] {
+      display: flex;
+      align-items: baseline;
+      margin-top: 30px;
+      opacity: 0;
+    }
+    [id="02-name-reveal-count"] {
+      font-weight: 600;
+      font-size: 211px;
+      line-height: 0.95;
+      color: #ffffff;
+    }
+    [id="02-name-reveal-unit"] {
+      font-weight: 500;
+      font-size: 74px;
+      line-height: 1;
+      color: #ffcb05;
+      margin-left: 16px;
+    }
+    [id="02-name-reveal-sub1"] {
+      margin-top: 26px;
+      font-weight: 400;
+      font-size: 30px;
+      letter-spacing: 0.16em;
+      color: rgba(255, 255, 255, 0.9);
+      white-space: nowrap;
+      opacity: 0;
+    }
+    [id="02-name-reveal-hairline"] {
+      margin-top: 30px;
+      width: 346px;
+      height: 2px;
+      background: #ffcb05;
+      transform: scaleX(0);
+      transform-origin: 0% 50%;
+    }
+    [id="02-name-reveal-sub2"] {
+      margin-top: 30px;
+      font-weight: 300;
+      font-size: 26px;
+      letter-spacing: 0.14em;
+      color: rgba(255, 255, 255, 0.72);
+      white-space: nowrap;
+      opacity: 0;
+    }
+  </style>
+
+  <div data-hf-id="hf-9ykp" id="root" data-composition-id="02-name-reveal" data-width="1920" data-height="1080" data-duration="3.89">
+    <!-- The dark stage + card chrome + shutter (single clip; the host-level
+         demo elements live below this root and show through the hole). -->
+    <div data-hf-id="hf-stg1" class="clip" id="02-name-reveal-stage" data-start="0" data-duration="3.89" data-track-index="1">
+      <div data-hf-id="hf-cvr1" id="02-name-reveal-cover"></div>
+      <div data-hf-id="hf-brk1" class="cam-bracket cam-bracket--tl"></div>
+      <div data-hf-id="hf-brk2" class="cam-bracket cam-bracket--tr"></div>
+      <div data-hf-id="hf-brk3" class="cam-bracket cam-bracket--bl"></div>
+      <div data-hf-id="hf-brk4" class="cam-bracket cam-bracket--br"></div>
+      <div data-hf-id="hf-chp1" id="02-name-reveal-chip">LIVE CINEMATOGRAPHY</div>
+    </div>
+
+    <!-- The imaging story, typed up beside the card. -->
+    <div data-hf-id="hf-typ1" class="clip" id="02-name-reveal-type" data-start="0" data-duration="3.89" data-track-index="2">
+      <div data-hf-id="hf-typ2" id="02-name-reveal-kicker">IMAGING UNBOUND</div>
+      <div data-hf-id="hf-typ3" id="02-name-reveal-countrow">
+        <span data-hf-id="hf-typ4" id="02-name-reveal-count">0</span><span data-hf-id="hf-typ5" id="02-name-reveal-unit">MP</span>
+      </div>
+      <div data-hf-id="hf-typ6" id="02-name-reveal-sub1">OIS MAIN CAMERA</div>
+      <div data-hf-id="hf-typ7" id="02-name-reveal-hairline"></div>
+      <div data-hf-id="hf-typ8" id="02-name-reveal-sub2">5× TELEPHOTO · 50MP ULTRA-WIDE</div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js" integrity="sha384-sG0Hv1tP1lZCk9KQmrIbY/XNwi+OY84GQqhMscbnsoBFqAz8KNCil1kvfL3Hbbk2" crossorigin="anonymous"></script>
+  <script>
+    // Frame 2 — Chapter 2, Imaging Unbound. Local 0 = global 4.22 (the cut
+    // to black). The stage materializes 0–0.4 while Frame 1's layers
+    // dissolve beneath this root; the card ignites at 0.40 under the closed
+    // cover and develops open by 0.95; the stat block counts up through the
+    // develop; the optics lines complete by 1.65; the card's interior hard-
+    // cuts demo A→B at 1.80 (global 6.02, the breathing point — pure host
+    // DOM layering, no tween); a held read to 3.30; then the mirrored exit
+    // (cover closes 3.30–3.66, type out 3.39–3.79, stage dissolves
+    // 3.39–3.89) crosses into Frame 3's rising lockup.
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+    const byId = (id) => document.getElementById(id);
+    const stage = byId("02-name-reveal-stage");
+    const cover = byId("02-name-reveal-cover");
+    const kicker = byId("02-name-reveal-kicker");
+    const countrow = byId("02-name-reveal-countrow");
+    const count = byId("02-name-reveal-count");
+    const sub1 = byId("02-name-reveal-sub1");
+    const hairline = byId("02-name-reveal-hairline");
+    const sub2 = byId("02-name-reveal-sub2");
+
+    // Entrances. Every fromTo's from-state equals its authored CSS state
+    // (stage/type 0, cover 1, hairline scaleX 0, count text "0"), so no
+    // entrance needs immediateRender management.
+    tl.fromTo(stage, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" }, 0);
+    tl.fromTo(kicker, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.15);
+    // The develop: cover 1 → 0 across 0.40–0.95, synced to demo A's window
+    // opening at 0.40 — the drift is already underway as the shutter lifts.
+    tl.fromTo(cover, { opacity: 1 }, { opacity: 0, duration: 0.55, ease: "power2.inOut" }, 0.4);
+    tl.fromTo(countrow, { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.5);
+    // The count-up: 0→200 in 0.85s, snapped to integers — seek-safe stat hit
+    // (textContent tween; the unit rides the numeral's right edge).
+    tl.fromTo(
+      count,
+      { textContent: 0 },
+      { textContent: 200, duration: 0.85, ease: "power2.out", snap: { textContent: 1 } },
+      0.55
+    );
+    tl.fromTo(sub1, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0.85);
+    tl.fromTo(hairline, { scaleX: 0 }, { scaleX: 1, duration: 0.55, ease: "power2.inOut" }, 1.0);
+    tl.fromTo(sub2, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 1.15);
+
+    // Held read 1.65–3.30: no frame tween; the cards' Ken Burns drift (host
+    // timeline) is the frame's aliveness (demo A to 1.80, demo B after).
+
+    // Exits. The cover closes FIRST (3.30–3.66, power2.out so it is ~80%
+    // shut by 3.5): demo B's host window ends at local 3.68, so the footage
+    // vanishes under a shutter that is already ≥97% closed — no pop. The
+    // type lifts out 3.39–3.79 and the stage dissolves 3.39–3.89, its fade
+    // completing exactly at the slot end so Frame 3's emerging footage is
+    // never hard-unmasked by the 0.92 shadow. immediateRender: false on
+    // every exit: each conflicts with an earlier tween on the same property
+    // (deferred-paint law — without the flag, the first render lands in the
+    // pre-entrance gap and would paint these from-states early: the cover
+    // open at local 0, the type/stage at full before their entrances).
+    tl.fromTo(
+      cover,
+      { opacity: 0 },
+      { opacity: 1, duration: 0.36, ease: "power2.out", immediateRender: false },
+      3.3
+    );
+    [kicker, countrow, sub1, sub2].forEach((el) => {
+      tl.fromTo(
+        el,
+        { opacity: 1, y: 0 },
+        { opacity: 0, y: -12, duration: 0.4, ease: "power2.inOut", immediateRender: false },
+        3.39
+      );
+    });
+    tl.fromTo(
+      hairline,
+      { opacity: 1 },
+      { opacity: 0, duration: 0.4, ease: "power2.inOut", immediateRender: false },
+      3.39
+    );
+    tl.fromTo(
+      stage,
+      { opacity: 1 },
+      { opacity: 0, duration: 0.5, ease: "power2.inOut", immediateRender: false },
+      3.39
+    );
+
+    // Full-span anchor: the timeline's duration equals the frame slot
+    // (3.39s content + the 0.5s crossfade tail).
+    tl.to({}, { duration: 3.89 }, 0);
+
+    window.__timelines["02-name-reveal"] = tl;
+  </script>
+</template>
