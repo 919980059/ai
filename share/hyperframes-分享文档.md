@@ -1,7 +1,11 @@
-# 🎬 从一行需求到成片：HyperFrames 实践
+# 🎬 HyperFrames ：从一句话需求到成片
+
+<callout emoji="pushpin" background-color="light-blue" border-color="blue">
+**总结**：两次真实需求，各交付一支成片 —— **SkyNomad N90**（30.5s · 中文七幕 ·「一车一世界」）与 **POCO F9 Ultra**（10.7s · 英文三幕）。全流程六步主链：读产品页 → 分镜定节拍 → 画面 → 配音对帧 → 混音 → 机器验收；源文件全 HTML/CSS，任何人可复现、可验证。
+</callout>
 
 <callout emoji="rocket" background-color="light-blue" border-color="blue">
-**需求原文只有一行：**
+**需求原文各只有一行：**
 
 **① 小米澎程 SkyNomad N90**（30s 中文叙事片）："帮我给 https://www.xiaomiev.com/skynomad/n90 也创作一个高端的宣传视频，主题是 SkyNomad。" —— 交付 30.5s / 915 帧 / 15.9MB，七幕中文叙事，纯音乐混音 −15.1 LUFS。
 
