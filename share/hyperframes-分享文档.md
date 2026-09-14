@@ -1,17 +1,13 @@
 # 🎬 HyperFrames ：从一句话需求到成片
 
 <callout emoji="pushpin" background-color="light-blue" border-color="blue">
-**总结**：两次真实需求，各交付一支成片 —— **SkyNomad N90**（30.5s · 中文七幕 ·「一车一世界」）与 **POCO F9 Ultra**（10.7s · 英文三幕）。全流程六步主链：读产品页 → 分镜定节拍 → 画面 → 配音对帧 → 混音 → 机器验收；源文件全 HTML/CSS，任何人可复现、可验证。
-</callout>
+**需求原文各只有一行，交付却是两支完整成片 —— 全程未使用任何剪辑软件。**
 
-<callout emoji="rocket" background-color="light-blue" border-color="blue">
-**需求原文各只有一行：**
+**① 小米澎程 SkyNomad N90**："帮我给 https://www.xiaomiev.com/skynomad/n90 也创作一个高端的宣传视频，主题是 SkyNomad。" —— 交付 **30.5s · 中文七幕 ·「一车一世界」**，纯音乐混音 −15.1 LUFS。
 
-**① 小米澎程 SkyNomad N90**（30s 中文叙事片）："帮我给 https://www.xiaomiev.com/skynomad/n90 也创作一个高端的宣传视频，主题是 SkyNomad。" —— 交付 30.5s / 915 帧 / 15.9MB，七幕中文叙事，纯音乐混音 −15.1 LUFS。
+**② POCO F9 Ultra**："为线上产品 https://www.mi.com/global/product/poco-f9-ultra/ 创建一个 10 秒的产品介绍视频，包含淡入标题、背景视频和舒缓的背景音乐。" —— 交付 **10.7s · 英文三幕**，18 词配音 ASR 回听全对。
 
-**② POCO F9 Ultra**（10s 英文介绍片）："为线上产品 https://www.mi.com/global/product/poco-f9-ultra/ 创建一个 10 秒的产品介绍视频，包含淡入标题、背景视频和舒缓的背景音乐。" —— 交付 10.7s / 1920×1080 / 323 帧 / 8.7MB，18 词配音 ASR 回听全对。
-
-**全程未使用任何剪辑软件。**
+两支片子走同一条六步主链：**读产品页 → 分镜定节拍 → 画面 → 配音对帧 → 混音 → 机器验收**；源文件全 HTML/CSS，任何人可复现、可验证。
 </callout>
 
 [成片一 · SkyNomad N90 30s 叙事片（v2）](../skynomad-n90-promo/renders/video-v2.mp4) ｜ [成片二 · POCO F9 Ultra 10s 介绍片（v13）](../poco-f9-ultra-intro/renders/poco-f9-ultra-intro_2026-09-10_13-08-43.mp4)
