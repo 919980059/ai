@@ -1,5 +1,7 @@
 # 🎬 HyperFrames ：从一句话需求到成片
 
+![封面](cover.jpg)
+
 <callout emoji="pushpin" background-color="light-blue" border-color="blue">
 **需求原文各只有一行，交付却是两支完整成片 —— 全程未使用任何剪辑软件。**
 
