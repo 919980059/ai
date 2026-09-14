@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-09-10T10:35:27.526Z",
+  "enabled": true,
+  "provider": "musicgen",
+  "mode": "detached-seed-loop",
+  "path": "assets/bgm/track.wav",
+  "log": "/Users/mi/workspace/AI/skynomad-n90-promo/assets/bgm/bgm-1789036404844.log",
+  "pid": 10747,
+  "target_duration_s": 30,
+  "seed_duration_s": 28,
+  "loop_count": 2,
+  "timeout_ms": 600000,
+  "status": "ready",
+  "ready": true,
+  "waited_ms": 115050,
+  "size_bytes": 1920044,
+  "message": "BGM ready at assets/bgm/track.wav."
+}

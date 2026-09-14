@@ -1,0 +1,51 @@
+{
+  "lines": [
+    {
+      "id": "01",
+      "sfx": [
+        "sub-swell"
+      ]
+    },
+    {
+      "id": "02",
+      "sfx": [
+        "whoosh-soft"
+      ]
+    },
+    {
+      "id": "03",
+      "sfx": [
+        "tick-soft"
+      ]
+    },
+    {
+      "id": "04",
+      "sfx": [
+        "tick-soft"
+      ]
+    },
+    {
+      "id": "05",
+      "sfx": [
+        "whoosh-soft"
+      ]
+    },
+    {
+      "id": "06",
+      "sfx": [
+        "whoosh",
+        "swell"
+      ]
+    },
+    {
+      "id": "07",
+      "sfx": [
+        "shimmer",
+        "sub-swell"
+      ]
+    }
+  ],
+  "bgm": {
+    "mode": "none"
+  }
+}

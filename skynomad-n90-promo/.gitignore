@@ -1,0 +1,19 @@
+# 依赖
+node_modules/
+
+# 可再生的重产物：网站捕获缓存（155M）、框架快照、缩略图缓存
+capture/
+snapshots/
+.thumbnails/
+.waveform-cache/
+
+# 渲染产物：只保留两支已交付成片
+renders/*
+!renders/video.mp4
+!renders/video-v2.mp4
+
+# macOS
+.DS_Store
+
+# TTS 词级时间戳（transcribe 每次运行都会覆盖，用完即删）
+transcript.json

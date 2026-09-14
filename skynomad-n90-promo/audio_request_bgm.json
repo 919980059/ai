@@ -1,0 +1,11 @@
+{
+  "provider": "kokoro",
+  "speed": 0.92,
+  "lines": [],
+  "bgm": {
+    "mode": "generate",
+    "prompt": "cinematic warm ambient, spacious, premium automotive, slow build, no drums",
+    "blob": "一车一世界，自在即澎程",
+    "arc": "one car one world: identity -> space -> range -> slogan lockup"
+  }
+}
