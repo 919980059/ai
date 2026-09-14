@@ -121,9 +121,11 @@
       left: 50px;
       padding: 7px 14px;
       border-radius: 999px;
-      /* 0.8 black: the pill sits over bright portrait samples (card A mean
-         136, card B mean 125); at 0.55 the yellow read 3.77:1 — this holds
-         4.5:1+ across the develop. */
+      /* 0.8 black: the pill sits over the Live cinematography footage
+         (card-region luma A 158–184, B 124–155 across the develop); at
+         0.55 the yellow read 3.77:1 — this holds 4.5:1+ across the
+         develop. Verified on the rendered frames: chip zone reads pill
+         ~40 under text luma 199–242 on A, 179–220 on B. */
       background: rgba(0, 0, 0, 0.8);
       border: 1px solid rgba(255, 203, 5, 0.35);
       font-weight: 500;

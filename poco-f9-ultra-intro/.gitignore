@@ -7,7 +7,7 @@ snapshots/
 
 # 渲染产物：只保留最终成片（例外规则在下方）
 renders/*
-!renders/poco-f9-ultra-intro_2026-09-09_15-20-07.mp4
+!renders/poco-f9-ultra-intro_2026-09-14_18-00-51.mp4
 
 # 框架运行缓存
 .thumbnails/
