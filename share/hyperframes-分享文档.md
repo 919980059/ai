@@ -1,7 +1,5 @@
 # 🎬 HyperFrames ：从一句话需求到成片
 
-![封面](cover.jpg)
-
 <callout emoji="pushpin" background-color="light-blue" border-color="blue">
 **需求原文各只有一行，交付却是两支完整成片 —— 全程未使用任何剪辑软件。**
 
@@ -239,6 +237,7 @@ SkyNomad 的中文人声之路曲折得多，四轮反馈完整记录：
 |-|-|
 | 📦 GitHub 仓库 + 官方文档 | [https://github.com/heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) |
 | 📆 30 天官方教程 | [https://hyperframes.heygen.com/thirty-days](https://hyperframes.heygen.com/thirty-days) |
+| 🧪 本文实践源码（SkyNomad N90 × POCO F9 Ultra） | [https://git.n.xiaomi.com/zhangguang1/hyper-frames-practice](https://git.n.xiaomi.com/zhangguang1/hyper-frames-practice) |
 
 建议的实践路径：`npx hyperframes init` 起一个新项目，先完成官方 30 天教程，随后**不要停留在示例项目** —— 直接选择一个自己的产品 / 文章 / PR，完整复刻这套流程：**读产品页 → 分镜定节拍 → 画面 → 配音对帧 → 混音 → 机器验收**。
 
