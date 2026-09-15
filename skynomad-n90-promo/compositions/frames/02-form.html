@@ -10,10 +10,13 @@
     .f02-paper{position:absolute;inset:0;background:#FFFFFF;}
     .f02-bloom{position:absolute;left:-30px;top:-90px;width:1100px;height:1100px;transform-origin:50% 50%;opacity:0;background:radial-gradient(circle,rgba(100,60,49,0.72) 0%,rgba(100,60,49,0.48) 7%,rgba(220,191,183,0.40) 24%,rgba(207,168,157,0.22) 45%,rgba(207,168,157,0.10) 60%,rgba(255,255,255,0) 76%);}
     .f02-rail{position:absolute;left:30px;top:490px;writing-mode:vertical-rl;text-orientation:mixed;font-family:"MiSans VF",sans-serif;font-weight:340;font-size:13px;letter-spacing:0.32em;color:#000000;opacity:0;}
-    .f02-pagenum{position:absolute;right:44px;bottom:26px;font-family:"JetBrains Mono",monospace;font-weight:340;font-size:13px;line-height:16px;letter-spacing:0.08em;color:rgba(0,0,0,0.75);opacity:0;}
+    .f02-pagenum{position:absolute;right:76px;bottom:40px;box-sizing:border-box;padding:7px 12px 8px 14px;font-family:"JetBrains Mono",monospace;font-weight:340;font-size:13px;line-height:16px;letter-spacing:0.08em;color:rgba(247,240,234,0.88);background:linear-gradient(90deg,rgba(217,184,166,0.92) 0,rgba(217,184,166,0.92) 2px,rgba(217,184,166,0) 2px),linear-gradient(135deg,rgba(26,21,18,0.94),rgba(10,9,8,0.96));border:1px solid rgba(255,255,255,0.26);border-radius:10px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.14),0 4px 16px rgba(24,16,12,0.16);white-space:nowrap;opacity:0;}
+    .f02-pagenum .f02-on{color:#D9B8A6;}
 
-    /* — track 1 · photo card chain (dark photo cards on paper, 1px ink hairline) — */
-    .f02-card{position:absolute;left:88px;top:150px;width:792px;height:700px;box-sizing:border-box;border:1px solid #000000;overflow:hidden;background:#141210;opacity:0;--dof:0px;filter:blur(var(--dof));will-change:filter,transform;}
+    /* — track 1 · photo card chain (dark photo cards on paper: 1px ink hairline,
+       20px print corner + layered warm lift — 2026-09-14 card treatment,
+       2026-09-15 corner system: HyperOS-style large radius) — */
+    .f02-card{position:absolute;left:88px;top:150px;width:792px;height:700px;box-sizing:border-box;border:1px solid #000000;overflow:hidden;background:#141210;opacity:0;--dof:0px;filter:blur(var(--dof));will-change:filter,transform;border-radius:20px;box-shadow:0 2px 6px rgba(24,16,12,0.10),0 22px 48px -18px rgba(24,16,12,0.26);}
     .f02-cardimg{position:absolute;inset:0;background-size:cover;background-position:center;--dof:0px;filter:blur(var(--dof));will-change:filter;}
     .f02-card-b{background-image:url("assets/8-1.jpg");opacity:0;--dof:14px;}
     .f02-card-a{background-image:url("assets/6.jpg");}
@@ -22,8 +25,8 @@
     .f02-name{position:absolute;left:960px;top:168px;display:flex;align-items:baseline;gap:26px;font-family:"MiSans VF",sans-serif;font-weight:340;color:#000000;}
     .f02-name span{font-size:72px;line-height:1.1;letter-spacing:-0.005em;opacity:0;}
     .f02-namerule{position:absolute;left:960px;top:298px;width:600px;height:1px;background:rgba(0,0,0,0.18);opacity:0;}
-    .f02-tagwrap{position:absolute;left:960px;top:322px;width:560px;height:18px;}
-    .f02-tag{position:absolute;left:0;top:0;font-family:"MiSans VF",sans-serif;font-weight:340;font-size:13px;line-height:18px;letter-spacing:0.18em;color:#000000;opacity:0;white-space:nowrap;}
+    .f02-tagwrap{position:absolute;left:960px;top:314px;width:560px;height:32px;}
+    .f02-tag{position:absolute;left:0;top:0;box-sizing:border-box;padding:7px 16px 8px 18px;font-family:"MiSans VF",sans-serif;font-weight:340;font-size:13px;line-height:18px;letter-spacing:0.18em;color:#f7f0ea;background:linear-gradient(90deg,rgba(217,184,166,0.92) 0,rgba(217,184,166,0.92) 2px,rgba(217,184,166,0) 2px),linear-gradient(135deg,rgba(26,21,18,0.94),rgba(10,9,8,0.96));border:1px solid rgba(255,255,255,0.26);border-radius:10px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.14),0 4px 16px rgba(24,16,12,0.16);opacity:0;white-space:nowrap;}
     .f02-chars{position:absolute;left:960px;top:450px;display:flex;gap:26px;}
     .f02-char{font-family:"MiSans VF",sans-serif;font-weight:340;font-size:200px;line-height:1;color:#000000;opacity:0;--dof:10px;filter:blur(var(--dof));will-change:filter,transform;}
   </style>
@@ -33,7 +36,7 @@
       <div data-hf-id="hf-6flx" class="f02-paper"></div>
       <div data-hf-id="hf-kwqy" class="f02-bloom" id="f02-bloom" data-layout-allow-overflow=""></div>
       <div data-hf-id="hf-087o" class="f02-rail" id="f02-rail">型 · FORM</div>
-      <div data-hf-id="hf-jpto" class="f02-pagenum" id="f02-pagenum" data-layout-allow-overlap="">02 / 07</div>
+      <div data-hf-id="hf-jpto" class="f02-pagenum" id="f02-pagenum" data-layout-allow-overlap=""><span class="f02-on">02</span> / 07</div>
     </div>
 
     <div data-hf-id="hf-4ovn" class="clip" data-start="0" data-duration="5" data-track-index="1">
@@ -73,7 +76,10 @@
       /* Scene 1 (0.0–0.25) — paper stage: sun-bloom arrives once (finite), chrome settles in */
       tl.fromTo($("f02-bloom"), { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 1.1, ease: "power2.out" }, 0.02);
       tl.fromTo($("f02-rail"), { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "power3.out" }, 0.0);
-      tl.fromTo($("f02-pagenum"), { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power3.out" }, 0.06);
+      /* pagenum waits out the F1→F2 crossfade (0.6s) so the two HUD chips never
+         stack at the same corner — the outgoing chip fades with its frame, this
+         one lands only once the transition has fully handed over */
+      tl.fromTo($("f02-pagenum"), { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power3.out" }, 0.62);
 
       /* Scene 2 (0.25–3.10) — naming: name assembles per-word on VO, card into slot (low drama), tag at ~1.78 */
       tl.fromTo($("f02-name-cn"), { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 0.25);

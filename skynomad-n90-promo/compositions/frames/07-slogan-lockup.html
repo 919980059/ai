@@ -12,8 +12,9 @@
 /* ── ground stack: the original bright studio photo of the car, shown as-is — no veil, no scrim ── */
 #f07-base{position:absolute;inset:0;background:linear-gradient(180deg,#f4f4f6 0%,#f2f2f4 52%,#efeff2 100%);}
 #f07-car{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;}
-/* pagenum as a paper tag — the caption card language, miniaturized for chrome */
-#f07-pagenum{position:absolute;right:4cqw;bottom:40px;font-family:"JetBrains Mono",monospace;font-weight:340;font-size:13px;letter-spacing:0.08em;color:rgba(0,0,0,0.75);background:#FFFFFF;border:1px solid #000000;padding:5px 10px 6px;white-space:nowrap;opacity:0;}
+/* pagenum as a dark glass HUD chip — the one dark accent riding the bright original photo */
+#f07-pagenum{position:absolute;right:76px;bottom:40px;box-sizing:border-box;border-radius:10px;padding:7px 12px 8px 14px;font-family:"JetBrains Mono",monospace;font-weight:340;font-size:13px;letter-spacing:0.08em;color:rgba(247,240,234,0.88);background:linear-gradient(90deg,rgba(217,184,166,0.92) 0,rgba(217,184,166,0.92) 2px,rgba(217,184,166,0) 2px),linear-gradient(135deg,rgba(26,21,18,0.94),rgba(10,9,8,0.96));border:1px solid rgba(255,255,255,0.26);box-shadow:inset 0 1px 0 rgba(255,255,255,0.14),0 4px 16px rgba(24,16,12,0.22);white-space:nowrap;opacity:0;}
+#f07-pagenum .f07-on{color:#D9B8A6;}
 
 /* ── wordmark band: light-ground asset luminance-keyed to its native dark glyphs; nested edge fades ── */
 #f07-wm-outer{position:absolute;left:536px;top:123px;width:848px;height:406px;z-index:2;
@@ -28,12 +29,13 @@
 #f07-wm-s2{left:424px;background-position:-1015.21px -262.76px;}
 #f07-wm-s3{left:636px;background-position:-1227.21px -262.76px;}
 
-/* ── lockup text stack (all above the caption keep-out, bottom of stack y≈764 < 896) ── */
+/* ── lockup text stack (all above the caption keep-out, bottom of stack y≈781 < 896) ── */
 #f07-slogan{position:absolute;left:0;top:520px;width:100%;text-align:center;z-index:3;font-size:4.6cqw;line-height:1.06;letter-spacing:-0.005em;color:#000000;}
 #f07-slogan-lead,.f07-ch{display:inline-block;opacity:0;}
 #f07-micro{position:absolute;left:0;top:648px;width:100%;text-align:center;z-index:3;font-size:22px;line-height:1.6;letter-spacing:0.18em;color:#000000;opacity:0;}
-#f07-hairline{position:absolute;left:720px;top:704px;width:480px;height:1px;z-index:3;background:rgba(100,60,49,0.55);opacity:0;}
-#f07-cta{position:absolute;left:0;top:726px;width:100%;text-align:center;z-index:3;font-family:"JetBrains Mono","MiSans VF",monospace;font-weight:340;font-size:27px;line-height:1.4;letter-spacing:0.06em;color:#000000;opacity:0;}
+#f07-hairline{position:absolute;left:720px;top:704px;width:480px;height:1px;z-index:3;background:linear-gradient(90deg,rgba(100,60,49,0) 0,rgba(100,60,49,0.65) 15%,rgba(100,60,49,0.65) 85%,rgba(100,60,49,0) 100%);opacity:0;}
+#f07-cta{position:absolute;left:0;top:726px;width:100%;text-align:center;z-index:3;font-family:"JetBrains Mono","MiSans VF",monospace;font-weight:340;font-size:27px;line-height:1.4;letter-spacing:0.06em;color:#f7f0ea;opacity:0;}
+#f07-cta .f07-ctachip{display:inline-block;box-sizing:border-box;border-radius:16px;padding:12px 30px 14px 32px;background:linear-gradient(90deg,rgba(217,184,166,0.92) 0,rgba(217,184,166,0.92) 3px,rgba(217,184,166,0) 3px),linear-gradient(135deg,rgba(26,21,18,0.94),rgba(10,9,8,0.96));border:1px solid rgba(255,255,255,0.26);box-shadow:inset 0 1px 0 rgba(255,255,255,0.14),0 6px 24px rgba(24,16,12,0.22);white-space:nowrap;}
 </style>
 
 <div data-hf-id="hf-2ql8" id="root" data-composition-id="07-slogan-lockup" data-width="1920" data-height="1080">
@@ -49,7 +51,7 @@
   <div data-hf-id="hf-y19k" id="f07-ground" class="clip" data-start="0" data-duration="4.4" data-track-index="0">
     <div data-hf-id="hf-lcqg" id="f07-base"></div>
     <img data-hf-id="hf-0i5s" id="f07-car" src="assets/2.jpg" alt="">
-    <div data-hf-id="hf-5fw7" id="f07-pagenum" data-layout-allow-overlap="">07 / 07</div>
+    <div data-hf-id="hf-5fw7" id="f07-pagenum" data-layout-allow-overlap=""><span class="f07-on">07</span> / 07</div>
   </div>
 
   <div data-hf-id="hf-eclm" id="f07-lockup" class="clip" data-start="0" data-duration="4.4" data-track-index="1">
@@ -64,7 +66,7 @@
     <div data-hf-id="hf-3fsd" id="f07-slogan"><span data-hf-id="hf-lg0t" id="f07-slogan-lead">一车一世界，</span><span data-hf-id="hf-jvza" class="f07-ch" id="f07-ch1">自</span><span data-hf-id="hf-z735" class="f07-ch" id="f07-ch2">在</span><span data-hf-id="hf-60qr" class="f07-ch" id="f07-ch3">即</span><span data-hf-id="hf-iadd" class="f07-ch" id="f07-ch4">澎</span><span data-hf-id="hf-l5vp" class="f07-ch" id="f07-ch5">程</span></div>
     <div data-hf-id="hf-ugxs" id="f07-micro">为那些活得明白、过得丰富的人而来</div>
     <div data-hf-id="hf-xy2h" id="f07-hairline"></div>
-    <div data-hf-id="hf-2iir" id="f07-cta">预约试驾 · 26.99 万起</div>
+    <div data-hf-id="hf-2iir" id="f07-cta"><span class="f07-ctachip">预约试驾 · 26.99 万起</span></div>
   </div>
 </div>
 
@@ -72,8 +74,9 @@
 (function () {
   var tl = gsap.timeline({ paused: true });
 
-  /* Scene 1 — chrome: the pagenum paper tag settles with the lockup frame */
-  tl.fromTo("#f07-pagenum", { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "power2.out" }, 0.12);
+  /* Scene 1 — chrome: the pagenum chip waits out the F6→F7 zoom-through (0.4s)
+     before settling with the lockup frame (chips share the corner across frames) */
+  tl.fromTo("#f07-pagenum", { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "power2.out" }, 0.46);
 
   /* Scene 2 — wordmark assembles left→right, segmented clip sweep, no bounce (0.25 → 1.41) */
   var slices = document.querySelectorAll(".f07-wm-slice");

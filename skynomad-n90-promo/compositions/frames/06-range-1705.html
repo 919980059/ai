@@ -31,7 +31,7 @@
     .f06-st{position:absolute;opacity:0;will-change:transform,opacity,filter;}
     .f06-st1{left:900px;top:520px;}
     .f06-st2{left:1480px;top:520px;}
-    .f06-stline{display:block;width:210px;height:1px;background:rgba(100,60,49,0.78);margin-bottom:10px;}
+    .f06-stline{display:block;width:210px;height:1px;margin-bottom:10px;background:linear-gradient(90deg,#D9B8A6 0,#D9B8A6 14px,rgba(217,184,166,0.55) 14px,rgba(185,138,117,0.4) 60%,rgba(185,138,117,0) 100%);}
     .f06-sttxt{display:block;font-family:"JetBrains Mono","MiSans VF",monospace;font-size:24px;font-weight:340;letter-spacing:0.06em;color:#FFFFFF;white-space:nowrap;}
 
     /* 海边观景 — full-bleed inside the world, revealed at the pull-back */
@@ -64,8 +64,10 @@
 
     /* track 1 — pagenum chrome, fixed to the frame while the world travels */
     .f06-pagewrap{position:absolute;inset:0;}
-    /* pagenum as a paper tag — ink on its own paper, deterministic over the photo world */
-    .f06-pagenum{position:absolute;right:44px;bottom:26px;font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:340;letter-spacing:0.08em;color:rgba(0,0,0,0.75);background:#FFFFFF;border:1px solid #000000;padding:5px 10px 6px;white-space:nowrap;opacity:0;will-change:opacity;}
+    /* pagenum as a dark glass HUD chip — wine tick at the reading edge, current page
+       in bright wine. Opaque ground (0.94+) keeps contrast deterministic over the photo world */
+    .f06-pagenum{position:absolute;right:76px;bottom:40px;box-sizing:border-box;padding:7px 12px 8px 14px;font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:340;letter-spacing:0.08em;color:rgba(247,240,234,0.88);background:linear-gradient(90deg,rgba(217,184,166,0.92) 0,rgba(217,184,166,0.92) 2px,rgba(217,184,166,0) 2px),linear-gradient(135deg,rgba(26,21,18,0.94),rgba(10,9,8,0.96));border:1px solid rgba(255,255,255,0.26);border-radius:10px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.14),0 4px 16px rgba(0,0,0,0.30);white-space:nowrap;opacity:0;will-change:opacity;}
+    .f06-pagenum .f06-on{color:#D9B8A6;}
   </style>
 
   <div data-hf-id="hf-xy7z" id="root" data-composition-id="06-range-1705" data-width="1920" data-height="1080" data-duration="5.3">
@@ -101,7 +103,7 @@
 
     <!-- track 1 · pagenum -->
     <div data-hf-id="hf-6pz0" class="clip f06-pagewrap" data-start="0" data-duration="5.3" data-track-index="1">
-      <span data-hf-id="hf-eht1" class="f06-pagenum" data-layout-allow-overlap="">06 / 07</span>
+      <span data-hf-id="hf-eht1" class="f06-pagenum" data-layout-allow-overlap=""><span class="f06-on">06</span> / 07</span>
     </div>
 
   </div>
@@ -145,11 +147,11 @@
 
       /* leg poses (precomputed):
          P0 start  — tight on banner texture:  center (620, 420)  @ s 2.60
-         P1 track  — lateral along the banner: center (1750, 430) @ s 2.42
+         P1 dwell — between both stations:  center (1270, 430) @ s 2.42
          P2 dive   — landed on the 1705 zone:  center (500, 470)  @ s 1.30
          P3 rest   — the widened world:        center (960, 540)  @ s 1.00  */
       var P0 = { scale: 2.60, x:  884, y:  312 };
-      var P1 = { scale: 2.42, x: -1911, y: 266 };
+      var P1 = { scale: 2.42, x: -750, y: 266 };
       var P2 = { scale: 1.30, x:  598, y:   91 };
       var P3 = { scale: 1.00, x:    0, y:    0 };
 
@@ -158,65 +160,70 @@
       /* Scene 1 (0–0.20) 影界启程 — world holds the start pose; the first
          tween's from-state IS the pose (immediateRender at build). */
 
-      /* Scene 2 (0.20–1.10) 横向推进 — pan-stations tracking along the
-         banner, slow-fast-slow; velocity-peak blur rides the wrapper,
-         resolves to zero at the landing. */
+      /* Scene 2 (0.20–0.95) 横向推进 — pan-stations tracking along the
+         banner, slow-fast-slow; velocity blur peaks softer (13→10px,
+         2026-09-14 readability pass) and resolves to zero at the landing.
+         The pan now lands BETWEEN the two stations, not past them. */
       tl.fromTo(cam, { scale: P0.scale, x: P0.x, y: P0.y },
-        { scale: P1.scale, x: P1.x, y: P1.y, duration: 0.87, ease: "power2.inOut" }, 0.20);
+        { scale: P1.scale, x: P1.x, y: P1.y, duration: 0.75, ease: "power2.inOut" }, 0.20);
       tl.fromTo(world, { filter: "blur(0px)" },
-        { filter: "blur(13px)", duration: 0.42, ease: "power1.in", immediateRender: false }, 0.20);
-      tl.fromTo(world, { filter: "blur(13px)" },
-        { filter: "blur(0px)", duration: 0.45, ease: "power2.out", immediateRender: false }, 0.62);
+        { filter: "blur(10px)", duration: 0.32, ease: "power1.in", immediateRender: false }, 0.20);
+      tl.fromTo(world, { filter: "blur(10px)" },
+        { filter: "blur(0px)", duration: 0.40, ease: "power2.out", immediateRender: false }, 0.55);
 
-      /* 技术站位 soft-blur-in as the camera's crop reaches each one */
+      /* 技术站位 soft-blur-in as the camera decelerates onto them; both then
+         hold sharp and static through the dwell (0.95–1.85) — 2026-09-14
+         readability fix: the selling points used to sweep past unreadable */
       tl.fromTo(st1,
         { opacity: 0, y: 16, filter: "blur(8px)" },
-        { opacity: 0.9, y: 0, filter: "blur(0px)", duration: 0.34, ease: "power2.out", immediateRender: false }, 0.50);
+        { opacity: 0.9, y: 0, filter: "blur(0px)", duration: 0.50, ease: "power2.out", immediateRender: false }, 0.68);
       tl.fromTo(st2,
         { opacity: 0, y: 16, filter: "blur(8px)" },
-        { opacity: 0.9, y: 0, filter: "blur(0px)", duration: 0.34, ease: "power2.out", immediateRender: false }, 0.78);
+        { opacity: 0.9, y: 0, filter: "blur(0px)", duration: 0.50, ease: "power2.out", immediateRender: false }, 0.85);
 
-      /* chrome — the pagenum paper tag settles in early, riding above the traveling world */
-      tl.fromTo(pn, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, 0.30);
+      /* chrome — the pagenum chip waits out the F5→F6 blur crossfade (0.6s)
+         before landing, so the two frames' chips never stack at the corner */
+      tl.fromTo(pn, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, 0.62);
 
-      /* Scene 3 (1.10–2.76) 俯冲落数字 — power4.out violent arrival; the
-         banner group falls out of focus behind (DoF), the number reveals
-         sharp and counts 0→1705 with its scale growing (读音毕数字毕). */
+      /* Scene 4 (1.85–3.05) 俯冲落数字 — power4.out violent arrival; the
+         banner group (stations now read) falls out of focus behind (DoF),
+         the number reveals sharp and counts 0→1705 with its scale growing
+         (读音毕数字毕：计数与俯冲同秒落定). */
       tl.fromTo(cam, { scale: P1.scale, x: P1.x, y: P1.y },
-        { scale: P2.scale, x: P2.x, y: P2.y, duration: 1.66, ease: "power4.out", immediateRender: false }, 1.10);
+        { scale: P2.scale, x: P2.x, y: P2.y, duration: 1.20, ease: "power4.out", immediateRender: false }, 1.85);
       tl.fromTo(bannerGrp, { filter: "blur(0px)" },
-        { filter: "blur(14px)", duration: 0.70, ease: "power2.in", immediateRender: false }, 1.12);
+        { filter: "blur(12px)", duration: 0.78, ease: "power2.in", immediateRender: false }, 1.87);
 
       tl.fromTo(numGrp, { opacity: 0, filter: "blur(12px)" },
-        { opacity: 1, filter: "blur(0px)", duration: 0.35, ease: "power2.out", immediateRender: false }, 1.14);
+        { opacity: 1, filter: "blur(0px)", duration: 0.35, ease: "power2.out", immediateRender: false }, 1.89);
 
       var count = { v: 0 };
       tl.fromTo(count, { v: 0 },
-        { v: 1705, duration: 1.62, ease: "power2.out", immediateRender: false,
-          onUpdate: function () { num.textContent = Math.round(count.v); } }, 1.14);
+        { v: 1705, duration: 1.12, ease: "power2.out", immediateRender: false,
+          onUpdate: function () { num.textContent = Math.round(count.v); } }, 1.93);
       tl.fromTo(num, { scale: 0.86 },
-        { scale: 1, duration: 1.62, ease: "power2.out", immediateRender: false }, 1.14);
+        { scale: 1, duration: 1.12, ease: "power2.out", immediateRender: false }, 1.93);
 
       tl.fromTo(kmlabel,
         { opacity: 0, y: 14, filter: "blur(8px)" },
-        { opacity: 0.85, y: 0, filter: "blur(0px)", duration: 0.35, ease: "power3.out", immediateRender: false }, 2.30);
+        { opacity: 0.85, y: 0, filter: "blur(0px)", duration: 0.35, ease: "power3.out", immediateRender: false }, 2.58);
 
-      /* Scene 4 (2.76–3.13) 破折号屏息 — the journey's only held shot:
+      /* Scene 5 (3.05–3.35) 破折号屏息 — the held shot after the dive:
          no tween touches the camera across this window. */
 
-      /* Scene 5 (3.13–3.93) 远方拉开 — pull-back to rest; the seascape
+      /* Scene 6 (3.35–4.15) 远方拉开 — pull-back to rest; the seascape
          rises from behind the number, the banner dissolves, 「远方」lands. */
       tl.fromTo(cam, { scale: P2.scale, x: P2.x, y: P2.y },
-        { scale: P3.scale, x: P3.x, y: P3.y, duration: 0.80, ease: "power3.inOut", immediateRender: false }, 3.13);
+        { scale: P3.scale, x: P3.x, y: P3.y, duration: 0.80, ease: "power3.inOut", immediateRender: false }, 3.35);
       tl.fromTo(sea, { opacity: 0, y: 70 },
-        { opacity: 1, y: 0, duration: 0.77, ease: "power2.out", immediateRender: false }, 3.13);
+        { opacity: 1, y: 0, duration: 0.77, ease: "power2.out", immediateRender: false }, 3.35);
       tl.fromTo(bannerGrp, { opacity: 1 },
-        { opacity: 0, duration: 0.37, ease: "power1.in", immediateRender: false }, 3.13);
+        { opacity: 0, duration: 0.37, ease: "power1.in", immediateRender: false }, 3.35);
       tl.fromTo(far,
         { opacity: 0, y: 18, filter: "blur(10px)" },
-        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.47, ease: "power3.out", immediateRender: false }, 3.13);
+        { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.47, ease: "power3.out", immediateRender: false }, 3.35);
 
-      /* Scene 6 (3.95–5.30) 静持 — number + seascape dead static to the
+      /* Scene 7 (4.15–5.30) 静持 — number + seascape dead static to the
          frame end; the pad tween only pins the total duration. */
       tl.to({}, { duration: 0.50 }, 4.80);
 

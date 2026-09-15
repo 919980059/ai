@@ -1,13 +1,13 @@
 <template>
-  <div data-hf-id="hf-shtd" id="root" data-composition-id="05-two-worlds" data-width="1920" data-height="1080" data-duration="5">
+  <div data-hf-id="hf-shtd" id="root" data-composition-id="05-two-worlds" data-width="1920" data-height="1080" data-duration="6.6">
 
     <!-- track 0 · paper ground + the one sun-bloom (full-bleed on a clip, never on #root) -->
-    <div data-hf-id="hf-owit" class="clip tw05-bg" data-start="0" data-duration="5" data-track-index="0">
+    <div data-hf-id="hf-owit" class="clip tw05-bg" data-start="0" data-duration="6.6" data-track-index="0">
       <div data-hf-id="hf-vplw" class="tw05-bloom"></div>
     </div>
 
     <!-- track 1 · two-worlds stage: mirrored panels + wine seam -->
-    <div data-hf-id="hf-74id" class="clip tw05-stage" data-start="0" data-duration="5" data-track-index="1">
+    <div data-hf-id="hf-74id" class="clip tw05-stage" data-start="0" data-duration="6.6" data-track-index="1">
       <div data-hf-id="hf-phfp" class="tw05-persp">
         <div data-hf-id="hf-z063" class="tw05-wrap tw05-wrap-l">
           <div data-hf-id="hf-4w4b" class="tw05-card tw05-card-l"><img data-hf-id="hf-wf5z" src="assets/New_2.jpg" alt="" draggable="false"></div>
@@ -27,13 +27,13 @@
     </div>
 
     <!-- track 2 · persistent chrome -->
-    <div data-hf-id="hf-ofq8" class="clip tw05-chrome" data-start="0" data-duration="5" data-track-index="2">
+    <div data-hf-id="hf-ofq8" class="clip tw05-chrome" data-start="0" data-duration="6.6" data-track-index="2">
       <div data-hf-id="hf-sqnj" class="tw05-label">
         <span data-hf-id="hf-fdnd" class="tw05-label-rule"></span>
         <span data-hf-id="hf-p10b" class="tw05-label-text">一车 · 两世界</span>
         <span data-hf-id="hf-u7cd" class="tw05-label-rule"></span>
       </div>
-      <div data-hf-id="hf-u2e9" class="tw05-pagenum" data-layout-allow-overlap="">05 / 07</div>
+      <div data-hf-id="hf-u2e9" class="tw05-pagenum" data-layout-allow-overlap=""><span class="tw05-on">05</span> / 07</div>
     </div>
 
   </div>
@@ -116,6 +116,9 @@
       height: 100%;
       border: 1px solid #000000;
       background: #161310;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 2px 6px rgba(24, 16, 12, 0.1), 0 22px 48px -18px rgba(24, 16, 12, 0.26);
     }
     .tw05-card img {
       position: absolute;
@@ -149,20 +152,25 @@
       background: #643c31;
     }
 
-    /* world labels — flat on the stage (never inside the tilting card) */
+    /* world labels — dark glass HUD chips with a wine tick at the reading
+       edge (flat on the stage, never inside the moving wrapper) */
     .tw05-chip {
       position: absolute;
       top: 480px;
       box-sizing: border-box;
       padding: 15px 26px 17px;
-      background: #ffffff;
-      border: 1px solid #643c31;
+      border-radius: 24px;
+      background:
+        linear-gradient(90deg, rgba(217, 184, 166, 0.92) 0, rgba(217, 184, 166, 0.92) 3px, rgba(217, 184, 166, 0) 3px),
+        linear-gradient(135deg, rgba(26, 21, 18, 0.94), rgba(10, 9, 8, 0.96));
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 4px 16px rgba(24, 16, 12, 0.16);
       font-family: "MiSans VF", sans-serif;
       font-weight: 340;
       font-size: 2.5cqw;
       line-height: 1;
       letter-spacing: 0.14em;
-      color: #000000;
+      color: #f7f0ea;
       white-space: nowrap;
     }
     .tw05-chip-l {
@@ -172,20 +180,24 @@
       right: 208px;
     }
 
-    /* value pills — land at each panel's inner edge, mirrored form */
+    /* value pills — mirrored dark glass chips, slimmer wine tick */
     .tw05-pill {
       position: absolute;
       top: 497px;
       box-sizing: border-box;
       padding: 12px 20px 13px;
-      background: #ffffff;
-      border: 1px solid #643c31;
+      border-radius: 16px;
+      background:
+        linear-gradient(90deg, rgba(217, 184, 166, 0.9) 0, rgba(217, 184, 166, 0.9) 2px, rgba(217, 184, 166, 0) 2px),
+        linear-gradient(135deg, rgba(26, 21, 18, 0.94), rgba(10, 9, 8, 0.96));
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 4px 16px rgba(24, 16, 12, 0.14);
       font-family: "MiSans VF", sans-serif;
       font-weight: 340;
       font-size: 1.4cqw;
       line-height: 1;
       letter-spacing: 0.1em;
-      color: #000000;
+      color: #f7f0ea;
       white-space: nowrap;
     }
     .tw05-pill-l {
@@ -207,29 +219,51 @@
       gap: 22px;
     }
     .tw05-label-text {
+      box-sizing: border-box;
+      padding: 7px 18px 8px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(26, 21, 18, 0.94), rgba(10, 9, 8, 0.96));
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 4px 16px rgba(24, 16, 12, 0.16);
       font-family: "MiSans VF", sans-serif;
       font-weight: 340;
       font-size: 13px;
       letter-spacing: 0.3em;
       margin-right: -0.3em;
-      color: #000000;
+      color: #f7f0ea;
       white-space: nowrap;
     }
     .tw05-label-rule {
       width: 64px;
       height: 1px;
-      background: rgba(0, 0, 0, 0.22);
+    }
+    .tw05-label-rule:first-of-type {
+      background: linear-gradient(90deg, rgba(100, 60, 49, 0), rgba(100, 60, 49, 0.6));
+    }
+    .tw05-label-rule:last-of-type {
+      background: linear-gradient(90deg, rgba(100, 60, 49, 0.6), rgba(100, 60, 49, 0));
     }
     .tw05-pagenum {
       position: absolute;
       right: 76px;
       bottom: 40px;
+      box-sizing: border-box;
+      padding: 7px 12px 8px 14px;
+      border-radius: 10px;
+      background:
+        linear-gradient(90deg, rgba(217, 184, 166, 0.92) 0, rgba(217, 184, 166, 0.92) 2px, rgba(217, 184, 166, 0) 2px),
+        linear-gradient(135deg, rgba(26, 21, 18, 0.94), rgba(10, 9, 8, 0.96));
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 4px 16px rgba(24, 16, 12, 0.16);
       font-family: "JetBrains Mono", monospace;
       font-weight: 340;
       font-size: 13px;
       letter-spacing: 0.08em;
-      color: rgba(0, 0, 0, 0.75);
+      color: rgba(247, 240, 234, 0.88);
       white-space: nowrap;
+    }
+    .tw05-pagenum .tw05-on {
+      color: #d9b8a6;
     }
   </style>
 
@@ -259,11 +293,13 @@
         { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
         0.0
       );
+      /* pagenum waits out the F4→F5 crossfade (0.5s) — chips share the same
+         corner across frames, so this one lands only after the handover */
       tl.fromTo(
         q(".tw05-pagenum"),
         { opacity: 0 },
         { opacity: 1, duration: 0.45, ease: "power2.out" },
-        0.0
+        0.52
       );
       tl.fromTo(
         q(".tw05-bloom"),
@@ -284,10 +320,9 @@
         0.58
       );
 
-      /* Scene 2 (0.20–1.02) — VO「商务」(0.23–1.02): left world slides out
-         from the seam. Flat 2D entrance (x/scale/opacity on the wrapper) —
-         no rotateY, no perspective: the photo keeps its aspect all the
-         way in (2026-09-11 stretch fix). */
+      /* Scene 2 — left world slides out from the seam. Flat 2D entrance
+         (x/scale/opacity on the wrapper) — no rotateY, no perspective: the
+         photo keeps its aspect all the way in (2026-09-11 stretch fix). */
       tl.fromTo(
         q(".tw05-wrap-l"),
         { x: 44, scale: 0.85, opacity: 0 },
@@ -301,43 +336,42 @@
         0.2
       );
 
-      /* Scene 3 (1.02–2.14) — VO「是陆地公务舱」(1.06–1.78, one continuous
-         read): pill lands at the inner edge. The frame's one emphasis — a
+      /* Scene 3 — pill lands at the inner edge. The frame's one emphasis — a
          restrained settle, no overshoot. */
       tl.fromTo(
         q(".tw05-pill-l"),
         { y: 26, scale: 0.92, opacity: 0 },
         { y: 0, scale: 1, opacity: 1, duration: 0.5, ease: "power3.out" },
-        1.10
+        1.30
       );
 
-      /* Scene 4 (2.14–2.99) — VO「家庭」(2.14): right world opens — same flat
-         form, same landing, mirrored (never before the cue at 2.14). */
+      /* Scene 4 — right world opens — same flat form, same landing, mirrored
+         (never before the cue at 2.70). */
       tl.fromTo(
         q(".tw05-wrap-r"),
         { x: -44, scale: 0.85, opacity: 0 },
         { x: 0, scale: 1, opacity: 1, duration: 0.8, ease: "power3.out" },
-        2.14
+        2.70
       );
       tl.fromTo(
         q(".tw05-chip-r"),
         { y: 24, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" },
-        2.14
+        2.70
       );
 
-      /* Scene 5 (2.99–5.0) — VO「是移动的生活空间」(2.99–4.42): mirrored pill
-         mid-phrase, then the held read. Panels settle and stay still — no
-         idle float. */
+      /* Scene 5 — mirrored pill lands, then the held read (≈1.5s of the
+         complete two-worlds form before the transition owns the exit).
+         Panels settle and stay still — no idle float. */
       tl.fromTo(
         q(".tw05-pill-r"),
         { y: 26, scale: 0.92, opacity: 0 },
         { y: 0, scale: 1, opacity: 1, duration: 0.5, ease: "power3.out" },
-        3.90
+        4.60
       );
 
-      /* pad the held read to the full 5.0s — no exit (transition owns it) */
-      tl.to({}, { duration: 0.5 }, 4.5);
+      /* pad the held read to the full 6.6s — no exit (transition owns it) */
+      tl.to({}, { duration: 0.5 }, 6.1);
     })();
   </script>
 </template>

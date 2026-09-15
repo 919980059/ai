@@ -73,15 +73,22 @@
     }
 
     /* micro-label — 超大后备厢 · CARGO (stage chrome, present from t=0) */
+    /* micro-label — dark glass HUD chip with a wine tick at the reading edge */
     #f04-micro {
       position: absolute;
       left: 76px;
       top: 112px;
+      box-sizing: border-box;
+      padding: 7px 16px 8px 18px;
       font-size: 13px;
       font-weight: 340;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #000000;
+      color: #f7f0ea;
+      background: linear-gradient(90deg, rgba(217, 184, 166, 0.92) 0, rgba(217, 184, 166, 0.92) 2px, rgba(217, 184, 166, 0) 2px), linear-gradient(135deg, rgba(26, 21, 18, 0.94), rgba(10, 9, 8, 0.96));
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      border-radius: 10px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 4px 16px rgba(24, 16, 12, 0.16);
       white-space: nowrap;
     }
 
@@ -136,9 +143,19 @@
     #f04-fill {
       width: 100%;
       height: 100%;
-      background: #643c31; /* sun as the hairline voltage color */
+      background: linear-gradient(90deg, #4a2c24 0%, #643c31 55%, #8a5a48 100%); /* sun voltage, brightest at the arriving edge */
       transform: scaleX(0);
       transform-origin: left center;
+    }
+    /* end-of-line node — the fill's destination, centered on the track's right edge */
+    #f04-tracknode {
+      position: absolute;
+      left: 1139px;
+      top: 782px;
+      width: 14px;
+      height: 14px;
+      background: #643c31;
+      opacity: 0;
     }
 
     /* 兑现 — the two photo plates, right column */
@@ -151,6 +168,8 @@
       border: 1px solid #000000;
       background: #ffffff;
       overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(24, 16, 12, 0.1), 0 22px 48px -18px rgba(24, 16, 12, 0.26);
       opacity: 0;
     }
     #f04-ride {
@@ -162,6 +181,8 @@
       border: 1px solid #000000;
       background: #ffffff;
       overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(24, 16, 12, 0.1), 0 22px 48px -18px rgba(24, 16, 12, 0.26);
       opacity: 0;
     }
     #f04-hero img,
@@ -172,16 +193,26 @@
       object-fit: cover;
     }
 
-    /* pagenum — persistent chrome, bottom-right, ink 75% */
+    /* pagenum — persistent chrome, dark glass HUD chip, current page in bright wine */
     #f04-pagenum {
       position: absolute;
       right: 76px;
-      bottom: 26px;
+      bottom: 40px;
+      box-sizing: border-box;
+      padding: 7px 12px 8px 14px;
       font-family: "JetBrains Mono", monospace;
       font-weight: 340;
       font-size: 13px;
       letter-spacing: 0.08em;
-      color: rgba(0, 0, 0, 0.75);
+      color: rgba(247, 240, 234, 0.88);
+      background: linear-gradient(90deg, rgba(217, 184, 166, 0.92) 0, rgba(217, 184, 166, 0.92) 2px, rgba(217, 184, 166, 0) 2px), linear-gradient(135deg, rgba(26, 21, 18, 0.94), rgba(10, 9, 8, 0.96));
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      border-radius: 10px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 4px 16px rgba(24, 16, 12, 0.16);
+      white-space: nowrap;
+    }
+    #f04-pagenum .f04-on {
+      color: #d9b8a6;
     }
   </style>
 
@@ -201,10 +232,11 @@
         <div data-hf-id="hf-tdba" id="f04-numwrap"><span data-hf-id="hf-wboq" id="f04-num" data-layout-allow-overlap="">1831</span></div>
         <div data-hf-id="hf-9qx4" id="f04-unit">升后备厢</div>
         <div data-hf-id="hf-xtd3" id="f04-track"><div data-hf-id="hf-k7ex" id="f04-fill"></div></div>
+        <div id="f04-tracknode"></div>
         <div data-hf-id="hf-5ghm" id="f04-hero"><img data-hf-id="hf-qdae" src="assets/20.jpg" alt="超大后备厢"></div>
         <div data-hf-id="hf-adx8" id="f04-ride"><img data-hf-id="hf-b21a" src="assets/20-2.jpg" alt="户外骑行装载"></div>
       </div>
-      <div data-hf-id="hf-i25h" id="f04-pagenum" data-layout-allow-overlap="">04 / 07</div>
+      <div data-hf-id="hf-i25h" id="f04-pagenum" data-layout-allow-overlap=""><span class="f04-on">04</span> / 07</div>
     </div>
   </div>
 
@@ -268,6 +300,14 @@
         { scaleX: 0 },
         { scaleX: 1, duration: 1.27, ease: "none" },
         0.24
+      );
+
+      // end-of-line node lights the moment the fill arrives (0.24 + 1.27)
+      tl.fromTo(
+        "#f04-tracknode",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.15, ease: "power1.out" },
+        1.51
       );
 
       // macro whisper-push under the count, resolving with the number — then dead still

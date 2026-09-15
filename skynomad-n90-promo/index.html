@@ -33,7 +33,7 @@
     </style>
   </head>
   <body>
-    <div data-hf-id="hf-psrx" id="root" data-composition-id="main" data-start="0" data-duration="30.5" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-psrx" id="root" data-composition-id="main" data-start="0" data-duration="32.1" data-width="1920" data-height="1080">
       <div data-hf-id="hf-01hy" id="el-01-lives-question" class="scene" data-composition-id="01-lives-question" data-composition-src="compositions/frames/01-lives-question.html" data-start="0" data-duration="3.8" data-track-index="0"></div>
 
       <div data-hf-id="hf-9ro9" id="el-02-form" class="scene" data-composition-id="02-form" data-composition-src="compositions/frames/02-form.html" data-start="3.2" data-duration="5" data-track-index="1"></div>
@@ -42,14 +42,14 @@
 
       <div data-hf-id="hf-peyw" id="el-04-trunk-1831" class="scene" data-composition-id="04-trunk-1831" data-composition-src="compositions/frames/04-trunk-1831.html" data-start="12.6" data-duration="5" data-track-index="1"></div>
 
-      <div data-hf-id="hf-n37t" id="el-05-two-worlds" class="scene" data-composition-id="05-two-worlds" data-composition-src="compositions/frames/05-two-worlds.html" data-start="17.0" data-duration="5.0" data-track-index="0"></div>
+      <div data-hf-id="hf-n37t" id="el-05-two-worlds" class="scene" data-composition-id="05-two-worlds" data-composition-src="compositions/frames/05-two-worlds.html" data-start="17.0" data-duration="6.6" data-track-index="0"></div>
 
-      <div data-hf-id="hf-puy0" id="el-06-range-1705" class="scene" data-composition-id="06-range-1705" data-composition-src="compositions/frames/06-range-1705.html" data-start="21.4" data-duration="5.3" data-track-index="1"></div>
+      <div data-hf-id="hf-puy0" id="el-06-range-1705" class="scene" data-composition-id="06-range-1705" data-composition-src="compositions/frames/06-range-1705.html" data-start="23.0" data-duration="5.3" data-track-index="1"></div>
 
-      <div data-hf-id="hf-orvk" id="el-07-slogan-lockup" class="scene" data-composition-id="07-slogan-lockup" data-composition-src="compositions/frames/07-slogan-lockup.html" data-start="26.1" data-duration="4.4" data-track-index="0"></div>
+      <div data-hf-id="hf-orvk" id="el-07-slogan-lockup" class="scene" data-composition-id="07-slogan-lockup" data-composition-src="compositions/frames/07-slogan-lockup.html" data-start="27.7" data-duration="4.4" data-track-index="0"></div>
 
       <!-- BGM -->
-      <audio data-hf-id="hf-cp0r" id="el-bgm" src="assets/bgm/track-38s.wav" data-start="0" data-duration="30.5" data-track-index="11" data-volume="0.95" data-automation="{&quot;version&quot;:1,&quot;lanes&quot;:[{&quot;target&quot;:&quot;volume&quot;,&quot;points&quot;:[{&quot;t&quot;:0,&quot;v&quot;:1},{&quot;t&quot;:28.5,&quot;v&quot;:1,&quot;curve&quot;:0.3},{&quot;t&quot;:30.5,&quot;v&quot;:0}]}]}"></audio>
+      <audio data-hf-id="hf-cp0r" id="el-bgm" src="assets/bgm/track-38s.wav" data-start="0" data-duration="32.1" data-track-index="11" data-volume="0.95" data-automation="{&quot;version&quot;:1,&quot;lanes&quot;:[{&quot;target&quot;:&quot;volume&quot;,&quot;points&quot;:[{&quot;t&quot;:0,&quot;v&quot;:1},{&quot;t&quot;:30.1,&quot;v&quot;:1,&quot;curve&quot;:0.3},{&quot;t&quot;:32.1,&quot;v&quot;:0}]}]}"></audio>
 
     </div>
 
@@ -66,11 +66,11 @@
         tl.fromTo("#el-04-trunk-1831", { x: 1920, opacity: 1 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 12.6);
         tl.to("#el-04-trunk-1831", { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 17.0);
         tl.fromTo("#el-05-two-worlds", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, 17.0);
-        tl.to("#el-05-two-worlds", { filter: "blur(10px)", scale: 1.03, opacity: 0, duration: 0.6, ease: "power2.inOut" }, 21.4);
-        tl.fromTo("#el-06-range-1705", { filter: "blur(10px)", scale: 0.97, opacity: 0 }, { filter: "blur(0px)", scale: 1, opacity: 1, duration: 0.6, ease: "power2.inOut" }, 21.4);
-        tl.to("#el-06-range-1705", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 26.1);
-        tl.fromTo("#el-07-slogan-lockup", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 26.1);
-        tl.to({}, { duration: 30.5 }, 0); // full-span anchor — main.duration() == composition total (Studio master duration)
+        tl.to("#el-05-two-worlds", { filter: "blur(10px)", scale: 1.03, opacity: 0, duration: 0.6, ease: "power2.inOut" }, 23.0);
+        tl.fromTo("#el-06-range-1705", { filter: "blur(10px)", scale: 0.97, opacity: 0 }, { filter: "blur(0px)", scale: 1, opacity: 1, duration: 0.6, ease: "power2.inOut" }, 23.0);
+        tl.to("#el-06-range-1705", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 27.7);
+        tl.fromTo("#el-07-slogan-lockup", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 27.7);
+        tl.to({}, { duration: 32.1 }, 0); // full-span anchor — main.duration() == composition total (Studio master duration)
       })();
     </script>
   </body>
